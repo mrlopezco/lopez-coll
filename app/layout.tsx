@@ -16,6 +16,7 @@ import { Metadata } from 'next'
 import { GA } from 'pliny/analytics/GoogleAnalytics'
 import { PHProvider } from './providers'
 import PostHogPageView from './PostHogPageView' // Import directly
+import { Suspense } from 'react' // Import Suspense
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -103,7 +104,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-dark dark:text-white">
         <ThemeProviders>
           <PHProvider>
-            <PostHogPageView />
+            <Suspense fallback={<div>Loading...</div>}>
+              {' '}
+              {/* Wrap PostHogPageView with Suspense */}
+              <PostHogPageView />
+            </Suspense>
             <GA googleAnalyticsId={googleAnalyticsId} />
             <SectionContainer className="flex min-h-dvh flex-col">
               <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
