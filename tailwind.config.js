@@ -24,6 +24,10 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
       },
+      boxShadow: {
+        nextjs: '0 8px 20px rgb(0,0,0,0.12)',
+        'nextjs-dark': '0 8px 20px rgb(255,255,255,0.12)',
+      },
       colors: {
         primary: {
           50: '#eff4ff',

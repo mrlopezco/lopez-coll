@@ -7,7 +7,7 @@ export type TwemojiProps = {
 }
 
 export function Twemoji({ emoji, size = 'twa-lg', className }: TwemojiProps) {
-  const cls = `inline-block twa ${size} twa-${kebabCase(emoji)} ${className || ''}`
+  const cls = `twa ${size} twa-${kebabCase(emoji)} ${className || ''}`
 
   return <i className={cls.trim()} />
 }
