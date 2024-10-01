@@ -1,22 +1,13 @@
-import {
-  Mail,
-  Github,
-  Facebook,
-  Youtube,
-  Linkedin,
-  Twitter,
-  X,
-  Mastodon,
-  Threads,
-  Instagram,
-} from './icons'
+import { Linkedin, Mail } from 'lucide-react'
+import { Github, Facebook, Youtube, Twitter, X, Mastodon, Threads, Instagram, Xing } from './icons'
 
 const components = {
   mail: Mail,
+  linkedin: Linkedin,
+  xing: Xing,
   github: Github,
   facebook: Facebook,
   youtube: Youtube,
-  linkedin: Linkedin,
   twitter: Twitter,
   x: X,
   mastodon: Mastodon,
@@ -30,7 +21,7 @@ type SocialIconProps = {
   size?: number
 }
 
-const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
+const SocialIcon = ({ kind, href, size = 6 }: SocialIconProps) => {
   if (
     !href ||
     (kind === 'mail' && !/^mailto:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(href))
@@ -48,7 +39,8 @@ const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
     >
       <span className="sr-only">{kind}</span>
       <SocialSvg
-        className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
+        className={`text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
+        strokeWidth={1}
       />
     </a>
   )

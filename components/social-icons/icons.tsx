@@ -3,6 +3,30 @@ import { SVGProps } from 'react'
 // Icons taken from: https://simpleicons.org/
 // To add a new icon, add a new function here and add it to components in social-icons/index.tsx
 
+export function Xing(svgProps: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 48 48"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={4}
+      {...svgProps}
+    >
+      <path d="M9.187 12.901L12.999 19l-5.812 9.963C6.66 29.866 7.311 31 8.356 31h4.501c.712 0 1.37-.378 1.728-.993l5.805-9.964c.374-.641.361-1.437-.032-2.067l-3.773-6.036C16.221 11.355 15.58 11 14.89 11h-4.65C9.264 11 8.669 12.074 9.187 12.901zM32.431 5.047l-11.925 22c-.328.605-.322 1.337.017 1.936l7.902 14C28.779 43.611 29.445 44 30.166 44h4.472c1.04 0 1.696-1.12 1.188-2.027L27.999 28 39.83 6.158C40.357 5.184 39.652 4 38.544 4h-4.355C33.456 4 32.781 4.402 32.431 5.047z"></path>
+    </svg>
+    // <svg
+    //   xmlns="http://www.w3.org/2000/svg"
+    //   viewBox="6 0 42 48"
+    //   fill="none"
+    //   stroke="currentColor"
+    //   {...svgProps}
+    // >
+    //   <path d="m15.337 14 3.159 5.054L13.284 28h-2.061l4.368-7.488.913-1.565-.96-1.537L13.413 14h1.924m.555-3h-5.65a1.243 1.243 0 0 0-1.054 1.901L13 19l-5.812 9.963A1.355 1.355 0 0 0 8.358 31h5.501c.712 0 1.37-.378 1.728-.993l5.805-9.964a2 2 0 0 0-.032-2.067l-3.773-6.036a1.998 1.998 0 0 0-1.695-.94zm21.076-4L26.367 26.571l-.787 1.453.808 1.442L32.849 41h-2.097l-7.343-13.01L34.786 7h2.182m2.583-3h-5.36c-.734 0-1.409.402-1.758 1.047l-11.925 22a1.998 1.998 0 0 0 .017 1.936l7.902 14A1.998 1.998 0 0 0 30.168 44h5.477c1.04 0 1.696-1.12 1.188-2.027L29.005 28 40.836 6.158A1.462 1.462 0 0 0 39.551 4z" />
+    // </svg>
+  )
+}
+
 export function Facebook(svgProps: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...svgProps}>
