@@ -31,7 +31,7 @@ const projectsData: Project[] = [
     reduction in data redundancy, marking a milestone in the company's pursuit of technological
     and process excellence.`,
     tags: ['Manufacturing'],
-    imgSrc: '/static/images/projects/sportdimension.png',
+    imgSrc: '/static/images/projects/DS-Logo.png',
     flags: ['canada-flag', 'america-stars-and-stripes-united-united-states-flag'],
   },
   {

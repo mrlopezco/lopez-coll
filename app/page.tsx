@@ -21,7 +21,7 @@ export default async function Page() {
   return (
     <div className="mt-8 dark:divide-gray-700 md:mt-8">
       <Greeting />
-      <div className="flex flex-col gap-x-10 gap-y-4 md:my-4 md:pb-8 xl:flex-row">
+      <div className="flex flex-col gap-x-10 gap-y-4 pb-10 md:my-4 md:pb-8 xl:flex-row">
         <Avatar />
         <div className="my-auto flex flex-col text-lg leading-8 text-gray-600 dark:text-gray-400">
           <Heading />
@@ -34,7 +34,14 @@ export default async function Page() {
           </p> */}
         </div>
       </div>
-      {/* <SummaryCards /> */}
+      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+        <div className="space-y-2 pb-8 pt-6">
+          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+            Certificates
+          </h1>
+        </div>
+        <div></div>
+      </div>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pb-8 pt-6">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">

@@ -8,7 +8,7 @@ const Card = ({ title, description, tags, imgSrc, href, flags }) => (
     <div
       className={`${
         imgSrc && 'h-full'
-      }  shadow-nextjs dark:shadow-nextjs-dark overflow-hidden rounded-md`}
+      }  overflow-hidden rounded-md shadow-nextjs dark:shadow-nextjs-dark`}
     >
       {imgSrc &&
         (href ? (
@@ -42,11 +42,14 @@ const Card = ({ title, description, tags, imgSrc, href, flags }) => (
             )}
           </h2>
           <div className="flex items-center space-x-2">
-            {flags && map(flags, (flag) => <Twemoji emoji={flag} />)}
+            {flags && map(flags, (flag) => <Twemoji key={flag} emoji={flag} />)}
             {tags && (
               <div className="flex items-center space-x-4">
                 {map(tags, (tag) => (
-                  <span className="text-sm font-medium uppercase text-primary-500 dark:text-primary-400">
+                  <span
+                    key={tag}
+                    className="text-sm font-medium uppercase text-primary-500 dark:text-primary-400"
+                  >
                     {tag}
                   </span>
                 ))}

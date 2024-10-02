@@ -98,10 +98,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-dark dark:text-white">
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-          <SectionContainer>
+          <SectionContainer className="flex min-h-dvh flex-col">
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
               <Header />
-              <main className="mb-auto mt-20">{children}</main>
+              <main className="mb-auto mt-20 flex-grow">{children}</main>
             </SearchProvider>
             <Footer />
           </SectionContainer>

@@ -58,7 +58,7 @@ const Avatar = () => {
     >
       <div
         style={style}
-        className="max-h-[430px] overflow-hidden rounded-md transition-all duration-200 ease-out"
+        className="overflow-hidden rounded-md transition-all duration-200 ease-out sm:size-[350px] md:size-[430px]"
       >
         <Image src={'/static/images/avatar.jpg'} alt="avatar" width={430} height={350} />
       </div>
