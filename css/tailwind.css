@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply scroll-mt-20;
+}
+
 .task-list-item::before {
   @apply hidden;
 }

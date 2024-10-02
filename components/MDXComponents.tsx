@@ -6,9 +6,11 @@ import Image from './Image'
 import CustomLink from './Link'
 import TableWrapper from './TableWrapper'
 import Twemoji from './Twemoji'
+import ImageWithCaption from './ImageWithCaption'
 
 export const components: MDXComponents = {
   Image,
+  ImageWithCaption,
   TOCInline,
   a: CustomLink,
   pre: Pre,
