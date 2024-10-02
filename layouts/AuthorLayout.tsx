@@ -3,6 +3,7 @@ import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
 import Twemoji from '@/components/Twemoji'
 import CareerTimeline from '@/components/author/CareerTimeline'
+import clsx from 'clsx'
 
 interface Props {
   content: Omit<Authors, '_id' | '_raw' | 'body'>
@@ -71,10 +72,23 @@ export default function AuthorLayout({ content }: Props) {
             <div>
               <div className="mb-[1em] mt-[2em] flex items-center justify-between [&>h2]:my-0">
                 <h2>My career</h2>
-                {/* <Button as="a" href="/static/resume.pdf" target="_blank">
+                <a
+                  className={clsx([
+                    'border border-transparent',
+                    'bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-500',
+                    'text-white hover:text-white dark:text-white dark:hover:text-white',
+                    'focus:shadow-outline-blue focus:outline-none',
+                    'transition-colors duration-150',
+                    'text-sm font-medium leading-5',
+                    'inline rounded-lg px-4 py-2 shadow',
+                    'inline-flex items-center gap-1 no-underline',
+                  ])}
+                  href="/static/CV-Ignacio-LopezColl.pdf"
+                  target="_blank"
+                >
                   <span>Resume</span>
                   <Twemoji emoji="page-facing-up" />
-                </Button> */}
+                </a>
               </div>
               <CareerTimeline />
             </div>

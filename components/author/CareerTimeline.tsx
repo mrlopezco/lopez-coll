@@ -88,7 +88,7 @@ function TimelineItem({
   first?: boolean
   last?: boolean
 }) {
-  const { org, title, icon, start, end, workplace, country } = exp
+  const { org, title, start, end, workplace, country } = exp
   return (
     <div
       className={clsx(
