@@ -52,11 +52,13 @@ running number sequence.
 If you choose to use dedicated journals, I recommend starting the sequence of your vouchers with "BB," followed by the
 abbreviation of the module, and optionally, the company name or number, and finally, a running number. For example:
 
-<div>
-  | VOUCHER SEQUENCE | JOURNAL | |------------------|---------------------| | BBGL-0000001 | General
-  Ledger | | BBCB-0000001 | Cash & Bank | | BBAP-0000001 | Accounts Payable | | BBAR-0000001 |
-  Accounts Receivable |
-</div>
+| VOUCHER SEQUENCE | JOURNAL             |
+| ---------------- | ------------------- |
+| BBGL-0000001     | General Ledger      |
+| BBCB-0000001     | Cash & Bank         |
+| BBAP-0000001     | Accounts Payable    |
+| BBAR-0000001     | Accounts Receivable |
+
 _Voucher Sequence format for financial beginning balances_
 
 By following this continuous approach, you will be able to report at the voucher level later on to verify that your
@@ -232,23 +234,24 @@ In terms of the process, we need to manually create the AP Invoice Journal in Dy
 
 Don't get overwhelmed by the number of fields the AP Lines has to offer, they are pretty much self-explanatory, or just take a quick look at the below table.
 
-<div className="text-center">
-  | FIELD NAME | DESCRIPTION | FIELD NAME | DESCRIPTION |
-  |-------------------------------|---------------------------------------|-----------------------------|-------------|
-  | JOURNALBATCHNUMBER | Taken from previously created journal | DESCRIPTION | Description | |
-  LINENUMBER | Continous number | OFFSETTRANSACTIONTEXT | Same as description | | VOUCHER |
-  Continous number | METHODOFPAYMENT | Method of Payment - config | | ACCOUNTTYPE | Fixed Value |
-  PAYMENTSPECIFICATION | Payment spec - config | | ACCOUNTDISPLAYVALUE | Vendor ID | TERMSOFPAYMENT
-  | Term of Payment - config | | DEBIT | Amount | COMPANY | Fixed value | | CREDIT | Amount |
-  OFFSETCOMPANY | Fixed value | | CURRENCY | Currency | APPROVED | Fixed value | | DATE | Posting
-  Date | APPROVERNUMBER | User ID | | DEFAULTDIMENSION-DISPLAYVALUE | Vendor Financial Dimension |
-  EXCHRATE | Exchange rate if invoice currency != accounting currency | | OFFSETACCOUNTTYPE |
-  Usually Ledger | EXCHRATESECOND | Exchange rate if invoice currency != accounting currency | |
-  OFFSETACCOUNT-DISPLAYVALUE | Offset Account | REPORTINGCURRENCY-EXCHRATE | Exchange rate if
-  invoice currency != accounting currency | | INVOICE | Invoice Number | GSTHSTTAXTYPE | Optional |
-  | INVOICEDATE | Invoice Date | POSTINGPROFILE | Fixed value | | DUEDATE | Due date |
-  TRANSACTIONTYPE | Fixed value |
-</div>
+| FIELD NAME                    | DESCRIPTION                           | FIELD NAME                 | DESCRIPTION                                              |
+| ----------------------------- | ------------------------------------- | -------------------------- | -------------------------------------------------------- |
+| JOURNALBATCHNUMBER            | Taken from previously created journal | DESCRIPTION                | Description                                              |
+| LINENUMBER                    | Continous number                      | OFFSETTRANSACTIONTEXT      | Same as description                                      |
+| VOUCHER                       | Continous number                      | METHODOFPAYMENT            | Method of Payment - config                               |
+| ACCOUNTTYPE                   | Fixed Value                           | PAYMENTSPECIFICATION       | Payment spec - config                                    |
+| ACCOUNTDISPLAYVALUE           | Vendor ID                             | TERMSOFPAYMENT             | Term of Payment - config                                 |
+| DEBIT                         | Amount                                | COMPANY                    | Fixed value                                              |
+| CREDIT                        | Amount                                | OFFSETCOMPANY              | Fixed value                                              |
+| CURRENCY                      | Currency                              | APPROVED                   | Fixed value                                              |
+| DATE                          | Posting Date                          | APPROVERNUMBER             | User ID                                                  |
+| DEFAULTDIMENSION-DISPLAYVALUE | Vendor Financial Dimension            | EXCHRATE                   | Exchange rate if invoice currency != accounting currency |
+| OFFSETACCOUNTTYPE             | Usually Ledger                        | EXCHRATESECOND             | Exchange rate if invoice currency != accounting currency |
+| OFFSETACCOUNT-DISPLAYVALUE    | Offset Account                        | REPORTINGCURRENCY-EXCHRATE | Exchange rate if invoice currency != accounting currency |
+| INVOICE                       | Invoice Number                        | GSTHSTTAXTYPE              | Optional                                                 |
+| INVOICEDATE                   | Invoice Date                          | POSTINGPROFILE             | Fixed value                                              |
+| DUEDATE                       | Due date                              | TRANSACTIONTYPE            | Fixed value                                              |
+
 _Vendor invoice journal line data entity template_
 
 ### 7.2 Data Entity "Vendor invoice journal header and line"
@@ -291,19 +294,19 @@ This concludes our pre-work in determining the correct approach for the fixed as
 
 For the Fixed Assets journal we will be using the fields of the data entity "Fixed Asset Journal V2 entity" which includes FA specific fields, that need to get populated.
 
-<div className="text-center">
-  | FIELD NAME | DESCRIPTION | FIELD NAME | DESCRIPTION |
-  |-------------------------------|-------------------------------------|-----------------------|-------------|
-  | JOURNALBATCHNUMBER | Leave Empty | DESCRIPTION | Description | | LINENUMBER | Continous number |
-  OFFSETTRANSACTIONTEXT | Same as description | | VOUCHER | Continous number | Transaction Type |
-  Acquisiton or Depreciation | | ACCOUNTTYPE | Fixed Value "FixedAssets" | COMPANY | Fixed value | |
-  ACCOUNTDISPLAYVALUE | FA ID | OFFSETCOMPAN | Fixed value | | BOOKID | Book reference based on your
-  config | EXCHRATE | Exchange rate if asset currency != accounting currency | | DEBIT | Amount |
-  EXCHRATESECO | Exchange rate if asset currency != accounting currency | | CREDIT | Amount |
-  POSTINGPROFI | Fixed value | | CURRENCY | Currency | DATE | Posting Date | |
-  DEFAULTDIMENSION-DISPLAYVALUE | FA Financial Dimension | OFFSETACCOUNTTYPE | Usually Ledger | |
-  OFFSETACCOUNT-DISPLAYVALUE | Offset Account | | |
-</div>
+| FIELD NAME                    | DESCRIPTION                         | FIELD NAME            | DESCRIPTION                                            |
+| ----------------------------- | ----------------------------------- | --------------------- | ------------------------------------------------------ |
+| JOURNALBATCHNUMBER            | Leave Empty                         | DESCRIPTION           | Description                                            |
+| LINENUMBER                    | Continous number                    | OFFSETTRANSACTIONTEXT | Same as description                                    |
+| VOUCHER                       | Continous number                    | Transaction Type      | Acquisiton or Depreciation                             |
+| ACCOUNTTYPE                   | Fixed Value "FixedAssets"           | COMPANY               | Fixed value                                            |
+| ACCOUNTDISPLAYVALUE           | FA ID                               | OFFSETCOMPAN          | Fixed value                                            |
+| BOOKID                        | Book reference based on your config | EXCHRATE              | Exchange rate if asset currency != accounting currency |
+| DEBIT                         | Amount                              | EXCHRATESECO          | Exchange rate if asset currency != accounting currency |
+| CREDIT                        | Amount                              | POSTINGPROFI          | Fixed value                                            |
+| CURRENCY                      | Currency                            | DATE                  | Posting Date                                           |
+| DEFAULTDIMENSION-DISPLAYVALUE | FA Financial Dimension              | OFFSETACCOUNTTYPE     | Usually Ledger                                         |
+| OFFSETACCOUNT-DISPLAYVALUE    | Offset Account                      |                       |                                                        |
 
 The journal batch number can be left empty, as the import process will create a new journal for us. The voucher number is sequentially following the line number.
 
