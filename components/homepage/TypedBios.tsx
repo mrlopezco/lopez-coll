@@ -23,6 +23,12 @@ const TypedBios = () => {
     <div>
       <ul id="bios" className="hidden">
         <li>
+          Add more details here!{' '}
+          <span className="ml-1">
+            <Twemoji emoji="smile" />, <Twemoji emoji="party-popper" />
+          </span>
+        </li>
+        {/* <li>
           I'm aliased as <b className="font-medium">Karhdo</b> at work.
         </li>
         <li>
@@ -56,7 +62,7 @@ const TypedBios = () => {
         </li>
         <li>
           I love playing video game <Twemoji emoji="video-game" />, LoL is my favorite one.
-        </li>
+        </li> */}
       </ul>
       <span ref={el} className="text-neutral-900 dark:text-neutral-200" />
     </div>
