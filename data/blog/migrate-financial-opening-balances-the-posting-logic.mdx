@@ -1,5 +1,5 @@
 ---
-title: The posting logic of financial opening balances in Dynamics 365 Finance
+title: The Posting Logic of Financial Opening Balances in Dynamics 365 Finance
 date: '2023-03-29'
 lastmod: '2023-03-30'
 tags: ['D365 Finance', 'Data Migration']
@@ -42,7 +42,11 @@ Ultimately, the goal is to migrate the balances from the previous systems and ba
 
 This posting logic approach is probably most used in European projects and actually not very spread in North-America. At least from my experience. The guideline of this approach is, that every imported transaction will have a 9-Account as an offset. A 9-Account are accounts used during the duration of the project to implement Dynamics, but afterwards suspended. So usually, we would create different 9 Accounts for every subledger module.
 
-![9-Accounts in the Chart of Accounts](https://lopez-coll.com/wp-content/uploads/image-2-1024x489.png)
+<ImageWithCaption
+  src="static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-2.png"
+  alt="9-Accounts in the Chart of Accounts"
+  caption="9-Accounts in the Chart of Accounts"
+/>
 
 Now that the accounts are created, you would use them in your opening balances journal as offset accounts and the regular account would be e.g. the subledger vendor account. Because you are posting directly in the subledger module, the transaction will be automatically created in the General Ledger and therefore it will balance automatically.
 
@@ -56,7 +60,11 @@ If everything goes well, obviously.
 
 If you find any deltas, you can compare every 9 Account to the Balance Sheet and quickly find where the differences are.
 
-![AP Open Invoice Journal with 9* as offset account](https://lopez-coll.com/wp-content/uploads/image-3-1024x506.png)
+<ImageWithCaption
+  src="static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-3.png"
+  alt="AP Open Invoice Journal with 9* as offset account"
+  caption="AP Open Invoice Journal with 9* as offset account"
+/>
 
 #### 3.1.1 The "9-Accounts" approach - Benefits
 
@@ -77,11 +85,19 @@ This method is, compared to the 9 Accounts approach, a lot more complex, but it 
 
 Instead of using a 9 account as an offset, we want to use the same account as the subledger module would post to. In the below example for a fixed asset acquisition journal, the offset account is the actual fixed asset account in the GL.
 
-![Fixed Asset Acquisition journal with Asset account as offset](https://lopez-coll.com/wp-content/uploads/image-4-1024x507.png)
+<ImageWithCaption
+  src="static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-4.png"
+  alt="Fixed Asset Acquisition journal with Asset account as offset"
+  caption="Fixed Asset Acquisition journal with Asset account as offset"
+/>
 
 The result of posting this journal, and from a General Ledger perspective, we would have "net zero" vouchers in the GL.
 
-![Voucher of a Fixed Asset Acquisition journal with Asset account as offset](https://lopez-coll.com/wp-content/uploads/image-5-1024x507.png)
+<ImageWithCaption
+  src="static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-5.png"
+  alt="Voucher of a Fixed Asset Acquisition journal with Asset account as offset"
+  caption="Voucher of a Fixed Asset Acquisition journal with Asset account as offset"
+/>
 
 After posting all the subledger journals, we would have to include the subledger integration accounts in our general ledger opening balance template, and validate our proposed GL Balance, matches what we posted through the subledger. If this is not the case, we can create an adjustment transaction to bring back the GL with the subledger easily. That is why this approach is preferred for companies with GL-SL trouble, that want to allign their GL to the SL balances.
 
