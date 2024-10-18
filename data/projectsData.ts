@@ -17,6 +17,7 @@ const projectsData: Project[] = [
     tags: ['B2B - Retail'],
     imgSrc: '/static/images/projects/sportdimension.png',
     flags: ['america-stars-and-stripes-united-united-states-flag'],
+    href: 'https://www.sportdimension.com',
   },
   {
     title: 'Delta Star Inc. - Solution Architect',
@@ -33,6 +34,7 @@ const projectsData: Project[] = [
     tags: ['Manufacturing'],
     imgSrc: '/static/images/projects/DS-Logo.png',
     flags: ['canada-flag', 'america-stars-and-stripes-united-united-states-flag'],
+    href: 'https://www.deltastar.com',
   },
   {
     title: 'Sport Dimension - Solution Architect',
@@ -45,6 +47,7 @@ const projectsData: Project[] = [
     tags: ['B2C - Retail'],
     imgSrc: '/static/images/projects/sportdimension.png',
     flags: ['america-stars-and-stripes-united-united-states-flag'],
+    href: 'https://www.sportdimension.com',
   },
   {
     title: 'LaCrosse Footwear - Solution Architect',
@@ -58,6 +61,7 @@ const projectsData: Project[] = [
     tags: ['B2C - Retail'],
     imgSrc: '/static/images/projects/lacrosse.png',
     flags: ['america-stars-and-stripes-united-united-states-flag'],
+    href: 'https://www.lacrossefootwear.com',
   },
   {
     title: 'Parian Logistics - Solution Architect',
@@ -68,6 +72,7 @@ const projectsData: Project[] = [
     tags: ['Manufacturing'],
     imgSrc: '/static/images/projects/Parian.png',
     flags: ['america-stars-and-stripes-united-united-states-flag'],
+    href: 'http://www.parianlogistics.com',
   },
   {
     title: 'Resonac - Solution Architect',
@@ -77,6 +82,7 @@ const projectsData: Project[] = [
     tags: ['Manufacturing'],
     imgSrc: '/static/images/projects/resonac.png',
     flags: ['america-stars-and-stripes-united-united-states-flag'],
+    href: 'https://www.resonac.com',
   },
   {
     title: 'Liquids Infrastructure Company *confidential* - Consultant',
@@ -87,6 +93,7 @@ const projectsData: Project[] = [
     tags: ['B2B - Retail'],
     imgSrc: '/static/images/projects/confidential.png',
     flags: ['canada-flag', 'america-stars-and-stripes-united-united-states-flag'],
+    href: 'https://www.google.com',
   },
   {
     title: 'Showa Denko Materials - Solution Architect',
@@ -97,6 +104,7 @@ const projectsData: Project[] = [
     tags: ['Manufacturing'],
     imgSrc: '/static/images/projects/showa-denko.png',
     flags: ['mexico-flag'],
+    href: 'https://www.mc.showadenko.com/english/index.html',
   },
   {
     title: 'Franks International - Consultant',
@@ -107,6 +115,7 @@ const projectsData: Project[] = [
     tags: ['B2B - Retail'],
     imgSrc: '/static/images/projects/FranksIntl2.jpg',
     flags: ['globe-with-meridians'],
+    href: 'https://franksinternational.com',
   },
   {
     title: 'Canaccord - Consultant',
@@ -117,6 +126,7 @@ const projectsData: Project[] = [
     tags: ['Financial Services'],
     imgSrc: '/static/images/projects/Canaccord-Genuity-logo.jpg',
     flags: ['canada-flag'],
+    href: 'https://www.canaccordgenuity.com',
   },
   {
     title: 'Walton Global Investments Ltd. - Consultant',
@@ -128,6 +138,7 @@ const projectsData: Project[] = [
     tags: ['Real Estate'],
     imgSrc: '/static/images/projects/walton.jpg',
     flags: ['globe-with-meridians'],
+    href: 'https://walton.com',
   },
   {
     title: 'United Farmers of Alberta - Consultant',
@@ -139,6 +150,7 @@ const projectsData: Project[] = [
     tags: ['B2B - Retail'],
     imgSrc: '/static/images/projects/ufa.jpg',
     flags: ['canada-flag'],
+    href: 'https://ufa.com',
   },
   {
     title: 'LUQEL - Consultant',
@@ -149,6 +161,7 @@ const projectsData: Project[] = [
     tags: ['B2B - Retail'],
     imgSrc: '/static/images/projects/luqel.jpg',
     flags: ['ireland-flag'],
+    href: 'https://www.luqel-water.com/en',
   },
   {
     title: 'Comparex - Consultant',
@@ -157,6 +170,7 @@ const projectsData: Project[] = [
     tags: ['B2B - Retail'],
     imgSrc: '/static/images/projects/comparex.jpg',
     flags: ['germany-flag'],
+    href: 'https://www.softwareone.com/en-ca',
   },
   {
     title: 'Alternate GmbH - Consultant',
@@ -166,6 +180,7 @@ const projectsData: Project[] = [
     tags: ['B2C - Retail'],
     imgSrc: '/static/images/projects/alternate-gmbh.jpg',
     flags: ['germany-flag'],
+    href: 'https://www.alternate.de',
   },
   {
     title: 'KAISER+KRAFT GmbH - Consultant',
@@ -173,6 +188,7 @@ const projectsData: Project[] = [
     tags: ['B2B - Retail'],
     imgSrc: '/static/images/projects/kaiser-kraft.jpg',
     flags: ['germany-flag'],
+    href: 'https://www.export.kaiserkraft.com',
   },
   {
     title: 'igus - Consultant',
@@ -181,6 +197,7 @@ const projectsData: Project[] = [
     tags: ['Production'],
     imgSrc: '/static/images/projects/igus.jpg',
     flags: ['germany-flag'],
+    href: 'https://www.igus.eu',
   },
   {
     title: 'windeln.de - Support',
@@ -189,6 +206,7 @@ const projectsData: Project[] = [
     tags: ['B2C - Retail'],
     imgSrc: '/static/images/projects/windeln.jpg',
     flags: ['germany-flag'],
+    href: 'https://www.windeln.de',
   },
   {
     title: 'Amazone H. Dreyer GmbH & Co. KG - Consultant',
@@ -198,6 +216,7 @@ const projectsData: Project[] = [
     tags: ['Engineering'],
     imgSrc: '/static/images/projects/amazone.jpg',
     flags: ['germany-flag'],
+    href: 'https://amazone.net/en',
   },
   {
     title: 'Bavaria Film GmbH - Consultant',
@@ -206,6 +225,7 @@ const projectsData: Project[] = [
     tags: ['B2C - Retail'],
     imgSrc: '/static/images/projects/bavaria-film.jpg',
     flags: ['germany-flag'],
+    href: 'https://www.bavaria-studios.de/en',
   },
   {
     title: 'Erwin Müller AG - Consultant',
@@ -216,6 +236,7 @@ const projectsData: Project[] = [
     tags: ['B2B - Retail'],
     imgSrc: '/static/images/projects/Erwin_Mueller_Group_OpenGraph.jpg',
     flags: ['switzerland-flag'],
+    href: 'https://de.erwinmueller.com',
   },
   {
     title: 'Mageba SA - Consultant',
@@ -225,6 +246,7 @@ const projectsData: Project[] = [
     tags: ['Engineering'],
     imgSrc: '/static/images/projects/mageba.jpg',
     flags: ['switzerland-flag'],
+    href: 'https://www.mageba-group.com/global/en',
   },
 ]
 

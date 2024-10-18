@@ -7,7 +7,6 @@ export default function Footer() {
     <footer>
       <div className="mb-8 mt-16 flex flex-col items-center md:flex-row md:justify-between">
         <div className="mb-3 flex space-x-2">
-          <span className="mr-1 text-gray-500 dark:text-gray-400">Contact me via:</span>
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} />
           <SocialIcon kind="xing" href={siteMetadata.xing} />
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} />

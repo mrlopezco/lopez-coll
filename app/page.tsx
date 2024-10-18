@@ -2,7 +2,7 @@ import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
 import Avatar from '@/components/homepage/Avatar'
 import BlogLinks from '@/components/homepage/BlogLinks'
-import Greeting from '@/components/homepage/Greeting'
+// import Greeting from '@/components/homepage/Greeting'
 import Heading from '@/components/homepage/Heading'
 import ShortDescription from '@/components/homepage/ShortDescription'
 import TypedBios from '@/components/homepage/TypedBios'
@@ -20,7 +20,7 @@ export default async function Page() {
 
   return (
     <div className="mt-8 dark:divide-gray-700 md:mt-8">
-      <Greeting />
+      {/* <Greeting /> */}
       <div className="flex flex-col gap-x-10 gap-y-4 pb-10 md:my-4 md:pb-8 xl:flex-row">
         <Avatar />
         <div className="my-auto flex flex-col text-lg leading-8 text-gray-600 dark:text-gray-400">
@@ -36,12 +36,9 @@ export default async function Page() {
       </div>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pb-8 pt-6">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+          <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
             Recent Posts
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {siteMetadata.description}
-          </p>
+          </h2>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}

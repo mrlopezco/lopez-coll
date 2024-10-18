@@ -1,5 +1,5 @@
 import { map } from 'lodash'
-import Image from './Image'
+import Image from 'next/image'
 import Link from './Link'
 import Twemoji from './Twemoji'
 
@@ -10,26 +10,16 @@ const Card = ({ title, description, tags, imgSrc, href, flags }) => (
         imgSrc && 'h-full'
       }  overflow-hidden rounded-md shadow-nextjs dark:shadow-nextjs-dark`}
     >
-      {imgSrc &&
-        (href ? (
-          <Link href={href} aria-label={`Link to ${title}`}>
-            <Image
-              alt={title}
-              src={imgSrc}
-              className="object-cover object-center md:h-36 lg:h-48"
-              width={544}
-              height={306}
-            />
-          </Link>
-        ) : (
-          <Image
-            alt={title}
-            src={imgSrc}
-            className="object-contain object-center md:h-36 lg:h-48"
-            width={544}
-            height={306}
-          />
-        ))}
+      <div className="relative h-48 w-full">
+        {imgSrc &&
+          (href ? (
+            <Link href={href} aria-label={`Link to ${title}`}>
+              <Image alt={title} src={imgSrc} className="object-cover" fill quality={100} />
+            </Link>
+          ) : (
+            <Image alt={title} src={imgSrc} className="object-cover" fill quality={100} />
+          ))}
+      </div>
       <div className="p-6">
         <div className="mb-3 space-y-2">
           <h2 className="text-2xl font-bold leading-8 tracking-tight">

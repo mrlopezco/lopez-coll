@@ -34,7 +34,7 @@ export default function AuthorLayout({ content }: Props) {
                 className="h-48 w-48 rounded-full"
               />
             )}
-            <h3 className="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">{name}</h3>
+            <h2 className="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">{name}</h2>
             <div className="text-gray-500 dark:text-gray-400">{occupation}</div>
             {company && <div className="text-gray-500 dark:text-gray-400">{company}</div>}
             <div className="flex items-center space-x-3 pt-6 text-2xl">
@@ -45,12 +45,12 @@ export default function AuthorLayout({ content }: Props) {
           </div>
           <div className="prose max-w-none pb-8 pt-8 text-lg dark:prose-invert xl:col-span-2">
             <div>
-              <h2 className="mt-0">
+              <h3 className="mt-0">
                 Hi there <Twemoji emoji="waving hand" />
-              </h2>
+              </h3>
               <p>
                 I'm <strong>Ignacio Lopez Coll</strong>, a seasoned Senior Solution Architect in
-                Microsoft Dynamics (AX 4.0 up to Dynamics 365 Finance & Supply Chain Management).
+                Microsoft Dynamics 365.
               </p>
               <p>
                 Large international project experience including European, North, and South American
