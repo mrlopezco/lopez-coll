@@ -1,0 +1,63 @@
+---
+title: The process of migrating financial opening balances in Dynamics 365 Finance
+date: '2023-03-29'
+lastmod: '2023-03-30'
+tags: ['D365 Finance', 'Data Migration']
+draft: false
+layout: PostLayout
+summary: The process of migrating financial opening balances to Dynamics 365 can be challenging and frustrating. Learn in this blog how to make this work enjoyable!
+---
+
+<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure />
+
+## 1. Introduction
+
+Working in Dynamics 365 Finance doesn't usually involve learning new topics weekly. Instead, you'll often find yourself repeating processes on every project. Take migrating opening balances for customers as an example. This can be a painful process for consultants. You create a template file, explain it to subject-matter experts, and whatever you get back, you try to import. It typically fails. Then, you start fixing mistakes bit by bit, upload after upload, until the journal is uploaded. Even then, when you open the journal, you spot mistakes from the data source and the whole process begins again. Fun, right?
+
+This post is here to help you structure your financial data migration process correctly, so you can make this part of the project more enjoyable.
+
+And if you happen to have a question, feel free to post a comment!
+
+## 2. Define, communicate and stick to the process
+
+Every good process starts with an agreement and documentation on who is going to do what and when.
+
+As an example, in one of my latest projects, the D365 Partner was responsible to export data from a source, the customer responsible for data clean-ups and the Partner for the import into D365.
+
+At a high level, this seems to be a good agreement, but in reality, and before the project team starts their activities, we need to determine more details per stream or PBI.
+
+In this example, for the PBI "Customer Opening Balances", we need to determine a team within a team and their responsibilities for the entire process.
+
+![Overview Card for Team "Customer Opening Balances"](https://lopez-coll.com/wp-content/uploads/image-2-1024x489.png)
+
+| Customer Opening Balances | Export | Cleansing | Import |
+| --------------------------|--------|-----------|--------|
+| Who?                      | Mike (Dev) | Julia (FIN), Tom (Sales) | Mike (Dev) |
+| How?                      | SQL-Scripts | Excel | DMF |
+| When?                     | Sprint 4 | Sprint 4 | Sprint 5 |
+| Where?                    | AX 2012 & Shopify | Excel | D365 |
+
+_Overview Card for Team "Customer Opening Balances"_
+
+Developer Mike will run exports from AX2012 and Shopify and pass the data along to Julia and Tom, who will analyze the data, probably make changes so that Mike can load the data back to D365.
+
+Key to success here is how Julia and Tom communicate their change requests to Mike for the next export. For example, we want to exclude all the customers, that do not have an active address.
+
+Mike needs to go back to his SQL Scripts and add conditions, so that on the next data load, those records will be excluded. This process will eventually take multiple iterations until the team flags the process as done.
+
+Often, we see inefficient communication happen via email, the exported files from Mike sent out per Email to Julia and not Tom (he forgot, ups), wrong versioning of the files, corrupted file formats and many things more.
+
+Instead, the team should invest some time to discuss the process and come to an agreement, that could look like this:
+
+- Mike will gain access to the AX 2012 and Shopify Database and write first queries
+- Mike will save the files on a shared folder on Sharepoint where the cleansing team can analyze the data with Excel
+- Data changes can be requested in our regular call and will be documented within the PBI in Devops
+- Mike's SQL script is stored in the Sharepoint accessible for everybody
+- Communication only per teams group chat or DevOps comment section
+- The exported files cannot be manually manipulated before loading into D365
+- A first approval of the imported data is done by Julia and Tom
+- The final approval and posting of the journal is exclusively reserved for accounting supervisor Lara
+
+You see, that with a bit of investment in the process, we can avoid costly time delays at the time of data migration.
+
+In the next post, I will elaborate about the options of financial data migrations when it comes to posting logics.

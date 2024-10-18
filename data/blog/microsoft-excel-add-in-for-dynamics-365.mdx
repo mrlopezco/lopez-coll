@@ -1,0 +1,104 @@
+---
+title: Pro Tips - Microsoft Excel Add-in for Dynamics 365
+date: '2023-03-29'
+lastmod: '2023-03-30'
+tags: ['Microsoft Excel Add-In']
+draft: false
+layout: PostLayout
+summary: The Excel Add in for Microsoft's Dynamics 365 Finance and SCM provides an easy way to open journals, configuration or tables. In this tutorial, you will learn some advanced features to make this tool even better!
+---
+
+<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure />
+
+## 1. Introduction
+
+Unleash the power of Microsoft's Excel Add-in for Dynamics 365 Finance and Supply Chain Management with these quick tips. This post will get updated periodically, so make sure you stay tuned!
+
+And if you have anything you would like to share with us, feel free to use the comment section.
+
+Before we can start, we should briefly talk how the Excel Add-in actually works. Whenever you open a data entity out of Dynamics 365 Finance in Excel, the Add-in establishes a connection to that environment through OData. OData is the out-of-the-box Data Interface of D365. This API has a lot of data entities, but not quite the same as the ones we from Data Management Framework (DMF). How an API or Data Interface works is quite simple. The user has the ability, if **credentials and user rights allow**, to GET, PUT, POST or DELETE Data.
+
+- The GET Function gathers information from the OData Data Entity (for example: "Show me all General Journal Names")
+- The PUT Function updates the record from the OData Data Entity (e.g.: Change the Journal Description from "General Journal" to "Gen. Journal)
+- The POST Function creates one or multiple new records (e.g.: Create a new record in the Journal Table, with Field "Name" = "Gen. Journal" , Field "Number Sequence" = ...)
+- The DELETE Function deletes one or multiple records (e.g.: Delete the record with the "Name" = "Gen. Journal" from Table "JournalNames")
+
+Bottom line, this is exactly what the Excel Add-in does for us in the background whenever we work within Excel. Let's get started, I would say!
+
+_P.S. In this blog post, we will use Journal Names for the examples._
+
+![Open Journal Names in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-08-21-0001.png)
+
+## 2. Advanced Functionality of Microsoft's Excel Add-in
+
+### 2.1 Adding extra fields after opening a File
+
+Whenever you open a Data Entity with the Excel Add In, you are going to see some pre-determined fields. In most of the cases, the pre-selection done by Microsoft is quite good, but in some other cases we need to modify hidden fields. In order to add extra columns to the Excel File, we need to head over to the Add-in and click on the Design Field.
+
+![Entering the Design Section of the Excel Add-In](https://lopez-coll.com/wp-content/uploads/12-08-21-0002-1.png)
+
+A new menu will open up with two larger areas: The upper area contains all the available Fields of the data entity, the lower area the already selected Fields that are visualized in the Excel File. In order to add more fields to Excel, simply drag and drop or double-click on the Field to push it down. The sequence you see in the lower area is also the column sequence of the Excel file. If you want to change the column order, you will need to change the sequence here.
+
+![Design Field of the Excel Add-In for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-08-21-0009.png)
+
+In my example, I want to add the Approval Workflow Field to the journal, as this one is regularly used in combination with the Workflow ID. Most of the time, if a Workflow is assigned to the Journal, you also want to activate the Workflow. After clicking on "Update" and later refresh, I see the field in my Excel.
+
+![Adding a column to the Excel File in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-08-21-0004.png)
+
+### 2.2 Use Filters the smart way
+
+After the initial load of the file, you will encounter all the records the data entity is returning. In case you want to see only certain records, it is possible to determine filtering values.
+
+I **strongly** recommend using these filters, as I have made mistakes myself by not using them. Let me explain:
+
+In the example of the journal names, all records have been loaded but not all fields. Usually, when you modify the records, only your modifications get changed. Usually... I have experienced in the past how fields get blanked, specially with Number Sequences and their references.
+
+Let's go ahead and filter for Journal of the "Journal type" = "Diary".
+
+From the menu, we select the option "Filter". In a lot of entities, there is a standard filter set for the current legal entity. More about this in the next chapter.
+
+![Filtering with the Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0001.png)
+
+Let's clear that one, and set a new one. From the dropdown, we select "Journal type" and then "Daily". After that, click on Finish and at the end don't forget to "refresh".
+
+![Setting a custom filter in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0002.png)
+
+### 2.3 View records from multiple legal entities
+
+In the previous chapter, we came across a filter of the type "Company". This filter is set often by default, because the user is mainly interested in the records he currently sees on screen. If you want to see the records across all legal entities, we will need first to remove that filter and then display the legal entity ID.
+
+It is important to notice, that data entities can include multiple legal entity fields. This is also the case in the Journal Names entity. We have the field "Company" (LedgerJournalName.VoucherSeriesCompanyID) and another field also called "Company" (LedgerJournalName.DataAreaID). If you have been with Microsoft Products for a bit, you will recognize the DataAreaID Field. This is the one we are looking for.
+
+In order to display this field, we need to enter the "Design" mode from the main menu, then select the little pen that represents the editing mode.
+
+![Design Mode in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0005.png)
+
+From there, we pick the DataAreaID Field and include them in our selected fields.
+
+![Add fields in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0004.png)
+
+After hitting update and refreshing the query from the main menu, we will get all the journals from all legal entities.
+
+### 2.5 Multiple Data Entities in one Excel File
+
+In the last chapter, you might have noticed that at the top of the design window, we have the option to "Add tables". This is the way to add additional data entities to our Excel file. Personally, I would recommend having one data entity per Excel sheet, simply for better visualization.
+
+![Adding additional data entities in the Microsoft Excel Add-in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0006.png)
+
+The steps to follow are easy. Go to Design, select "Add Table", create a new Excel Sheet, and select the Cell A1 from the new Sheet. Pick the data entity you want to add, in this case "Accounts for automatic transactions". Confirm with "Next".
+
+![Select additional data entities in the Microsoft Excel Add-In for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0007.png)
+
+The result is then visible in the design screen, where both of our data entities are listed. You can close now the design mode, and don't forget to refresh.
+
+![Design Mode with multiple data entities in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0008.png)
+
+### 2.4. Save the Excel File for later use
+
+This might sound like a stupid tip, but have you tried to save the Excel file and then re-opened it? 🙂
+
+## 3 Conclusion
+
+Those were some advanced tips for using the Microsoft Excel Add in with Dynamics 365 Finance and Supply Chain Management. If you have more tips you want to share with us, feel free to leave a comment.
+
+P.S. I have left in the attachments a useful link on how to configure the Excel Add In.

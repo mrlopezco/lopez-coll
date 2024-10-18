@@ -1,0 +1,102 @@
+---
+title: The posting logic of financial opening balances in Dynamics 365 Finance
+date: '2023-03-29'
+lastmod: '2023-03-30'
+tags: ['D365 Finance', 'Data Migration']
+draft: false
+layout: PostLayout
+summary: Explore your options on how to properly determine the posting logic of your financial balances to D365 with this blog post.
+---
+
+<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure />
+
+## 1. Introduction
+
+Welcome to another post of how to migrate financial opening balances in Dynamics 365 Finance.
+
+In the previous post, we discussed the importance of determining the overall process in order to have a smooth experience when migrating balances. If you missed it, you can find the link on the right-hand side.
+
+In this post, we will elaborate on the two most common accounting principles used to determine the posting logic of the balances: the "9-Accounts" approach and the "Net-Zero" approach.
+
+**Please note that this blog is intended to provide general guidance and does not represent any form of legal or accounting advice**.
+
+## 2. General Ledger (GL) and Subledgers (SL)
+
+Before starting any data migration activities, it's important to understand our starting point and the goal of our activities.
+
+From an accounting perspective, we have balances spread across the general ledger and multiple subledgers. A subledger usually represents a module in an ERP that is responsible for creating its own transactions, but at the end it should always sync with the general ledger.
+
+In Dynamics 365 Finance, we have modules such as Accounts Payable, Accounts Receivable, Cash & Bank, Inventory Management, Fixed Assets, and a few more.
+
+Usually, the total of the open transactions matches the integration account in the General Ledger. If this is the case, then we talk about balancing GL and SL.
+
+For example, all of the open vendor invoices in the AP module would match the Accounts Payable control accounts in the GL.
+
+Before starting any data migration duties, we need to ensure that the data we have in our legacy system is balanced and cleaned up. Otherwise, there will be a lot to troubleshoot during the actual data migration process.
+
+Ultimately, the goal is to migrate the balances from the previous systems and balance them in Dynamics 365 Finance. To showcase that our migration effort was successful to auditors, we can choose from different posting logic approaches, each with its own advantages and disadvantages.
+
+## 3. Accounting and opening balances in Dynamics 365 Finance
+
+### 3.1 The "9-Accounts" approach
+
+This posting logic approach is probably most used in European projects and actually not very spread in North-America. At least from my experience. The guideline of this approach is, that every imported transaction will have a 9-Account as an offset. A 9-Account are accounts used during the duration of the project to implement Dynamics, but afterwards suspended. So usually, we would create different 9 Accounts for every subledger module.
+
+![9-Accounts in the Chart of Accounts](https://lopez-coll.com/wp-content/uploads/image-2-1024x489.png)
+
+Now that the accounts are created, you would use them in your opening balances journal as offset accounts and the regular account would be e.g. the subledger vendor account. Because you are posting directly in the subledger module, the transaction will be automatically created in the General Ledger and therefore it will balance automatically.
+
+Once all the journals are posted, the most magical thing on earth (cough) happens.
+
+The total sum of all your 9 accounts represent the Balance Sheet and of the previous legacy system.
+
+Usually it is not recommended to migrate P&L Accounts and single transactions. You wonder why? Ask me in the comments 🙂
+
+If everything goes well, obviously.
+
+If you find any deltas, you can compare every 9 Account to the Balance Sheet and quickly find where the differences are.
+
+![AP Open Invoice Journal with 9* as offset account](https://lopez-coll.com/wp-content/uploads/image-3-1024x506.png)
+
+#### 3.1.1 The "9-Accounts" approach - Benefits
+
+- Offset Account can be determined as fixed value in the import templates
+- Easy reconciliation with legacy Balance Sheet
+- Reporting on the 9 Accounts as documentation for auditors
+
+#### 3.1.2 The "9-Accounts" approach - Disadvantages
+
+- Creating new accounts only for one purpose and then suspend them
+- Account Structure need to consider the 9 accounts
+
+### 3.2 The "Net Zero" approach
+
+From Europe, we go back to North-America, where the "Net Zero" posting logic is probably the leading approach.
+
+This method is, compared to the 9 Accounts approach, a lot more complex, but it is recommended for companies that have trouble with balancing ledgers as well as tight go-lives schedules.
+
+Instead of using a 9 account as an offset, we want to use the same account as the subledger module would post to. In the below example for a fixed asset acquisition journal, the offset account is the actual fixed asset account in the GL.
+
+![Fixed Asset Acquisition journal with Asset account as offset](https://lopez-coll.com/wp-content/uploads/image-4-1024x507.png)
+
+The result of posting this journal, and from a General Ledger perspective, we would have "net zero" vouchers in the GL.
+
+![Voucher of a Fixed Asset Acquisition journal with Asset account as offset](https://lopez-coll.com/wp-content/uploads/image-5-1024x507.png)
+
+After posting all the subledger journals, we would have to include the subledger integration accounts in our general ledger opening balance template, and validate our proposed GL Balance, matches what we posted through the subledger. If this is not the case, we can create an adjustment transaction to bring back the GL with the subledger easily. That is why this approach is preferred for companies with GL-SL trouble, that want to allign their GL to the SL balances.
+
+#### 3.2.1 The "Net Zero" approach - Benefits
+
+- Adjustments of GL and SL can easily be done through GL
+- If you know more, let me know!
+
+#### 3.2.1 The "Net Zero" approach - Disadvantages
+
+- Offset accounts need to be identified by cross-checking posting profiles
+- Template creation process more complicated
+
+## 4. Conclusion
+
+In this post we learned about the two most common approaches for migrating financial opening balances with their advantages and disadvantages. Before deciding for an approach, you should discuss with your team their preferences and come to an agreement.
+
+Feel free to leave your comment down below, if you happen to have any questions or additions!

@@ -31,7 +31,7 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags, readingTime } = content
+  const { filePath, path, slug, date, title, summary, tags, readingTime } = content
   const basePath = path.split('/')[0]
 
   return (
@@ -42,6 +42,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
           <header className="pt-6 xl:pb-6">
             <div className="space-y-4 text-center">
               <PageTitle>{title}</PageTitle>
+              <p className="text-lg text-gray-500 dark:text-gray-400">{summary}</p>{' '}
+              {/* Added summary here */}
               <dl>
                 <div>
                   <dt className="sr-only">Published on</dt>
