@@ -75,8 +75,8 @@ const Header = () => {
                     className={clsx(
                       'mx-1 rounded px-2 py-1 font-medium text-gray-900 dark:text-gray-100 sm:px-3 sm:py-2',
                       pathname.startsWith(link.href)
-                        ? 'bg-gray-200 dark:bg-primary-400'
-                        : 'hover:bg-gray-200 dark:hover:bg-primary-400'
+                        ? 'bg-primary-700 dark:bg-primary-500'
+                        : 'hover:bg-primary-700 dark:hover:bg-primary-500'
                     )}
                   >
                     {link.title}

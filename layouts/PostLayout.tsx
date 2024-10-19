@@ -72,7 +72,16 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                         <dt className="sr-only">Name</dt>
                         <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
                         <dt className="sr-only">LinkedIn</dt>
-                        <dd>{author.linkedin && <Link href={author.linkedin}>Linkedin</Link>}</dd>
+                        <dd>
+                          {author.linkedin && (
+                            <Link
+                              href={author.linkedin}
+                              className="text-primary-500 transition-colors duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-500"
+                            >
+                              Linkedin
+                            </Link>
+                          )}
+                        </dd>
                       </dl>
                     </li>
                   ))}
@@ -119,7 +128,12 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           Previous Article
                         </h2>
                         <div>
-                          <Link href={`/${prev.path}`}>{prev.title}</Link>
+                          <Link
+                            href={`/${prev.path}`}
+                            className="text-primary-500 transition-colors duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-500"
+                          >
+                            {prev.title}
+                          </Link>
                         </div>
                       </div>
                     )}
@@ -129,7 +143,12 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           Next Article
                         </h2>
                         <div>
-                          <Link href={`/${next.path}`}>{next.title}</Link>
+                          <Link
+                            href={`/${next.path}`}
+                            className="text-primary-500 transition-colors duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-500"
+                          >
+                            {next.title}
+                          </Link>
                         </div>
                       </div>
                     )}
@@ -137,7 +156,11 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 )}
               </div>
               <div className="pt-4 xl:pt-8">
-                <Link href={`/${basePath}`} aria-label="Back to the blog">
+                <Link
+                  href={`/${basePath}`}
+                  className="text-primary-500 transition-colors duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-500"
+                  aria-label="Back to the blog"
+                >
                   &larr; Back to the blog
                 </Link>
               </div>

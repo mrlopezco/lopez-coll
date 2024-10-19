@@ -34,11 +34,11 @@ module.exports = {
           100: '#dce6fd',
           200: '#c1d3fc',
           300: '#96b8fa',
-          400: '#406cf1', // Dark Mode
-          500: '#34c7a9', // Light Mode
-          600: '#2b4de5',
-          700: '#2239d3',
-          800: '#2230ab',
+          400: '#7aa2f7', // lighter blue
+          500: '#34c7a9', // green
+          600: '#1f7765', // darker green
+          700: '#85ddcb', // lighter green
+          800: '#ade8dc', // lighter lighter green
           900: '#212e87',
           950: '#191f52',
         },
@@ -55,6 +55,7 @@ module.exports = {
           css: {
             a: {
               color: theme('colors.primary.500'),
+              transition: 'color 0.3s ease', // Add transition property
               '&:hover': {
                 color: `${theme('colors.primary.600')}`,
               },
@@ -76,10 +77,11 @@ module.exports = {
           css: {
             a: {
               color: theme('colors.primary.500'),
+              transition: 'color 0.3s ease', // Add transition property
               '&:hover': {
-                color: `${theme('colors.primary.400')}`,
+                color: `${theme('colors.primary.500')}`,
               },
-              code: { color: theme('colors.primary.400') },
+              code: { color: theme('colors.primary.600') },
             },
             'h1,h2,h3,h4,h5,h6': {
               color: theme('colors.gray.100'),
