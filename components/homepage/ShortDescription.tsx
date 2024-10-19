@@ -3,7 +3,7 @@ import Twemoji from '../Twemoji'
 
 const ShortDescription = () => {
   return (
-    <div className="mb-6 mt-4">
+    <h2 className="mb-6 mt-4">
       <p>
         Not only do I love working with applications, but I also thrive in managing teams, ensuring
         projects are completed on time and within budget. My international experience spans
@@ -24,7 +24,7 @@ const ShortDescription = () => {
         </a>
         , where users can stay in touch with the newest articles of the Dynamics 365 space.
       </p>
-    </div>
+    </h2>
   )
 }
 

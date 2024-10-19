@@ -27,7 +27,11 @@ Bottom line, this is exactly what the Excel Add-in does for us in the background
 
 _P.S. In this blog post, we will use Journal Names for the examples._
 
-![Open Journal Names in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-08-21-0001.png)
+<ImageWithLightBox
+  src="/static/images/blogs/microsoft-excel-add-in-for-dynamics-365/12-08-21-0001.png"
+  alt="Open Journal Names in Microsoft Excel Add in for Dynamics 365 Finance"
+  caption="Open Journal Names in Microsoft Excel Add in for Dynamics 365 Finance"
+/>
 
 ## 2. Advanced Functionality of Microsoft's Excel Add-in
 
@@ -35,15 +39,27 @@ _P.S. In this blog post, we will use Journal Names for the examples._
 
 Whenever you open a Data Entity with the Excel Add In, you are going to see some pre-determined fields. In most of the cases, the pre-selection done by Microsoft is quite good, but in some other cases we need to modify hidden fields. In order to add extra columns to the Excel File, we need to head over to the Add-in and click on the Design Field.
 
-![Entering the Design Section of the Excel Add-In](https://lopez-coll.com/wp-content/uploads/12-08-21-0002-1.png)
+<ImageWithLightBox
+  src="/static/images/blogs/microsoft-excel-add-in-for-dynamics-365/12-08-21-0002-1.png"
+  alt="Entering the Design Section of the Excel Add-In"
+  caption="Entering the Design Section of the Excel Add-In"
+/>
 
 A new menu will open up with two larger areas: The upper area contains all the available Fields of the data entity, the lower area the already selected Fields that are visualized in the Excel File. In order to add more fields to Excel, simply drag and drop or double-click on the Field to push it down. The sequence you see in the lower area is also the column sequence of the Excel file. If you want to change the column order, you will need to change the sequence here.
 
-![Design Field of the Excel Add-In for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-08-21-0009.png)
+<ImageWithLightBox
+  src="/static/images/blogs/microsoft-excel-add-in-for-dynamics-365/12-08-21-0009.png"
+  alt="Design Field of the Excel Add-In for Dynamics 365 Finance"
+  caption="Design Field of the Excel Add-In for Dynamics 365 Finance"
+/>
 
 In my example, I want to add the Approval Workflow Field to the journal, as this one is regularly used in combination with the Workflow ID. Most of the time, if a Workflow is assigned to the Journal, you also want to activate the Workflow. After clicking on "Update" and later refresh, I see the field in my Excel.
 
-![Adding a column to the Excel File in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-08-21-0004.png)
+<ImageWithLightBox
+  src="/static/images/blogs/microsoft-excel-add-in-for-dynamics-365/12-08-21-0004.png"
+  alt="Adding a column to the Excel File in Microsoft Excel Add in for Dynamics 365 Finance"
+  caption="Adding a column to the Excel File in Microsoft Excel Add in for Dynamics 365 Finance"
+/>
 
 ### 2.2 Use Filters the smart way
 
@@ -57,11 +73,19 @@ Let's go ahead and filter for Journal of the "Journal type" = "Diary".
 
 From the menu, we select the option "Filter". In a lot of entities, there is a standard filter set for the current legal entity. More about this in the next chapter.
 
-![Filtering with the Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0001.png)
+<ImageWithLightBox
+  src="/static/images/blogs/microsoft-excel-add-in-for-dynamics-365/12-27-21-0001.png"
+  alt="Filtering with the Microsoft Excel Add in for Dynamics 365 Finance"
+  caption="Filtering with the Microsoft Excel Add in for Dynamics 365 Finance"
+/>
 
 Let's clear that one, and set a new one. From the dropdown, we select "Journal type" and then "Daily". After that, click on Finish and at the end don't forget to "refresh".
 
-![Setting a custom filter in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0002.png)
+<ImageWithLightBox
+  src="/static/images/blogs/microsoft-excel-add-in-for-dynamics-365/12-27-21-0002.png"
+  alt="Setting a custom filter in Microsoft Excel Add in for Dynamics 365 Finance"
+  caption="Setting a custom filter in Microsoft Excel Add in for Dynamics 365 Finance"
+/>
 
 ### 2.3 View records from multiple legal entities
 
@@ -71,11 +95,19 @@ It is important to notice, that data entities can include multiple legal entity 
 
 In order to display this field, we need to enter the "Design" mode from the main menu, then select the little pen that represents the editing mode.
 
-![Design Mode in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0005.png)
+<ImageWithLightBox
+  src="/static/images/blogs/microsoft-excel-add-in-for-dynamics-365/12-27-21-0005.png"
+  alt="Design Mode in Microsoft Excel Add in for Dynamics 365 Finance"
+  caption="Design Mode in Microsoft Excel Add in for Dynamics 365 Finance"
+/>
 
 From there, we pick the DataAreaID Field and include them in our selected fields.
 
-![Add fields in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0004.png)
+<ImageWithLightBox
+  src="/static/images/blogs/microsoft-excel-add-in-for-dynamics-365/12-27-21-0004.png"
+  alt="Add fields in Microsoft Excel Add in for Dynamics 365 Finance"
+  caption="Add fields in Microsoft Excel Add in for Dynamics 365 Finance"
+/>
 
 After hitting update and refreshing the query from the main menu, we will get all the journals from all legal entities.
 
@@ -83,15 +115,27 @@ After hitting update and refreshing the query from the main menu, we will get al
 
 In the last chapter, you might have noticed that at the top of the design window, we have the option to "Add tables". This is the way to add additional data entities to our Excel file. Personally, I would recommend having one data entity per Excel sheet, simply for better visualization.
 
-![Adding additional data entities in the Microsoft Excel Add-in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0006.png)
+<ImageWithLightBox
+  src="/static/images/blogs/microsoft-excel-add-in-for-dynamics-365/12-27-21-0006.png"
+  alt="Adding additional data entities in the Microsoft Excel Add-in for Dynamics 365 Finance"
+  caption="Adding additional data entities in the Microsoft Excel Add-in for Dynamics 365 Finance"
+/>
 
 The steps to follow are easy. Go to Design, select "Add Table", create a new Excel Sheet, and select the Cell A1 from the new Sheet. Pick the data entity you want to add, in this case "Accounts for automatic transactions". Confirm with "Next".
 
-![Select additional data entities in the Microsoft Excel Add-In for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0007.png)
+<ImageWithLightBox
+  src="/static/images/blogs/microsoft-excel-add-in-for-dynamics-365/12-27-21-0007.png"
+  alt="Select additional data entities in the Microsoft Excel Add-In for Dynamics 365 Finance"
+  caption="Select additional data entities in the Microsoft Excel Add-In for Dynamics 365 Finance"
+/>
 
 The result is then visible in the design screen, where both of our data entities are listed. You can close now the design mode, and don't forget to refresh.
 
-![Design Mode with multiple data entities in Microsoft Excel Add in for Dynamics 365 Finance](https://lopez-coll.com/wp-content/uploads/12-27-21-0008.png)
+<ImageWithLightBox
+  src="/static/images/blogs/microsoft-excel-add-in-for-dynamics-365/12-27-21-0008.png"
+  alt="Design Mode with multiple data entities in Microsoft Excel Add in for Dynamics 365 Finance"
+  caption="Design Mode with multiple data entities in Microsoft Excel Add in for Dynamics 365 Finance"
+/>
 
 ### 2.4. Save the Excel File for later use
 
