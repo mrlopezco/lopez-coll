@@ -6773,6 +6773,7 @@ __metadata:
     typed.js: ^2.1.0
     typescript: 5.3.x
     unist-util-visit: ^5.0.0
+    yet-another-react-lightbox: ^3.21.6
   languageName: unknown
   linkType: soft
 
@@ -11981,6 +11982,16 @@ __metadata:
     y18n: ^5.0.5
     yargs-parser: ^21.1.1
   checksum: 73b572e863aa4a8cbef323dd911d79d193b772defd5a51aab0aca2d446655216f5002c42c5306033968193bdbf892a7a4c110b0d77954a7fdf563e653967b56a
+  languageName: node
+  linkType: hard
+
+"yet-another-react-lightbox@npm:^3.21.6":
+  version: 3.21.6
+  resolution: "yet-another-react-lightbox@npm:3.21.6"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: ea8fd6a460c649281595c0f9e103f716530d16ae58170897d001ba47f1195af78f25c80e413fe498ab0d34b01ac6fd06eb3739f8e15842a79904182a7b40304d
   languageName: node
   linkType: hard
 

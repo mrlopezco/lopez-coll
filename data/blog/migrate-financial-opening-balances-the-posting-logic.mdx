@@ -43,7 +43,7 @@ Ultimately, the goal is to migrate the balances from the previous systems and ba
 This posting logic approach is probably most used in European projects and actually not very spread in North-America. At least from my experience. The guideline of this approach is, that every imported transaction will have a 9-Account as an offset. A 9-Account are accounts used during the duration of the project to implement Dynamics, but afterwards suspended. So usually, we would create different 9 Accounts for every subledger module.
 
 <ImageWithCaption
-  src="static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-2.png"
+  src="/static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-2.png"
   alt="9-Accounts in the Chart of Accounts"
   caption="9-Accounts in the Chart of Accounts"
 />
@@ -61,7 +61,7 @@ If everything goes well, obviously.
 If you find any deltas, you can compare every 9 Account to the Balance Sheet and quickly find where the differences are.
 
 <ImageWithCaption
-  src="static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-3.png"
+  src="/static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-3.png"
   alt="AP Open Invoice Journal with 9* as offset account"
   caption="AP Open Invoice Journal with 9* as offset account"
 />
@@ -86,7 +86,7 @@ This method is, compared to the 9 Accounts approach, a lot more complex, but it 
 Instead of using a 9 account as an offset, we want to use the same account as the subledger module would post to. In the below example for a fixed asset acquisition journal, the offset account is the actual fixed asset account in the GL.
 
 <ImageWithCaption
-  src="static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-4.png"
+  src="/static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-4.png"
   alt="Fixed Asset Acquisition journal with Asset account as offset"
   caption="Fixed Asset Acquisition journal with Asset account as offset"
 />
@@ -94,7 +94,7 @@ Instead of using a 9 account as an offset, we want to use the same account as th
 The result of posting this journal, and from a General Ledger perspective, we would have "net zero" vouchers in the GL.
 
 <ImageWithCaption
-  src="static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-5.png"
+  src="/static/images/blogs/migrate-financial-opening-balances-the-posting-logic/image-5.png"
   alt="Voucher of a Fixed Asset Acquisition journal with Asset account as offset"
   caption="Voucher of a Fixed Asset Acquisition journal with Asset account as offset"
 />
