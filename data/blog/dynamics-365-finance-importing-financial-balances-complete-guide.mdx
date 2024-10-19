@@ -38,7 +38,7 @@ the users, they are still there.
 
 Personally, I do not have any preferences, but for this post, we will be using dedicated journals.
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-6.png"
   alt="Using Dedicated Journals for Beginning Balances"
   caption="Using Dedicated Journals for Beginning Balances"
@@ -65,7 +65,7 @@ By following this continuous approach, you will be able to report at the voucher
 balances have been imported correctly. In tools such as Power BI, Financial Reporter, or the Queries from D365, you
 can easily search for vouchers beginning with "BB."
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-9.png"
   alt="Number Sequence for beginning balances"
   caption="Number Sequence for beginning balances"
@@ -81,7 +81,7 @@ However, there is a solution: temporary vouchers. These vouchers can be manually
 number and will be imported into the journal as is. When it's time to post, D365 automatically assigns the correct voucher
 from the number sequence, ensuring a successful posting. Fortunately, we have never encountered any issues with this method.
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-7.png"
   alt="Number allocation at posting a.k.a. temporary vouchers"
   caption="Number allocation at posting a.k.a. temporary vouchers"
@@ -90,7 +90,7 @@ from the number sequence, ensuring a successful posting. Fortunately, we have ne
 In the import file, if the single vouchers can be recorded at a line level, and not multi-line, the voucher number equals
 the line number. So pretty straight forward!
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-8.png"
   alt="Voucher Number in import file"
   caption="Voucher Number in import file"
@@ -118,7 +118,7 @@ Using DMF, we can upload files in Excel format. While this is initially convenie
 
 To illustrate why CSVs could be the better choice, in one of my recent uploads, Excel changed the format of one field from “General” to “Number” for some cells. The import failed without giving any clear errors. However, when I used a CSV file, I was able to quickly identify the issue.
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-10.png"
   alt="Number formatting issues with DMF and Excel file format"
   caption="Number formatting issues with DMF and Excel file format"
@@ -132,7 +132,7 @@ Within an import project in DMF, you have three options to choose from when you 
 
 This tip might sound basic, but larger data loads will time out if you do not use the import in batch option.
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-11.png"
   alt='Always use "Import in batch" in DMF'
   caption='Always use "Import in batch" in DMF'
@@ -148,7 +148,7 @@ For General Ledger balances, we will be using the data entity "General Journal".
 
 In this first section of the file, we will determine the Journal name we want to load the balances into, as well as the line number and voucher. As mentioned previously, thanks to the temporary vouchers, we do not have to worry about the voucher assignments at all. Transdate is the posting date, and all the other fields are self-explanatory.
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-12.png"
   alt="General Ledger import template - part 1"
   caption="General Ledger import template - part 1"
@@ -160,7 +160,7 @@ If you have balances in foreign currency, you will need to enter the exchange ra
 
 As an example; The current CAD to USD FX-conversion is 0.73, you will need to enter 73.00 in the column N and O.
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-13.png"
   alt="General Ledger import template - part 2"
   caption="General Ledger import template - part 2"
@@ -172,7 +172,7 @@ Remember that the data entity has a lot more properties, that we can provide on 
 
 The only thing we need to do at the data entity level is enabling the set-based processing.
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-14.png"
   alt="Set-based processing on General Journal Data entity"
   caption="Set-based processing on General Journal Data entity"
@@ -188,7 +188,7 @@ Remember to use "Import in batch" for GL journals, as they tempt to be quite lar
 
 The Cask & Bank template is very similar to the general ledger balances, as we are using the same data entity. The only main difference is that the "debit" account type should be set to Bank, and we will use the "ACCOUNTDISPLAYVALUE" for our Bank Account ID. For financial dimensions on the debit transaction, you have to use the "DEFAULTDIMENSIONDISPLAYVALUE", as the default financial dimensions will not get pulled from the master record of the module.
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/Bank-open-balances-template.png"
   alt="Bank Open Balances Template"
   caption="Bank Open Balances Template"
@@ -206,7 +206,7 @@ For AR balances, we can follow the same process as for GL and Cash & Bank. Usual
 
 As in previous chapters, I am leaving a template in the attachments for better context.
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-21.png"
   alt="AR Opening Balance Template"
   caption="AR Opening Balance Template"
@@ -226,7 +226,7 @@ That is why we will be using "Vendor invoice journal header" and "Vendor invoice
 
 In terms of the process, we need to manually create the AP Invoice Journal in Dynamics 365 first, write down the journal batch number in both files and then run the import project.
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/AP-Invoice-Header.png"
   alt="Vendor invoice journal header data entity template"
   caption="Vendor invoice journal header data entity template"
@@ -258,7 +258,7 @@ _Vendor invoice journal line data entity template_
 
 As mentioned, we will be using "Vendor invoice journal header" and "Vendor invoice journal line". In your import project, you need to have both data entities in the import project and the header has to be set as the first entity to import in your sequence.
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-17.png"
   alt="AP Invoice import job in DMF"
   caption="AP Invoice import job in DMF"
@@ -318,7 +318,7 @@ The depreciation journal is similar to the acquisition journal, except for the t
 
 As commented above, the correct data entity for the import of fixed asset journals is "Fixed asset journal v2 entity".
 
-<ImageWithCaption
+<ImageWithLightBox
   src="/static/images/blogs/dynamics-365-finance-importing-financial-balances-complete-guide/image-20.png"
   alt="Fixed Asset Journal V2 Entity in DMF"
   caption="Fixed Asset Journal V2 Entity in DMF"
