@@ -1,9 +1,10 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Ignacio Blog',
+  title: 'Ignacio Lopez Coll',
   author: 'Ignacio López Coll',
   headerTitle: 'Ignacio Lopez Coll',
-  description: 'Dynamics 365 Solution Architect',
+  description:
+    'Ignacio Lopez Colls personal blog, featuring in-depth articles and guides on Microsoft Dynamics 365 Products and ERP Implementations',
   language: 'en-us',
   theme: 'dark',
   siteUrl: process.env.SITE_URL || 'https://ignacio-web.vercel.app',
@@ -14,7 +15,7 @@ const siteMetadata = {
   email: 'ignacio@lopez-coll.com',
   xing: 'https://www.xing.com/profile/JIgnacio_LopezColl',
   linkedin: 'https://www.linkedin.com/in/ignacio-lópez-coll/',
-  github: 'https://github.com',
+  github: 'https://github.com/mrlopezco',
   x: 'https://twitter.com/x',
   // twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
