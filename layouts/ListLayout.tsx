@@ -29,31 +29,32 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
   return (
     <div className="space-y-2 pb-8 pt-6 md:space-y-5">
       <nav className="flex justify-between">
-        {!prevPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
-            Previous
-          </button>
-        )}
-        {prevPage && (
+        {prevPage ? (
           <Link
             href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
             rel="prev"
+            className="group relative inline-block text-primary-500 dark:text-primary-500"
           >
             Previous
+            <span className="block h-0.5 max-w-0 bg-primary-500 transition-all duration-500 group-hover:max-w-full dark:bg-primary-500"></span>
           </Link>
+        ) : (
+          <div></div>
         )}
         <span>
           {currentPage} of {totalPages}
         </span>
-        {!nextPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
+        {nextPage ? (
+          <Link
+            href={`/${basePath}/page/${currentPage + 1}`}
+            rel="next"
+            className="group relative inline-block text-primary-500 dark:text-primary-500"
+          >
             Next
-          </button>
-        )}
-        {nextPage && (
-          <Link href={`/${basePath}/page/${currentPage + 1}`} rel="next">
-            Next
+            <span className="block h-0.5 max-w-0 bg-primary-500 transition-all duration-500 group-hover:max-w-full dark:bg-primary-500"></span>
           </Link>
+        ) : (
+          <div></div>
         )}
       </nav>
     </div>

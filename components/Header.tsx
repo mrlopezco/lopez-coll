@@ -43,7 +43,7 @@ const Header = () => {
   })
 
   const innerDivClass =
-    'header-child flex items-center justify-between px-4 py-4 bg-white/75 dark:bg-dark/75 supports-backdrop-blur backdrop-blur sm:px-6 md:rounded-b-2xl xl:shadow-[1px_3px_26px_3px_rgba(0,0,0,0.1)] dark:xl:shadow-[1px_3px_26px_3px_rgba(255,255,255,0.1)]'
+    'header-child flex items-center justify-between px-4 py-4 bg-white/75 dark:bg-dark/75 supports-backdrop-blur backdrop-blur sm:px-6 rounded-b-2xl shadow-[1px_3px_26px_3px_rgba(0,0,0,0.1)] dark:shadow-[1px_3px_26px_3px_rgba(255,255,255,0.1)]'
 
   return (
     <header className={headerClass}>
@@ -55,7 +55,7 @@ const Header = () => {
                 <Logo />
               </div>
               {typeof siteMetadata.headerTitle === 'string' ? (
-                <div className="group hidden text-xl font-semibold transition duration-300 sm:block">
+                <div className="group text-lg font-semibold transition duration-300 sm:text-xl">
                   {siteMetadata.headerTitle}
                   <span className="block h-0.5 max-w-0 bg-black transition-all duration-500 group-hover:max-w-[85%] dark:bg-white"></span>
                 </div>

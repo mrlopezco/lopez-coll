@@ -16,7 +16,7 @@ const BlogLinks = () => {
         <Link href="/about" className="hover:underline">
           <Twemoji emoji="face-with-monocle" />
           <span data-umami-event="home-link-about" className="ml-1.5">
-            More about me and myself
+            More about myself
           </span>
         </Link>
         {/* <Link href="/resume" className="hover:underline">
