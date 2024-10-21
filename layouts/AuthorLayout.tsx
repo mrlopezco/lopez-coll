@@ -75,7 +75,7 @@ export default function AuthorLayout({ content }: Props) {
                 <a
                   className={clsx([
                     'border border-transparent',
-                    'bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-500',
+                    'bg-primary-500 ',
                     'text-white hover:text-white dark:text-white dark:hover:text-white',
                     'focus:shadow-outline-blue focus:outline-none',
                     'transition-colors duration-150',
@@ -86,7 +86,7 @@ export default function AuthorLayout({ content }: Props) {
                   href="/static/CV-Ignacio-LopezColl.pdf"
                   target="_blank"
                 >
-                  <span>Resume</span>
+                  <span>Download CV</span>
                   <Twemoji emoji="page-facing-up" />
                 </a>
               </div>
