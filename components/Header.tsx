@@ -37,7 +37,7 @@ const Header = () => {
     }
   }, [lastScrollY])
 
-  const headerClass = clsx('w-full fixed top-0 z-60 left-0 right-0 transition-top duration-300', {
+  const headerClass = clsx('w-full fixed  z-60 left-0 right-0 transition-top duration-300', {
     'top-0': scrollDirection === 'up',
     '-top-20': scrollDirection === 'down', // Adjust the negative top value as needed
   })

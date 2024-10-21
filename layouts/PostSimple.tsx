@@ -9,7 +9,7 @@ import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import BlogMeta from '@/components/blog/BlogMeta'
-
+import TOCInline from 'pliny/ui/TOCInline'
 interface LayoutProps {
   content: CoreContent<Blog>
   children: ReactNode
@@ -18,7 +18,7 @@ interface LayoutProps {
 }
 
 export default function PostSimple({ content, next, prev, children }: LayoutProps) {
-  const { path, slug, date, title, readingTime } = content
+  const { path, slug, date, title, readingTime, toc } = content
 
   return (
     <SectionContainer>
@@ -38,41 +38,62 @@ export default function PostSimple({ content, next, prev, children }: LayoutProp
               </dl>
             </div>
           </header>
-          <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0">
-            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+          <div className="grid grid-cols-1 xl:grid-cols-4 xl:gap-x-6">
+            <aside className="col-span-1 hidden xl:sticky xl:top-20 xl:block">
+              <div className="space-y-6">
+                <Link
+                  href="/blog"
+                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                >
+                  &larr; Back to the blog
+                </Link>
+                <div className="text-sm font-medium leading-5 text-gray-500 dark:text-gray-400">
+                  <TOCInline
+                    toc={toc}
+                    asDisclosure={false}
+                    ulClassName="space-y-2"
+                    liClassName="ml-4"
+                  />
+                </div>
+              </div>
+            </aside>
+            <div className="col-span-1 divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
+              {siteMetadata.comments && (
+                <div
+                  className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
+                  id="comment"
+                >
+                  <Comments slug={slug} />
+                </div>
+              )}
+              <footer>
+                <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
+                  {prev && prev.path && (
+                    <div className="pt-4 xl:pt-8">
+                      <Link
+                        href={`/${prev.path}`}
+                        className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                        aria-label={`Previous post: ${prev.title}`}
+                      >
+                        &larr; {prev.title}
+                      </Link>
+                    </div>
+                  )}
+                  {next && next.path && (
+                    <div className="pt-4 xl:pt-8">
+                      <Link
+                        href={`/${next.path}`}
+                        className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                        aria-label={`Next post: ${next.title}`}
+                      >
+                        {next.title} &rarr;
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </footer>
             </div>
-            {siteMetadata.comments && (
-              <div className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300" id="comment">
-                <Comments slug={slug} />
-              </div>
-            )}
-            <footer>
-              <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
-                {prev && prev.path && (
-                  <div className="pt-4 xl:pt-8">
-                    <Link
-                      href={`/${prev.path}`}
-                      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                      aria-label={`Previous post: ${prev.title}`}
-                    >
-                      &larr; {prev.title}
-                    </Link>
-                  </div>
-                )}
-                {next && next.path && (
-                  <div className="pt-4 xl:pt-8">
-                    <Link
-                      href={`/${next.path}`}
-                      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                      aria-label={`Next post: ${next.title}`}
-                    >
-                      {next.title} &rarr;
-                    </Link>
-                  </div>
-                )}
-              </div>
-            </footer>
           </div>
         </div>
       </article>

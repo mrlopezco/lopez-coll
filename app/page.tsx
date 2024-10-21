@@ -78,11 +78,11 @@ export default async function Page() {
                       <div className="text-base font-medium leading-6">
                         <Link
                           href={`/blog/${slug}`}
-                          className="group relative inline-block text-primary-500 dark:text-primary-400"
+                          className="group relative inline-block text-primary-500 dark:text-primary-500"
                           aria-label={`Read more: "${title}"`}
                         >
                           Read more &rarr;
-                          <span className="block h-0.5 max-w-0 bg-primary-500 transition-all duration-500 group-hover:max-w-full dark:bg-primary-400"></span>
+                          <span className="block h-0.5 max-w-0 bg-primary-500 transition-all duration-500 group-hover:max-w-full dark:bg-primary-500"></span>
                         </Link>
                       </div>
                     </div>
@@ -97,11 +97,11 @@ export default async function Page() {
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href="/blog"
-            className="group relative inline-block text-primary-500 dark:text-primary-400"
+            className="group relative inline-block text-primary-500 dark:text-primary-500"
             aria-label="All posts"
           >
             All Posts &rarr;
-            <span className="block h-0.5 max-w-0 bg-primary-500 transition-all duration-500 group-hover:max-w-full dark:bg-primary-400"></span>
+            <span className="block h-0.5 max-w-0 bg-primary-500 transition-all duration-500 group-hover:max-w-full dark:bg-primary-500"></span>
           </Link>
         </div>
       )}
