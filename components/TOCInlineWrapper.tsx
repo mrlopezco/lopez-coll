@@ -6,22 +6,9 @@ interface TOCInlineWrapperProps extends TOCInlineProps {
 }
 
 const TOCInlineWrapper = ({ summaryClassName, asDisclosure, ...props }: TOCInlineWrapperProps) => {
-  const detailsStyle = {
-    backgroundColor: '#f5f5f5', // Slight greyish background
-    paddingLeft: '1.5rem',
-    paddingBottom: '0.5rem',
-    paddingTop: '0.5rem',
-    borderRadius: '.25rem',
-  }
-
-  const summaryStyle = {
-    fontSize: '1.25em', // Font size for the summary text
-    fontWeight: 'bold',
-  }
-
   return asDisclosure ? (
-    <details style={detailsStyle} open={!props.collapse}>
-      <summary style={summaryStyle}>Table of Contents</summary>
+    <details className="rounded bg-gray-100 pb-2 pl-6 pt-2 dark:bg-[#262626]">
+      <summary className="text-xl font-bold dark:text-gray-100">Table of Contents</summary>
       <TOCInline {...props} />
     </details>
   ) : (
