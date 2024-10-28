@@ -26,6 +26,9 @@ export default function BlogPage() {
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Blog
           </h1>
+          <h2 className="text-lg font-semibold leading-7 text-gray-500 dark:text-gray-400">
+            The Microsoft Dynamics and project leadership blog
+          </h2>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             My name is Ignacio Lopez Coll, and I am a Microsoft Dynamics 365 Solution Architect with
             a strong financial background. As a former financial consultant, I frequently write

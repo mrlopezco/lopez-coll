@@ -1,7 +1,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Ignacio Lopez Coll',
-  author: 'Ignacio López Coll',
+  title: 'Ignacio Lopez Coll - Dynamics 365 Solution Architect',
+  author: 'Ignacio Lopez Coll',
   headerTitle: 'Ignacio Lopez Coll',
   description:
     'Ignacio Lopez Colls personal blog, featuring in-depth articles and guides on Microsoft Dynamics 365 Products and ERP Implementations',

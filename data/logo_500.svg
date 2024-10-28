@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="344.5639097744361 330.27819548872174 111.73684210526318 91.21804511278197" width="500" height="500">
+    <defs>
+        <linearGradient id="gradientLC" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1" y2="1">
+            <stop style="stop-color: #34c7a9; stop-opacity: 1" offset="0%"></stop>
+            <stop style="stop-color: #9de8d9; stop-opacity: 1" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g fill="url(#gradientLC)" font-family="Verdana, sans-serif" font-size="50" font-weight="bold">
+        <text x="375" y="405">L</text>
+        <text x="390" y="385">C</text>
+    </g>
+</svg>

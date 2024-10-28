@@ -1,0 +1,105 @@
+---
+title: Creating a Modern Chart of Accounts for your ERP Implementation Project
+date: '2024-10-28'
+lastmod: '2024-10-28'
+tags: ['D365 Finance', 'General Ledger']
+draft: true
+summary: Discover expert strategies and practical insights on renewing your chart of accounts for your upcoming ERP implementation, specifically for Microsoft Dynamics 365. Learn how to structure, clean up, and align your financial data with modern reporting needs.
+layout: PostLayout
+---
+
+<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure toHeading={2} />
+
+In my many years of experience as a finance consultant and now as a solution architect for Microsoft Dynamics 365 projects, I have observed a recurring task in every new project: the finance team must review the chart of accounts. Often, rework is necessary because clients are transitioning from an older ERP or see this as an opportunity to renew their chart of accounts. In this blog post, I will share my approaches and ideas on how to tackle the task of renewing a chart of accounts. Please consult with your auditor or tax consultant for personalized advice.
+
+## Strategic Planning for Chart of Accounts
+
+### Assessing Organizational Needs
+
+Before starting, it is crucial to step back and assess the organization's needs. Are you a large enterprise with multiple legal entities worldwide, or a single legal entity in one country? Some countries, like Spain or France, mandate the use of a legal chart of accounts. In others, like Germany, industry standards are set by organizations such as DATEV. These standards can serve as a starting point, but using them directly can present challenges.
+
+> _Ensure your chart of accounts complies with current law and consult tax/accounting/auditing professionals._
+
+Ultimately, you need to determine what your organization requires and ensure your chart of accounts complies with local legal standards. At the end, you need one Global Chart of Accounts that is applicable across the entire organization and also fits local legal standards.
+
+### Cleaning Up Existing Accounts
+
+Clients often have a messy chart of accounts with many unused accounts, some of which are not understood or whose origins are unknown. I recommend:
+
+1. Running a query of transactions posted against these accounts
+2. Identifying outdated accounts
+3. Disregarding accounts with no transactions in the last three to four years
+
+## Identifying Reporting Requirements
+
+### Leveraging Existing Chart of Accounts
+
+Over the last decade, financial reporting has evolved significantly, from SRS reporting to management reporter tools, business analytics, and now AI. It is essential to identify your organization's reporting needs, KPIs, and transaction requirements. The old chart of accounts can provide insights into current reporting practices. For example, an account named "Revenue South America Parts" indicates interest in revenue data for specific regions and items. Modern ERPs may not require such accounts, but they highlight reporting needs.
+
+This kind of account won't be necessary in modern ERPs, but it is important to note that someone in the organization is interested in knowing the revenue of parts in a specific region. This is just a simple example, but we will be streamlining the chart of accounts, which will eliminate the option to record transactions at a detailed level in the general ledger. If you need detail, you go to your BI tools or your subledgers.
+
+### Ensuring Post-Go-Live Reporting Efficiency
+
+With your reporting needs identified, you should also consider analyzing financial dimensions in a Microsoft Dynamics product, or ensure that you can get your financial reports with the help of BI specialists.
+
+## Designing a Modern Global Chart of Accounts
+
+### Assigning Meaning to Digits
+
+Digits in the chart of accounts should have meaning. Commonly, the first digit represents the account type:
+
+| Digit | Account Type         |
+| ----- | -------------------- |
+| 1     | Assets               |
+| 2     | Liabilities          |
+| 3     | Equities             |
+| 4     | Revenue              |
+| 5     | Expenses             |
+| 6     | Gains and losses     |
+| 9     | Statistical accounts |
+
+The second digit adds specificity, such as 1100 for cash and cash equivalents, 1200 for accounts receivable, and so on. The third digit allows for further differentiation, especially in large organizations with multiple bank accounts and legal entities.
+
+### Detailed Example: Bank Accounts
+
+The third digit is where it gets interesting. Let's continue this example with the banks. Large organizations will have different bank accounts in multiple legal entities of different types and currencies. One approach I really liked from a previous client was to give the Asset-Cash side this logic. The third digit equals currency, such as USD, EUR, or GBP. The fourth digit equals the type of bank account, including checking, investment, fixed-rate, or hedging account. The fifth and sixth digits leave space to have multiple of those accounts.
+
+So now, as an example, let's determine this logic;
+
+| Account Number | Account Name                  | Digit 1: Account Type | Digit 2: Subtype | Digit 3: Currency | Digit 4: Account Type | Digit 5 & 6: Extensions |
+| -------------- | ----------------------------- | --------------------- | ---------------- | ----------------- | --------------------- | ----------------------- |
+| 112101         | Assets-Cash-EUR-Checking 01   | 1: Assets             | 1: Cash          | 2: EUR            | 1: Checking           | 01                      |
+| 113101         | Assets-Cash-GBP-Checking 01   | 1: Assets             | 1: Cash          | 3: GBP            | 1: Checking           | 01                      |
+| 113102         | Assets-Cash-GBP-Checking 02   | 1: Assets             | 1: Cash          | 3: GBP            | 1: Checking           | 02                      |
+| 113201         | Assets-Cash-GBP-Hedge 01      | 1: Assets             | 1: Cash          | 3: GBP            | 2: Hedge              | 01                      |
+| 112201         | Assets-Cash-USD-Investment 01 | 1: Assets             | 1: Cash          | 2: USD            | 1: Investment         | 01                      |
+
+This does not mean that you have to create all these accounts in the chart of accounts and blow it up. But this way, you can find a logic for other departments to faster report based on the GL accounts if required.
+
+Oh, and because the assignment of the subledger bank account in Dynamics 365 is variable based on the legal entity, you can assign the account (e.g., `112101`) to multiple legal entities to single bank accounts. So please do not link the actual bank account number to the name of the bank account like "Asset-Cash-EUR-JPMorgan-43234214." This is something we often see out there and is no longer relevant with modern ERPs.
+
+### Foundation and Extensions: Optimal Digit Length
+
+A good chart of accounts should have as few digits as possible while meeting reporting needs. Modern analytics tools can report based on linked transactions, reducing the need for a large chart of accounts. Typically, six digits suffice, with larger organizations using up to eight digits. The last two digits should be reserved for extensions or local legal requirements.
+
+### Effective Use of Descriptions
+
+Descriptions are crucial for helping people find the right account and avoiding unnecessary account creation. Descriptions can incorporate logic, such as indicating whether an account is for asset-cash, euros, etc.
+
+## Utilizing Dimensions to Enhance Chart of Accounts
+
+### Minimizing Redundancy
+
+A common mistake is subdividing account types into unnecessary dimensions. For example, instead of creating separate accounts for office equipment at different locations, use a financial dimension for cost centers or departments. For intercompany transactions, use two accounts—one for accounts payable and one for accounts receivable—and a financial dimension to determine the transaction counterpart. I remember my first job as an accountant and seeing all the possible combinations in an organization with 25 legal entities.
+For example:
+
+- AP Legal entity A/B,
+- AR Legal Entity A/B,
+- AP Legal Entity B/A,
+- AR Legal Entity B/A.
+
+Holy moly. Nowadays, you just need one account for AP and AR intercompany. Then use a financial dimension to determine the counterpart of the transaction.
+
+## Conclusion
+
+These are just a few observations and tips for creating a new chart of accounts. If you have additional suggestions, feel free to share them in the comments. I will update this article with more insights as I encounter them. Thank you for reading.
