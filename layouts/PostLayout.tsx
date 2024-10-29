@@ -32,7 +32,8 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, summary, tags, readingTime, toc } = content
+  const { filePath, path, slug, date, title, summary, tags, readingTime, toc, attachments } =
+    content
   const basePath = path.split('/')[0]
 
   return (
@@ -164,6 +165,23 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   ulClassName="border-l pl-3 border-primary-500"
                   liClassName="font-normal text-sm text-gray-800 dark:text-gray-50 mb-2 hover:text-primary-500 dark:hover:text-primary-500"
                 />
+              </div>
+              <div className="pt-4 xl:pt-8">
+                <h2>Attachments</h2>
+                <ul>
+                  {attachments.map((attachment, idx) => (
+                    <li key={`attachment-${idx}`}>
+                      <Link
+                        href={attachment.src}
+                        target="_blank"
+                        download
+                        className="text-sm dark:text-gray-200 dark:hover:text-primary-500"
+                      >
+                        {attachment.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
               <div className="pt-4 xl:pt-8">
                 <Link
