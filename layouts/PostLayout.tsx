@@ -10,6 +10,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import BlogMeta from '@/components/blog/BlogMeta'
+import TOCInline from 'pliny/ui/TOCInline'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -31,7 +32,7 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, summary, tags, readingTime } = content
+  const { filePath, path, slug, date, title, summary, tags, readingTime, toc } = content
   const basePath = path.split('/')[0]
 
   return (
@@ -154,6 +155,15 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     )}
                   </div>
                 )}
+              </div>
+              <div>
+                <h2 className="mb-2">Overview</h2>
+                <TOCInline
+                  toc={toc}
+                  toHeading={2}
+                  ulClassName="border-l pl-3 border-primary-500"
+                  liClassName="font-normal text-sm text-gray-800 dark:text-gray-50 mb-2 hover:text-primary-500 dark:hover:text-primary-500"
+                />
               </div>
               <div className="pt-4 xl:pt-8">
                 <Link
