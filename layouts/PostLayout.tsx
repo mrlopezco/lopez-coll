@@ -119,9 +119,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                     {prev && prev.path && (
                       <div>
-                        <h2 className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        <p className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           Previous Article
-                        </h2>
+                        </p>
                         <div>
                           <Link
                             href={`/${prev.path}`}
@@ -134,9 +134,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     )}
                     {next && next.path && (
                       <div>
-                        <h2 className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        <p className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           Next Article
-                        </h2>
+                        </p>
                         <div>
                           <Link
                             href={`/${next.path}`}
@@ -150,22 +150,11 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </div>
                 )}
               </div>
-              <div className="hidden md:block">
-                <h2 className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                  Overview
-                </h2>
-                <TOCInline
-                  toc={toc}
-                  toHeading={3}
-                  ulClassName="border-l pl-3 border-primary-500"
-                  liClassName="font-normal text-sm text-gray-800 dark:text-gray-50 mb-2 hover:text-primary-500 dark:hover:text-primary-500"
-                />
-              </div>
               {attachments && attachments.length > 0 && (
                 <div className="pt-4 xl:pt-8">
-                  <h2 className="my-2 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  <p className="my-2 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                     Attachments
-                  </h2>
+                  </p>
                   <ul>
                     {attachments.map((attachment, idx) => (
                       <li key={`attachment-${idx}`}>
@@ -182,14 +171,16 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </ul>
                 </div>
               )}
-              <div className="pt-4 xl:pt-8">
-                <Link
-                  href={`/${basePath}`}
-                  className="text-primary-500 transition-colors duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-500"
-                  aria-label="Back to the blog"
-                >
-                  &larr; Back to the blog
-                </Link>
+              <div className="hidden md:sticky md:top-24 md:block">
+                <p className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  Overview
+                </p>
+                <TOCInline
+                  toc={toc}
+                  toHeading={3}
+                  ulClassName="border-l pl-3 border-primary-500"
+                  liClassName="font-normal text-sm text-gray-800 dark:text-gray-50 mb-2 hover:text-primary-500 dark:hover:text-primary-500"
+                />
               </div>
             </footer>
           </div>

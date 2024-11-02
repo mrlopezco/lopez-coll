@@ -57,10 +57,20 @@ const EXPERIENCES = [
   },
   {
     org: 'HSO Enterprise Solutions GmbH',
-    start: '2016',
+    start: '2015',
     end: '2016',
     title: 'Junior Finance Consultant',
     workplace: 'Stuttgart (Germany)',
+    country: 'germany',
+    // logo: '/static/images/weaverse-logo.png',
+    // icon: 'briefcase',
+  },
+  {
+    org: 'Testo AG',
+    start: '2012',
+    end: '2015',
+    title: 'Cooperative Student',
+    workplace: 'Titisee Neustadt (Germany)',
     country: 'germany',
     // logo: '/static/images/weaverse-logo.png',
     // icon: 'briefcase',
@@ -113,12 +123,15 @@ function TimelineItem({
               <div className="line-clamp-1 text-xs tabular-nums text-gray-500 dark:text-gray-400">
                 <span>{start}</span> – <span>{end}</span>
               </div>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:justify-between">
+              <p className="text-md my-0 font-semibold text-gray-900 dark:text-white">{org}</p>
               <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
                 <Twemoji emoji={`${country.toLowerCase()}-flag`} />
                 <span>{workplace}</span>
               </div>
             </div>
-            <p className="text-md my-0 font-semibold text-gray-900 dark:text-white">{org}</p>
+
             <div className="flex flex-wrap items-center gap-1 pt-1 text-sm text-gray-700 dark:text-gray-200">
               {/* <Twemoji emoji={icon} className="!-mt-1" /> */}
               <span>{title}</span>

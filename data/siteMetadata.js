@@ -1,6 +1,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Ignacio Lopez Coll - Dynamics 365 Solution Architect',
+  title: 'Lopez Coll',
+  titlePage: 'Lopez Coll',
   author: 'Ignacio Lopez Coll',
   headerTitle: 'Ignacio Lopez Coll',
   description:

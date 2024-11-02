@@ -12,10 +12,10 @@ export default function Projects() {
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             Projects
           </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            This is a selection of the projects I have been involved in. Some smaller assignments or
-            pre-sale projects are not being included in this list.
-          </p>
+          <h2 className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+            This is a selection of the h2rojects I have been involved in. Some smaller assignments
+            or pre-sale projects are not being included in this list.
+          </h2>
         </div>
         <div className="container py-12">
           <div className="-m-4 flex flex-wrap">

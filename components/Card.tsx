@@ -22,7 +22,7 @@ const Card = ({ title, description, tags, imgSrc, href, flags }) => (
       </div>
       <div className="p-6">
         <div className="mb-3 space-y-2">
-          <h2 className="text-2xl font-bold leading-8 tracking-tight">
+          <h3 className="text-2xl font-bold leading-8 tracking-tight">
             {href ? (
               <Link href={href} aria-label={`Link to ${title}`}>
                 {title}
@@ -30,7 +30,7 @@ const Card = ({ title, description, tags, imgSrc, href, flags }) => (
             ) : (
               title
             )}
-          </h2>
+          </h3>
           <div className="flex items-center space-x-2">
             {flags && map(flags, (flag) => <Twemoji key={flag} emoji={flag} />)}
             {tags && (

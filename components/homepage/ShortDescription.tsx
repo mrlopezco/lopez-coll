@@ -19,10 +19,15 @@ const ShortDescription = () => {
         <a
           href="https://plaza-365.com"
           className="text-primary-600 hover:text-primary-500 dark:text-primary-500 hover:dark:text-primary-400"
+          target="_blank"
         >
           Plaza 365
         </a>
         , where users can stay in touch with the newest articles of the Dynamics 365 space.
+      </p>
+      <p>
+        On this website you will find articles around the topics I am passionate about. Feel free to
+        reach out or leave a comment if you have any questions.{' '}
       </p>
     </h2>
   )
