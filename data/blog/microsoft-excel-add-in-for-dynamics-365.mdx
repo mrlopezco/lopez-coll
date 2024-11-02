@@ -8,9 +8,9 @@ layout: PostLayout
 summary: The Excel Add in for Microsoft's Dynamics 365 Finance and SCM provides an easy way to open journals, configuration or tables. In this tutorial, you will learn some advanced features to make this tool even better!
 ---
 
-<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure />
+<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure toHeading={3} />
 
-## 1. Introduction
+### 1. Introduction
 
 Unleash the power of Microsoft's Excel Add-in for Dynamics 365 Finance and Supply Chain Management with these quick tips. This post will get updated periodically, so make sure you stay tuned!
 
@@ -33,9 +33,9 @@ _P.S. In this blog post, we will use Journal Names for the examples._
   caption="Open Journal Names in Microsoft Excel Add in for Dynamics 365 Finance"
 />
 
-## 2. Advanced Functionality of Microsoft's Excel Add-in
+### 2. Advanced Functionality of Microsoft's Excel Add-in
 
-### 2.1 Adding extra fields after opening a File
+#### 2.1 Adding extra fields after opening a File
 
 Whenever you open a Data Entity with the Excel Add In, you are going to see some pre-determined fields. In most of the cases, the pre-selection done by Microsoft is quite good, but in some other cases we need to modify hidden fields. In order to add extra columns to the Excel File, we need to head over to the Add-in and click on the Design Field.
 
@@ -61,7 +61,7 @@ In my example, I want to add the Approval Workflow Field to the journal, as this
   caption="Adding a column to the Excel File in Microsoft Excel Add in for Dynamics 365 Finance"
 />
 
-### 2.2 Use Filters the smart way
+#### 2.2 Use Filters the smart way
 
 After the initial load of the file, you will encounter all the records the data entity is returning. In case you want to see only certain records, it is possible to determine filtering values.
 
@@ -87,7 +87,7 @@ Let's clear that one, and set a new one. From the dropdown, we select "Journal t
   caption="Setting a custom filter in Microsoft Excel Add in for Dynamics 365 Finance"
 />
 
-### 2.3 View records from multiple legal entities
+#### 2.3 View records from multiple legal entities
 
 In the previous chapter, we came across a filter of the type "Company". This filter is set often by default, because the user is mainly interested in the records he currently sees on screen. If you want to see the records across all legal entities, we will need first to remove that filter and then display the legal entity ID.
 
@@ -111,7 +111,11 @@ From there, we pick the DataAreaID Field and include them in our selected fields
 
 After hitting update and refreshing the query from the main menu, we will get all the journals from all legal entities.
 
-### 2.5 Multiple Data Entities in one Excel File
+#### 2.4. Save the Excel File for later use
+
+This might sound like a stupid tip, but have you tried to save the Excel file and then re-opened it? 🙂
+
+#### 2.5 Multiple Data Entities in one Excel File
 
 In the last chapter, you might have noticed that at the top of the design window, we have the option to "Add tables". This is the way to add additional data entities to our Excel file. Personally, I would recommend having one data entity per Excel sheet, simply for better visualization.
 
@@ -137,11 +141,7 @@ The result is then visible in the design screen, where both of our data entities
   caption="Design Mode with multiple data entities in Microsoft Excel Add in for Dynamics 365 Finance"
 />
 
-### 2.4. Save the Excel File for later use
-
-This might sound like a stupid tip, but have you tried to save the Excel file and then re-opened it? 🙂
-
-## 3 Conclusion
+### 3 Conclusion
 
 Those were some advanced tips for using the Microsoft Excel Add in with Dynamics 365 Finance and Supply Chain Management. If you have more tips you want to share with us, feel free to leave a comment.
 

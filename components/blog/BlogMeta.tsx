@@ -14,7 +14,7 @@ export interface BlogMetaProps {
 
 const BlogMeta = ({ date, slug, readingTime }: BlogMetaProps) => {
   return (
-    <dd className="flex flex-col items-center justify-center gap-1 font-semibold text-gray-500 dark:text-gray-400 sm:flex-row">
+    <dd className="flex flex-row items-center justify-around gap-1 font-semibold  text-gray-500 dark:text-gray-400  md:justify-center">
       <time dateTime={date} className="flex items-center">
         <Twemoji emoji="calendar" size="1" />
         <span className="ml-1 md:ml-2">{formatDate(date)}</span>

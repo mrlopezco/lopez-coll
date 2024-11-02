@@ -8,9 +8,9 @@ layout: PostLayout
 summary: Explore your options on how to properly determine the posting logic of your financial balances to D365 with this blog post.
 ---
 
-<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure />
+<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure toHeading={3} />
 
-## 1. Introduction
+### 1. Introduction
 
 Welcome to another post of how to migrate financial opening balances in Dynamics 365 Finance.
 
@@ -20,7 +20,7 @@ In this post, we will elaborate on the two most common accounting principles use
 
 **Please note that this blog is intended to provide general guidance and does not represent any form of legal or accounting advice**.
 
-## 2. General Ledger (GL) and Subledgers (SL)
+### 2. General Ledger (GL) and Subledgers (SL)
 
 Before starting any data migration activities, it's important to understand our starting point and the goal of our activities.
 
@@ -36,9 +36,9 @@ Before starting any data migration duties, we need to ensure that the data we ha
 
 Ultimately, the goal is to migrate the balances from the previous systems and balance them in Dynamics 365 Finance. To showcase that our migration effort was successful to auditors, we can choose from different posting logic approaches, each with its own advantages and disadvantages.
 
-## 3. Accounting and opening balances in Dynamics 365 Finance
+### 3. Accounting and opening balances in Dynamics 365 Finance
 
-### 3.1 The "9-Accounts" approach
+#### 3.1 The "9-Accounts" approach
 
 This posting logic approach is probably most used in European projects and actually not very spread in North-America. At least from my experience. The guideline of this approach is, that every imported transaction will have a 9-Account as an offset. A 9-Account are accounts used during the duration of the project to implement Dynamics, but afterwards suspended. So usually, we would create different 9 Accounts for every subledger module.
 
@@ -66,18 +66,18 @@ If you find any deltas, you can compare every 9 Account to the Balance Sheet and
   caption="AP Open Invoice Journal with 9* as offset account"
 />
 
-#### 3.1.1 The "9-Accounts" approach - Benefits
+##### 3.1.1 The "9-Accounts" approach - Benefits
 
 - Offset Account can be determined as fixed value in the import templates
 - Easy reconciliation with legacy Balance Sheet
 - Reporting on the 9 Accounts as documentation for auditors
 
-#### 3.1.2 The "9-Accounts" approach - Disadvantages
+##### 3.1.2 The "9-Accounts" approach - Disadvantages
 
 - Creating new accounts only for one purpose and then suspend them
 - Account Structure need to consider the 9 accounts
 
-### 3.2 The "Net Zero" approach
+#### 3.2 The "Net Zero" approach
 
 From Europe, we go back to North-America, where the "Net Zero" posting logic is probably the leading approach.
 
@@ -101,17 +101,17 @@ The result of posting this journal, and from a General Ledger perspective, we wo
 
 After posting all the subledger journals, we would have to include the subledger integration accounts in our general ledger opening balance template, and validate our proposed GL Balance, matches what we posted through the subledger. If this is not the case, we can create an adjustment transaction to bring back the GL with the subledger easily. That is why this approach is preferred for companies with GL-SL trouble, that want to allign their GL to the SL balances.
 
-#### 3.2.1 The "Net Zero" approach - Benefits
+##### 3.2.1 The "Net Zero" approach - Benefits
 
 - Adjustments of GL and SL can easily be done through GL
 - If you know more, let me know!
 
-#### 3.2.1 The "Net Zero" approach - Disadvantages
+##### 3.2.1 The "Net Zero" approach - Disadvantages
 
 - Offset accounts need to be identified by cross-checking posting profiles
 - Template creation process more complicated
 
-## 4. Conclusion
+### 4. Conclusion
 
 In this post we learned about the two most common approaches for migrating financial opening balances with their advantages and disadvantages. Before deciding for an approach, you should discuss with your team their preferences and come to an agreement.
 

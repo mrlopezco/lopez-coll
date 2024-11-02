@@ -44,7 +44,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
           <header className="pt-6 xl:pb-6">
             <div className="space-y-4 text-center">
               <PageTitle>{title}</PageTitle>
-              <p className="text-lg text-gray-500 dark:text-gray-400">{summary}</p>{' '}
+              <h2 className="text-lg text-gray-500 dark:text-gray-400">{summary}</h2>{' '}
               {/* Added summary here */}
               <dl>
                 <div>
@@ -93,10 +93,6 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
               <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={discussUrl(path)} rel="nofollow">
-                  Discuss on Twitter
-                </Link>
-                {` • `}
                 <Link href={editUrl(filePath)}>View on GitHub</Link>
               </div>
               {siteMetadata.comments && (
@@ -112,9 +108,6 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
                 {tags && (
                   <div className="py-4 xl:py-8">
-                    <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                      Tags
-                    </h2>
                     <div className="flex flex-wrap">
                       {tags.map((tag) => (
                         <Tag key={tag} text={tag} />
@@ -126,7 +119,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                     {prev && prev.path && (
                       <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        <h2 className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           Previous Article
                         </h2>
                         <div>
@@ -141,7 +134,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     )}
                     {next && next.path && (
                       <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        <h2 className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           Next Article
                         </h2>
                         <div>
@@ -157,32 +150,38 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </div>
                 )}
               </div>
-              <div>
-                <h2 className="mb-2">Overview</h2>
+              <div className="hidden md:block">
+                <h2 className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  Overview
+                </h2>
                 <TOCInline
                   toc={toc}
-                  toHeading={2}
+                  toHeading={3}
                   ulClassName="border-l pl-3 border-primary-500"
                   liClassName="font-normal text-sm text-gray-800 dark:text-gray-50 mb-2 hover:text-primary-500 dark:hover:text-primary-500"
                 />
               </div>
-              <div className="pt-4 xl:pt-8">
-                <h2>Attachments</h2>
-                <ul>
-                  {attachments.map((attachment, idx) => (
-                    <li key={`attachment-${idx}`}>
-                      <Link
-                        href={attachment.src}
-                        target="_blank"
-                        download
-                        className="text-sm dark:text-gray-200 dark:hover:text-primary-500"
-                      >
-                        {attachment.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {attachments && attachments.length > 0 && (
+                <div className="pt-4 xl:pt-8">
+                  <h2 className="my-2 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    Attachments
+                  </h2>
+                  <ul>
+                    {attachments.map((attachment, idx) => (
+                      <li key={`attachment-${idx}`}>
+                        <Link
+                          href={attachment.src}
+                          target="_blank"
+                          download
+                          className="text-sm dark:text-gray-200 dark:hover:text-primary-500"
+                        >
+                          {attachment.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               <div className="pt-4 xl:pt-8">
                 <Link
                   href={`/${basePath}`}

@@ -10,7 +10,7 @@ const siteMetadata = {
   siteUrl: process.env.SITE_URL || 'https://ignacio-web.vercel.app',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/thumbnail.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'ignacio@lopez-coll.com',
   xing: 'https://www.xing.com/profile/JIgnacio_LopezColl',
