@@ -22,15 +22,18 @@ const ScrollTopAndComment = () => {
   const handleScrollToComment = () => {
     document.getElementById('comment')?.scrollIntoView()
   }
+
   return (
     <div
-      className={`fixed bottom-8 right-8 hidden flex-col gap-3 ${show ? 'md:flex' : 'md:hidden'}`}
+      className={`fixed bottom-8 right-8 flex flex-col gap-3 transition-opacity transition-transform duration-300 ${
+        show ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'
+      }`}
     >
       {siteMetadata.comments?.provider && (
         <button
           aria-label="Scroll To Comment"
           onClick={handleScrollToComment}
-          className="rounded-full bg-gray-200 bg-primary-700 p-2 text-gray-900 transition-all hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-500"
+          className="rounded-full bg-gray-200 p-2 text-gray-900 transition-all duration-300 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600"
         >
           <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path
@@ -44,7 +47,7 @@ const ScrollTopAndComment = () => {
       <button
         aria-label="Scroll To Top"
         onClick={handleScrollTop}
-        className="rounded-full bg-gray-200 p-2 text-gray-900 transition-all hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-500"
+        className="rounded-full bg-gray-200 p-2 text-gray-900 transition-all duration-300 hover:bg-primary-700"
       >
         <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path

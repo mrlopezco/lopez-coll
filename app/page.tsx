@@ -10,10 +10,11 @@ import Link from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import Tag from '@/components/Tag'
+import { genPageMetadata } from 'app/seo'
 // import SummaryCards from '@/components/homepage/SummaryCards'
 
 const MAX_DISPLAY = 3
-
+export const metadata = genPageMetadata({ title: 'Dynamics 365 Solution Architect' })
 export default async function Page() {
   const sortedPosts = sortPosts(allBlogs)
   const posts = allCoreContent(sortedPosts)

@@ -78,7 +78,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           {author.linkedin && (
                             <Link
                               href={author.linkedin}
-                              className="text-primary-500 transition-colors duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-500"
+                              className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700  dark:hover:text-primary-700"
                             >
                               Linkedin
                             </Link>
@@ -93,7 +93,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
               <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={editUrl(filePath)}>View on GitHub</Link>
+                <p>
+                  We would love to hear your thoughts and opininons in the comment section below!
+                </p>
               </div>
               {siteMetadata.comments && (
                 <div
@@ -125,7 +127,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                         <div>
                           <Link
                             href={`/${prev.path}`}
-                            className="text-primary-500 transition-colors duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-500"
+                            className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700  dark:hover:text-primary-700"
                           >
                             {prev.title}
                           </Link>
@@ -140,7 +142,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                         <div>
                           <Link
                             href={`/${next.path}`}
-                            className="text-primary-500 transition-colors duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-500"
+                            className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700  dark:hover:text-primary-700"
                           >
                             {next.title}
                           </Link>
@@ -162,7 +164,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           href={attachment.src}
                           target="_blank"
                           download
-                          className="text-sm dark:text-gray-200 dark:hover:text-primary-500"
+                          className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700  dark:hover:text-primary-700"
                         >
                           {attachment.name}
                         </Link>
@@ -179,7 +181,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   toc={toc}
                   toHeading={3}
                   ulClassName="border-l pl-3 border-primary-500"
-                  liClassName="font-normal text-sm text-gray-800 dark:text-gray-50 mb-2 hover:text-primary-500 dark:hover:text-primary-500"
+                  liClassName="font-normal transition-all duration-300 text-sm text-gray-800 dark:text-gray-50 mb-2 hover:text-primary-500 dark:hover:text-primary-500"
                 />
               </div>
             </footer>

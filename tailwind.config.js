@@ -79,7 +79,7 @@ module.exports = {
               color: theme('colors.primary.500'),
               transition: 'color 0.3s ease', // Add transition property
               '&:hover': {
-                color: theme('colors.primary.600'),
+                color: theme('colors.primary.700'),
               },
               code: { color: theme('colors.primary.400') },
             },

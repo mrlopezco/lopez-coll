@@ -9,6 +9,7 @@ export default function Footer() {
         <div className="mb-3 flex space-x-2">
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} />
           <SocialIcon kind="xing" href={siteMetadata.xing} />
+          <SocialIcon kind="github" href={siteMetadata.github} />
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} />
         </div>
         <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
