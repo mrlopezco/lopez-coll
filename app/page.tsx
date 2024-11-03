@@ -28,7 +28,7 @@ export default async function Page() {
           <Heading />
           <TypedBios />
           <ShortDescription />
-          <BlogLinks />
+          {/* <BlogLinks /> */}
           {/* <p className="flex">
             <span className="mr-2">Happy reading</span>
             <Twemoji emoji="clinking-beer-mugs" />

@@ -18,7 +18,7 @@ const ShortDescription = () => {
         In my spare time, I love to create projects that help others. Such as{' '}
         <a
           href="https://plaza-365.com"
-          className="text-primary-600 hover:text-primary-500 dark:text-primary-500 hover:dark:text-primary-400"
+          className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700  dark:hover:text-primary-700"
           target="_blank"
         >
           Plaza 365
@@ -26,8 +26,9 @@ const ShortDescription = () => {
         , where users can stay in touch with the newest articles of the Dynamics 365 space.
       </p>
       <p>
-        On this website you will find articles around the topics I am passionate about. Feel free to
-        reach out or leave a comment if you have any questions.{' '}
+        On this website you will find articles around the topics I am passionate about. <br />{' '}
+        <br /> For some more information about myself, certificates, and CV visit the "About Me"
+        page.{' '}
       </p>
     </h2>
   )

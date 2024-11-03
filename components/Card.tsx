@@ -36,10 +36,7 @@ const Card = ({ title, description, tags, imgSrc, href, flags }) => (
             {tags && (
               <div className="flex items-center space-x-4">
                 {map(tags, (tag) => (
-                  <span
-                    key={tag}
-                    className="text-sm font-medium uppercase text-primary-500 dark:text-primary-400"
-                  >
+                  <span key={tag} className="text-sm font-medium uppercase text-gray-500">
                     {tag}
                   </span>
                 ))}
@@ -51,10 +48,11 @@ const Card = ({ title, description, tags, imgSrc, href, flags }) => (
         {href && (
           <Link
             href={href}
-            className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+            className="group relative inline-block text-primary-500 dark:text-primary-500"
             aria-label={`Link to ${title}`}
           >
-            Learn more &rarr;
+            Visit website &rarr;
+            <span className="block h-0.5 max-w-0 bg-primary-500 transition-all duration-500 group-hover:max-w-full dark:bg-primary-500"></span>
           </Link>
         )}
       </div>
