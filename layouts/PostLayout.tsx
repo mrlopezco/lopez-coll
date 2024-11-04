@@ -45,7 +45,6 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             <div className="space-y-4 text-center">
               <PageTitle>{title}</PageTitle>
               <h2 className="text-lg text-gray-500 dark:text-gray-400">{summary}</h2>{' '}
-              {/* Added summary here */}
               <dl>
                 <div>
                   <dt className="sr-only">Published on</dt>
@@ -94,7 +93,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
               <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
                 <p>
-                  We would love to hear your thoughts and opininons in the comment section below!
+                  We would love to hear your thoughts and opinions in the comment section below!
                 </p>
               </div>
               {siteMetadata.comments && (
@@ -107,14 +106,35 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               )}
             </div>
             <footer>
-              <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
+              <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 ">
                 {tags && (
-                  <div className="py-4 xl:py-8">
+                  <div className="py-2 xl:py-8">
                     <div className="flex flex-wrap">
                       {tags.map((tag) => (
                         <Tag key={tag} text={tag} />
                       ))}
                     </div>
+                  </div>
+                )}
+                {attachments && attachments.length > 0 && (
+                  <div className=" ">
+                    <p className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                      Attachments
+                    </p>
+                    <ul>
+                      {attachments.map((attachment, idx) => (
+                        <li key={`attachment-${idx}`} className="my-1">
+                          <Link
+                            href={attachment.src}
+                            target="_blank"
+                            download
+                            className=" text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
+                          >
+                            {attachment.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
                 {(next || prev) && (
@@ -127,7 +147,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                         <div>
                           <Link
                             href={`/${prev.path}`}
-                            className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700  dark:hover:text-primary-700"
+                            className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
                           >
                             {prev.title}
                           </Link>
@@ -142,7 +162,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                         <div>
                           <Link
                             href={`/${next.path}`}
-                            className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700  dark:hover:text-primary-700"
+                            className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
                           >
                             {next.title}
                           </Link>
@@ -152,36 +172,15 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </div>
                 )}
               </div>
-              {attachments && attachments.length > 0 && (
-                <div className="pt-4 xl:pt-8">
-                  <p className="my-2 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                    Attachments
-                  </p>
-                  <ul>
-                    {attachments.map((attachment, idx) => (
-                      <li key={`attachment-${idx}`}>
-                        <Link
-                          href={attachment.src}
-                          target="_blank"
-                          download
-                          className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700  dark:hover:text-primary-700"
-                        >
-                          {attachment.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
               <div className="hidden md:sticky md:top-24 md:block">
-                <p className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                <p className="my-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
                   Overview
                 </p>
                 <TOCInline
                   toc={toc}
                   toHeading={3}
                   ulClassName="border-l pl-3 border-primary-500"
-                  liClassName="font-normal transition-all duration-300 text-sm text-gray-800 dark:text-gray-50 mb-2 hover:text-primary-500 dark:hover:text-primary-500"
+                  liClassName="text-gray-600 dark:text-gray-400 font-normal transition-all duration-300 text-sm  mb-2 hover:text-primary-500 dark:hover:text-primary-500"
                 />
               </div>
             </footer>
