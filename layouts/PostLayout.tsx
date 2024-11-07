@@ -11,7 +11,7 @@ import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import BlogMeta from '@/components/blog/BlogMeta'
 import TOCInline from 'pliny/ui/TOCInline'
-
+import CustomNewsletterForm from '@/components/CustomNewsLetterform'
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
@@ -172,16 +172,26 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </div>
                 )}
               </div>
-              <div className="hidden md:sticky md:top-24 md:block">
-                <p className="my-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                  Overview
-                </p>
-                <TOCInline
-                  toc={toc}
-                  toHeading={3}
-                  ulClassName="border-l pl-3 border-primary-500"
-                  liClassName="text-gray-600 dark:text-gray-400 font-normal transition-all duration-300 text-sm  mb-2 hover:text-primary-500 dark:hover:text-primary-500"
-                />
+              <div className=" block md:sticky md:top-24  xl:space-y-8">
+                <div className="hidden md:block">
+                  <p className="my-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    Overview
+                  </p>
+                  <TOCInline
+                    toc={toc}
+                    toHeading={3}
+                    ulClassName="border-l pl-3 border-primary-500"
+                    liClassName="text-gray-600 dark:text-gray-400 font-normal transition-all duration-300 text-sm  mb-2 hover:text-primary-500 dark:hover:text-primary-500"
+                  />
+                </div>
+                <div>
+                  <p className="my-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    Sign up to our newsletter
+                  </p>
+                  <div className="w-full">
+                    <CustomNewsletterForm />
+                  </div>
+                </div>
               </div>
             </footer>
           </div>
