@@ -12,6 +12,10 @@ import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 import { GA } from 'pliny/analytics/GoogleAnalytics'
+import { PHProvider } from './providers'
+import dynamic from 'next/dynamic' // Import dynamic for dynamic imports
+
+const PostHogPageView = dynamic(() => import('./PostHogPageView'), { ssr: false })
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -98,16 +102,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-dark dark:text-white">
         <ThemeProviders>
-          <GA googleAnalyticsId={googleAnalyticsId} />
-          <SectionContainer className="flex min-h-dvh flex-col">
-            <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-              <Header />
-              <main className="mb-auto mt-20 flex-grow pt-5 selection:bg-primary-700  dark:selection:bg-white/30 ">
-                {children}
-              </main>
-            </SearchProvider>
-            <Footer />
-          </SectionContainer>
+          <PHProvider>
+            <PostHogPageView />
+            <GA googleAnalyticsId={googleAnalyticsId} />
+            <SectionContainer className="flex min-h-dvh flex-col">
+              <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
+                <Header />
+                <main className="mb-auto mt-20 flex-grow pt-5 selection:bg-primary-700  dark:selection:bg-white/30 ">
+                  {children}
+                </main>
+              </SearchProvider>
+              <Footer />
+            </SectionContainer>
+          </PHProvider>
         </ThemeProviders>
       </body>
     </html>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
+import { usePostHog } from 'posthog-js/react'
 
 const Sun = () => (
   <svg
@@ -17,6 +18,7 @@ const Sun = () => (
     />
   </svg>
 )
+
 const Moon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -27,20 +29,28 @@ const Moon = () => (
     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
   </svg>
 )
+
 const Blank = () => <svg className="h-6 w-6" />
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme, resolvedTheme } = useTheme()
+  const posthog = usePostHog()
 
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), [])
+
+  const handleClick = () => {
+    const newTheme = theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark'
+    setTheme(newTheme)
+    posthog.capture('theme_toggled', { theme: newTheme })
+  }
 
   return (
     <button
       aria-label="Toggle Dark Mode"
       className="ml-1 mr-1 h-8 w-8 rounded p-1 hover:bg-primary-500 dark:hover:bg-primary-500 sm:ml-4"
-      onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
+      onClick={handleClick}
     >
       {mounted ? theme === 'dark' || resolvedTheme === 'dark' ? <Sun /> : <Moon /> : <Blank />}
     </button>
