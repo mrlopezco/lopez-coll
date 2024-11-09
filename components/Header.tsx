@@ -84,7 +84,10 @@ const Header = () => {
                 ))}
             </div>
             <SearchButton />
-            <ThemeSwitch />
+            <div className="hidden sm:block">
+              <ThemeSwitch />
+            </div>
+
             <MobileNav />
           </div>
         </div>
