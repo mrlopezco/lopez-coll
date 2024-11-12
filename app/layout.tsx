@@ -1,3 +1,5 @@
+// app/layout.tsx
+
 import 'css/tailwind.css'
 import 'css/twemoji.css'
 import 'pliny/search/algolia.css'
@@ -13,9 +15,7 @@ import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 import { GA } from 'pliny/analytics/GoogleAnalytics'
 import { PHProvider } from './providers'
-import dynamic from 'next/dynamic' // Import dynamic for dynamic imports
-
-const PostHogPageView = dynamic(() => import('./PostHogPageView'), { ssr: false })
+import PostHogPageView from './PostHogPageView' // Import directly
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -108,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SectionContainer className="flex min-h-dvh flex-col">
               <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
                 <Header />
-                <main className="mb-auto mt-20 flex-grow pt-5 selection:bg-primary-700  dark:selection:bg-white/30 ">
+                <main className="mb-auto mt-20 flex-grow pt-5 selection:bg-primary-700 dark:selection:bg-white/30">
                   {children}
                 </main>
               </SearchProvider>
