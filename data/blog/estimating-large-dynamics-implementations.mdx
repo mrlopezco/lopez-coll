@@ -1,0 +1,67 @@
+---
+title: The Challenges of Estimating Large Microsoft Dynamics 365 Projects and a Potential Solution
+date: '2024-11-17'
+lastmod: '2024-11-17'
+tags: ['Project Leadership']
+draft: false
+layout: PostLayout
+summary: Discover the complexities of estimating large ERP projects, particularly Dynamics 365 ERP and CRM projects, and explore potential solutions to improve accuracy and efficiency.
+---
+
+<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure toHeading={3} />
+
+### Introduction
+
+Estimating large software implementation projects like Microsoft Dynamics has always been a challenging task. Despite numerous methods and approaches, achieving accurate estimates with low variance remains difficult. In this article, I will deep dive into the difficulties of estimating these projects, explore the factors that affect these estimates, and discuss a potential solution inspired by a top-down budgeting approach. This method aims to improve planning, accountability, and overall project success.
+
+### Definition of Estimation
+
+For this article, we will be talking about the estimation of a work item, which could be a feature, integration, or data migration. It doesn’t matter.
+
+What is important is to define what an actual estimate is. You might think this is obvious, but sometimes we forget to manage the expectation that an estimate is, well… an estimate.
+
+Every estimate has a variance built in. Sometimes lower, sometimes higher. But there is a variance, and software teams struggle with this variance.
+
+### Challenges and Factors Affecting Estimation
+
+Why the struggle, you might ask? Well, as a resource, you have been asked to estimate a work item, and if you end up taking longer than expected, then there is going to be someone asking uncomfortable questions.
+
+At the same time, if you end up consuming fewer hours than expected, then there might be conversations about considering lowering all your estimates because you inflated your numbers.
+
+So what do you end up doing? You start nailing your estimates. You finish a task earlier, well, then let’s add some work to it and consume the rest of the hours given...
+
+This may sound harsh and is certainly an extreme scenario, but all this has happened before. Hopefully not to the same resource, but fixing estimates is one of the fastest ways to make the project plan “work.” You get the idea...
+
+This was just the perspective of a single resource, but what about a comparison of estimates across the different teams?
+
+Different team members bring different experiences and approaches to estimation, leading to inconsistencies. For instance, experienced stream leads will estimate a task with fewer hours than a less experienced resource. This is not a problem per se, but more often than not, these experienced resources won’t be executing the task. They will delegate it to their team members, who then struggle with the initial estimate. So now, as a project leader, you need to give exact instructions to your stream leads on how to estimate. And even with exact instructions, estimates will vary.
+
+Another aspect is the technology itself. On every project, we are implementing technology/apps/architecture for the first time. Sometimes we do not have a feeling of how much time it will take to implement new technology.
+
+### We Thought We Got It: T-Shirt Sizing
+
+A few years back, I observed projects starting to estimate in t-shirt sizes and Fibonacci scales.
+
+Great! Now we can fix the above-mentioned problem of communicating variances of estimates as the scales do not represent an actual number. Well… no.
+
+At the end of the day, everybody started converting those relative scales to actual numbers. Beyond frustrating, but otherwise, how are you going to create a project plan? I get it, relative scales are challenging to introduce.
+
+### A New Approach: Top-Down Budgeting
+
+Motivated by David Heinemeier Hansson's recent blog post, let’s talk about this approach: Top-Down Budgeting.
+
+Instead of relying on bottom-up estimates, adopt a top-down approach where experienced resources like your Enterprise Architect set a budget for the entire backlog and communicate the effort to the stream leads. This approach shifts the focus from estimates to budgets, providing awesome positive impacts, like reduction of the estimation process, alignments on the estimates, second guessing…
+
+Fair enough, even Enterprise Architects will have challenges giving out budgets when it comes to implementing brand new technology. The Architect will not have implemented it before, but he/she certainly has experience implementing the process or a competing solution.
+
+From the stream lead perspective, they are obviously obligated to work within the budget. But they also want to stay below budget and celebrate being faster than expected. Who doesn’t like to beat a time, right?
+
+If it turns out that the budget won’t be sufficient, then the lead has to escalate the situation with a reasoning to ask for more budget. The leads on the project then decide if the budget is properly spent.
+
+With this approach, we also facilitate the creation of a project plan and can give better timeline expectations. The project manager is involved in every discussion and can track budget vs. actuals with tools like DevOps.
+
+### Conclusion
+
+In conclusion, estimating large ERP projects is an inherently complex and challenging task due to the numerous factors and variances involved. Traditional methods often fall short in providing accurate estimates. However, by adopting a top-down budgeting approach, we can shift our focus from rigid estimates to flexible budgets, enhancing planning, accountability, and overall project success.
+
+I would love to hear your comments about this topic. Feel free to leave a comment or reach out!
