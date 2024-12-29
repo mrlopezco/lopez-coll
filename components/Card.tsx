@@ -8,7 +8,7 @@ const Card = ({ title, description, tags, imgSrc, href, flags }) => (
     <div
       className={`${
         imgSrc && 'h-full'
-      }  overflow-hidden rounded-md shadow-nextjs dark:shadow-nextjs-dark`}
+      } overflow-hidden rounded-md shadow-nextjs dark:shadow-nextjs-dark`}
     >
       <div className="relative h-48 w-full">
         {imgSrc &&

@@ -126,7 +126,7 @@ export default function AuthorLayout({ content }: Props) {
                 <a
                   className={clsx([
                     'border border-transparent',
-                    'bg-primary-500 ',
+                    'bg-primary-500',
                     'text-white hover:text-white dark:text-white dark:hover:text-white',
                     'focus:shadow-outline-blue focus:outline-none',
                     'transition-colors duration-150',
