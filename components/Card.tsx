@@ -3,8 +3,8 @@ import Image from 'next/image'
 import Link from './Link'
 import Twemoji from './Twemoji'
 
-const Card = ({ title, description, tags, imgSrc, href, flags }) => (
-  <div className="md max-w-[544px] p-4 md:w-1/2">
+const Card = ({ title, description, tags, imgSrc, href, flags, role }) => (
+  <div className="md max-w-[544px] p-4 md:w-1/2 xl:w-1/3">
     <div
       className={`${
         imgSrc && 'h-full'
@@ -21,8 +21,8 @@ const Card = ({ title, description, tags, imgSrc, href, flags }) => (
           ))}
       </div>
       <div className="p-6">
-        <div className="mb-3 space-y-2">
-          <h3 className="text-2xl font-bold leading-8 tracking-tight">
+        <div className="mb-4 space-y-2">
+          <h3 className="mb-4 text-xl font-bold leading-8 tracking-tight">
             {href ? (
               <Link href={href} aria-label={`Link to ${title}`}>
                 {title}
@@ -32,11 +32,17 @@ const Card = ({ title, description, tags, imgSrc, href, flags }) => (
             )}
           </h3>
           <div className="flex items-center space-x-2">
+            <Twemoji key="bust_in_silhouette" emoji="bust_in_silhouette" />
+            <span key={role} className="text-sm font-medium text-gray-500">
+              {role}
+            </span>
+          </div>
+          <div className="flex items-center space-x-2">
             {flags && map(flags, (flag) => <Twemoji key={flag} emoji={flag} />)}
             {tags && (
               <div className="flex items-center space-x-4">
                 {map(tags, (tag) => (
-                  <span key={tag} className="text-sm font-medium uppercase text-gray-500">
+                  <span key={tag} className="text-sm font-medium text-gray-500">
                     {tag}
                   </span>
                 ))}
