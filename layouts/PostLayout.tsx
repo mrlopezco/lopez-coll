@@ -77,7 +77,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           {author.linkedin && (
                             <Link
                               href={author.linkedin}
-                              className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700  dark:hover:text-primary-700"
+                              className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
                             >
                               Linkedin
                             </Link>
@@ -106,7 +106,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               )}
             </div>
             <footer>
-              <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 ">
+              <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
                 {tags && (
                   <div className="py-2 xl:py-8">
                     <div className="flex flex-wrap">
@@ -128,7 +128,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                             href={attachment.src}
                             target="_blank"
                             download
-                            className=" text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
+                            className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
                           >
                             {attachment.name}
                           </Link>
@@ -172,7 +172,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </div>
                 )}
               </div>
-              <div className=" block md:sticky md:top-24  xl:space-y-8">
+              <div className="block md:sticky md:top-24 xl:space-y-8">
                 <div className="hidden md:block">
                   <p className="my-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
                     Overview
