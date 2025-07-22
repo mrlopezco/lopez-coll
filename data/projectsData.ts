@@ -110,7 +110,6 @@ const projectsData: Project[] = [
     tags: ['B2B - Retail'],
     imgSrc: '/static/images/projects/confidential.png',
     flags: ['canada-flag', 'america-stars-and-stripes-united-united-states-flag'],
-    
   },
   {
     title: 'Showa Denko Materials',
