@@ -27,8 +27,8 @@ const ShortDescription = () => {
       </p>
       <p>
         On this website you will find articles around the topics I am passionate about. <br />{' '}
-        <br /> For some more information about myself, certificates, and CV visit the "About Me"
-        page.{' '}
+        <br /> For some more information about myself and certificates visit the "About Me" page or
+        download my CV.{' '}
       </p>
     </h2>
   )

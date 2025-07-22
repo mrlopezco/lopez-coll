@@ -11,6 +11,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import Tag from '@/components/Tag'
 import { genPageMetadata } from 'app/seo'
+import DownloadCVButton from '@/components/DownloadCVButton'
 // import SummaryCards from '@/components/homepage/SummaryCards'
 
 const MAX_DISPLAY = 3
@@ -28,6 +29,10 @@ export default async function Page() {
           <Heading />
           <TypedBios />
           <ShortDescription />
+          <div>
+            <DownloadCVButton href="/static/CV-Ignacio-LopezColl.pdf" text="Download CV" />
+          </div>
+
           {/* <BlogLinks /> */}
           {/* <p className="flex">
             <span className="mr-2">Happy reading</span>

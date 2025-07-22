@@ -28,6 +28,7 @@ export default function Projects() {
                 imgSrc={d.imgSrc}
                 href={d.href}
                 flags={d.flags}
+                role={d.role}
               />
             ))}
           </div>
