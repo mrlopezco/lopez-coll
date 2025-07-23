@@ -15,9 +15,11 @@ type Props = {
   alt: string
   caption: string
   className?: string
+  width?: number
+  height?: number
 }
 
-const ImageWithLightBox = ({ src, alt, caption, className }: Props) => {
+const ImageWithLightBox = ({ src, alt, caption, className, width = 800, height = 600 }: Props) => {
   const [open, setOpen] = useState(false)
   const captionsRef = useRef(null)
 
@@ -37,9 +39,10 @@ const ImageWithLightBox = ({ src, alt, caption, className }: Props) => {
           <Image
             src={`${basePath || ''}${src}`}
             alt={alt}
-            className="mx-auto"
-            width={800} // Adjust these dimensions as necessary
-            height={600} // Adjust these dimensions as necessary
+            className="mx-auto h-auto"
+            width={width}
+            height={height}
+            sizes="(max-width: 800px) 100vw, 800px"
           />
         </button>
         <figcaption>{caption}</figcaption>
@@ -51,8 +54,8 @@ const ImageWithLightBox = ({ src, alt, caption, className }: Props) => {
         slides={[
           {
             src: `${basePath || ''}${src}`,
-            width: 800,
-            height: 600,
+            width,
+            height,
             title: alt,
             description: caption,
           },
