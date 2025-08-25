@@ -1,0 +1,84 @@
+---
+title: Exciting times in the Microsoft Business Applications Community
+date: '2025-08-25'
+lastmod: '2025-08-25'
+tags: ['Copilot', 'AI', 'Dynamics 365', 'Community']
+draft: false
+layout: PostLayout
+summary: Discover the latest AI innovations transforming Microsoft Business Applications, from Copilot sub-agents to GPT-5 integration and MCP servers revolutionizing development workflows.
+---
+
+<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure toHeading={3} />
+
+The last few months have been probably one of the most interesting phases in our beloved community for the Microsoft Business Applications industry ever. I say this because AI is now not only on the sideline summarizing some useful text within a workflow. AI is now in our day-to-day operations, and we are finally seeing the first steps towards adopting this new technology in our day-to-day operations as part of the project implementation, but also when we are live with our clients.
+
+Here are my highlights and why.
+
+## 1. Copilot Agents with Sub-agents
+
+Copilot is nothing new, but do you know we are now able to add sub-agents? This changes the AI solution architecture tremendously as we now have to reconsider when to use Power Automate for certain topics and when we can leave topics with a sub-agent. Especially when you have reusable components across multiple project implementations, we will now need to go back to the drawing board and figure out how to do certain things.
+
+<ImageWithLightBox
+  src="/static/images/blogs/exciting-times-in-the-community/copilot-sub-agents.png"
+  alt="Copilot Studio Sub-agents"
+  caption="Copilot Studio now supports sub-agents for more complex AI architectures"
+/>
+
+You can learn more about this feature in the [Microsoft documentation](https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-add-other-agents).
+
+## 2. GPT-5 in Copilot Studio
+
+GPT-5 is now available in Copilot studio. Scratch that. GPT-5 will hopefully be available in Copilot studio soon, who knows, but here it will be interesting to see how we need to adjust our new prompts to this new model. You hopefully know that prompting is the most important part when building Copilot agents and it takes a long time to master this skill set. What helped me the most was to watch a [video](https://www.youtube.com/watch?v=ysPbXH0LpIE) from the cloud team on how to properly build prompts.
+
+On another note, if you want to get started with Copilot studio, visit the new "Agent Academy". Great content! Check it out at [microsoft.github.io/agent-academy/](https://microsoft.github.io/agent-academy/).
+
+<ImageWithLightBox
+  src="/static/images/blogs/exciting-times-in-the-community/mcs-agent-academy-recruit-badge.png"
+  alt="Agent Academy Recruit Badge"
+  caption="Super cute Agent Academy Recruit Badge"
+/>
+
+## 3. MCP Servers for Copilot Studio
+
+The Microsoft Docs MCP server is next level fantastic. Our consultants have now access to fresh knowledge published by Microsoft in no time. Googling for a solution or using an LLM without context is now a thing of the past. With Azure DevOps as an MCP server as well, we can chat with the agent, refine the work items, and then push the results to our DevOps automatically for further work on them.
+
+This integration is game-changing for our project implementation workflows. No more switching between different tools to get the information we need.
+
+## 4. Playwright MCP - My Highlight of Last Week
+
+Without a doubt, this was my highlight of last week. Playwright is an open source tool to do front end UI testing, and it works tremendously well. I personally use playwright not only on this website right now, but also on BiziApps to test development before releasing to the main branch. 
+For F&O project, what this mean is, that you can create test scripts in natural language and the MCP server will convert them to Playwright code, and this will execute the testing automatically. It is fantastic.
+
+Only downside right now is the authorization when you log into F&O with Playwright. I hope we can get a service account set up to avoid using MFA and further automatize the testing. Visit this  [community blog post](https://community.dynamics.com/blogs/post/?postid=fffe2675-9c79-f011-b4cb-7ced8d178aca) to see it in action!
+
+## 5. Copilot for X++ Developers
+
+Copilot for X++ developers in Dynamics 365 Finance and Operations is coming soon. Finally, a native approach for our beloved developers within Visual Studio 2022 to help them get code out the door faster with Copilot assistance. I'm assuming that all our developers are using AI anyway, but I guess this removes some copy pasting effort. Great to see that.
+
+You can find more details in the [Power Platform release plan](https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave1/data-platform/copilot-support-finance-operations-development).
+
+## 6. Dynamics 365 Finance and Operations Wave 2 Release
+
+Not that much in this [release](https://learn.microsoft.com/en-us/dynamics365/release-plan/2025wave2/enterprise-resource-planning/dynamics365-finance/) that is super exciting. For me, there are three highlights on the finance side:
+
+### New Ledger Journal Framework
+
+The new ledger journal framework appears like the good old times of waiting 10 minutes to post a 10,000 lines journal are over. I think most importantly is that we're getting a new UI to view the vouchers of transactions. I'm especially excited to see that because even after working for more than 10 years in the industry, I still sometimes push the wrong buttons to try to view the voucher. Sometimes the button is called accounting source explorer, then view account ledger, or is the menu button hidden behind an ellipsis menu and it's called related voucher. Sometimes I get confused with that. Great to see a new UI coming towards us.
+<ImageWithLightBox
+  src="/static/images/blogs/exciting-times-in-the-community/new-voucher-ui.png"
+  alt="New Voucher UI in D365 F&O"
+  caption="New Voucher UI in D365 F&O"
+/>
+### Centralized Posting Profiles
+
+The second highlight of this Wave 2 release, no more looking for the posting profiles in the sub ledgers. We now have one form to maintain them all. Sure, it's great to have this now centralized. Looking forward to see how the data entity will look like to export and import the posting profiles. But more importantly, we will get a versioning functionality within F&O, which is per se already rare to have versioning functionality. But it will be amazing to see how this will get implemented for Microsoft.
+
+### Transfer of Fixed Assets Between Legal Entities
+
+And then lastly, the transfer of fixed assets between legal entities. Wait, what? Finally, no more custom development on this one!
+
+## What's Next?
+
+These developments are just the beginning of what's possible with AI in our Microsoft Business Applications ecosystem. The pace of innovation is incredible, and I'm excited to see how these tools will evolve and how our community will leverage them to deliver even better solutions for our clients.
+
+If you happen to have any other highlights from the last few weeks or months, please let me know in the comments. So happy to hear from you!
