@@ -17,13 +17,13 @@ const ShortDescription = () => {
       <p>
         In my spare time, I love to create projects that help others. Such as{' '}
         <a
-          href="https://plaza-365.com"
+          href="https://biziapps.org"
           className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
           target="_blank"
         >
-          Plaza 365
+          BiziApps
         </a>
-        , where users can stay in touch with the newest articles of the Dynamics 365 space.
+        , an application that tracks job opportunities in the Microsoft Business Applications space.
       </p>
       <p>
         On this website you will find articles around the topics I am passionate about. <br />{' '}
