@@ -77,6 +77,7 @@ module.exports = () => {
           hostname: 'picsum.photos',
         },
       ],
+      qualities: [25, 50, 75, 100],
       unoptimized,
     },
     async headers() {
