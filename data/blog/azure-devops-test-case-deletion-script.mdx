@@ -1,0 +1,39 @@
+---
+title: Azure DevOps Test Case Deletion Script
+date: '2025-11-10'
+lastmod: '2025-11-10'
+tags: ['Azure DevOps', 'Automation', 'Python']
+draft: false
+layout: PostLayout
+summary: A simple Python script to solve the frustrating limitation of not being able to mass delete test cases from Azure DevOps through the UI.
+---
+
+<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure toHeading={3} />
+
+If you've ever worked with test cases in Azure DevOps, you've probably run into this annoying limitation: you can't mass delete test cases through the UI like you can with other work items. You know the drill—select multiple items, right-click, delete. Works great for most work items, but not for test cases.
+
+Well, I got tired of manually deleting them one by one, so I built a simple Python script that solves this problem.
+
+## What It Does
+
+The script uses the Azure DevOps REST API to soft-delete test cases in bulk. You simply pass it an array of test case IDs, and it handles the rest—removing them and moving them to the trash in Azure DevOps, just like a normal delete operation would.
+
+It includes a nice progress bar so you can see what's happening, and it provides a detailed report of what was successfully deleted and what (if anything) failed. There's even a debug mode if you need to troubleshoot any issues.
+
+## The Problem It Solves
+
+The main issue is that Azure DevOps doesn't allow you to multi-select and delete test cases from the UI. This becomes particularly frustrating when you need to clean up a large number of test cases. The script bridges that gap by leveraging the API to perform bulk deletions that the UI doesn't support.
+
+<ImageWithLightBox
+  src="/static/images/blogs/azure-devops-test-case-deletion-script/azure-devops-test-case-deletion-script.png"
+  alt="Azure Devops Test Case Delete"
+  caption="Azure Devops Test Case Delete"
+
+/>
+
+## Quick Setup
+
+The script requires Python 3.7+ and uses a Personal Access Token (PAT) with Test (read & write) scope. You configure your organization, project, and PAT in a `.env` file, then run the script and provide your test case IDs when prompted.
+
+If you're dealing with this same frustration, feel free to [check it out on GitHub](https://github.com/mrlopezco/AzureDevopsTestScriptRemover). It's a simple solution, but sometimes that's exactly what you need.
+
