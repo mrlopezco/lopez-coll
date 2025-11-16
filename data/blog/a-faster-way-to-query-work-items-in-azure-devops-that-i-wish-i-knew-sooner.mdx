@@ -8,7 +8,7 @@ layout: PostLayout
 summary: >
   Stop wrestling with the clunky Azure DevOps query UI. Discover how a free marketplace extension combined with a simple AI prompt can help you find work items in seconds, not minutes.
 ---
-## I Was Years Old When I Learned This Azure DevOps Trick
+
 
 We’ve all been there. You're deep inside Azure DevOps, trying to hunt down a specific set of user stories or bugs. You open the query editor. You start clicking dropdowns, adding clauses, remembering field names. And oh, don't forget to set the Query type to "Tree of work items", oh and at the bottom set the Type of Tree to "Parent/Child".
 
@@ -23,7 +23,7 @@ Then, I stumbled upon a method that is so much faster, it almost feels like chea
   caption="The WIQL Playground"
 />
 
-### The Problem with the Standard Query Editor
+## The Problem with the Standard Query Editor
 
 The default query editor in Azure DevOps is powerful, but it’s not always fast. For simple queries like "show me all active bugs assigned to me," it’s perfect.
 
@@ -35,7 +35,7 @@ But what about something more complex?
 
 Building that in the UI involves a lot of clicking, grouping clauses, and trial and error. It pulls you out of your flow and wastes valuable time.
 
-### My "Aha!" Moment: The WIQL Playground
+## My "Aha!" Moment: The WIQL Playground
 
 My perspective shifted when I found a free extension in the Visual Studio Marketplace called **WIQL Playground**.
 
@@ -45,7 +45,7 @@ Now, it has some limitations. You can't do complex `JOIN` operations like in SQL
 
 But for 95% of my needs, it's more than enough. The ability to write a query textually is just *faster* than clicking through menus.
 
-### The Real Secret: Adding AI to the Mix
+## The Real Secret: Adding AI to the Mix
 
 Here’s where it gets really good. You don't actually have to learn the WIQL syntax yourself.
 
@@ -53,17 +53,17 @@ This is the trick: **Use an AI assistant like Microsoft Copilot or ChatGPT to wr
 
 You can describe exactly what you need in plain English, and the AI will generate the precise WIQL code. You just copy and paste. This turns a 10-minute task into a 30-second one. It's a perfect way to streamline your devops workflow.
 
-### A Real-World Example: From Request to Result
+## A Real-World Example: From Request to Result
 
 Let's walk through a scenario I faced recently. A project manager needed a very specific list.
 
-#### H4: The Scenario
+### The Scenario
 
 The request was to **find all work items of type 'Process' that are *not* under the 'DEV' Area Path, but have a child 'Feature' with either 'Data Migration' or 'Integration' in the title.**
 
 Building this with the standard tree query UI would have been painful. But with this new method, it was incredibly simple.
 
-#### H4: Step 1: Install the WIQL Playground
+### Step 1: Install the WIQL Playground
 
 First things first, you need the extension. If you're an admin for your Azure DevOps organization, you can add it for free.
 
@@ -72,7 +72,7 @@ First things first, you need the extension. If you're an admin for your Azure De
 
 Once installed, you'll see a new "WIQL Playground" option under the *Boards* menu.
 
-#### H4: Step 2: Craft Your Natural Language Prompt
+### Step 2: Craft Your Natural Language Prompt
 
 Next, I opened my AI assistant and gave it a clear, simple prompt. You don't need to be overly technical.
 
@@ -88,7 +88,7 @@ Within seconds, the AI provided the WIQL code.
   caption="Create DevOps Queries with AI"
 />
 
-#### H4: Step 3: Run the Query
+### Step 3: Run the Query
 
 Now for the final step.
 
@@ -114,7 +114,7 @@ When you click this, it takes the WIQL code and converts it into a standard quer
   caption="DevOps Query Editor"
 />
 
-### Why This Is a Better Way to Work
+## Why This Is a Better Way to Work
 
 This simple workflow has saved me a ton of time. When I need to find work items, I no longer dread opening the query editor. I just state what I need in plain English, paste the code, and get my results.
 
