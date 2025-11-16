@@ -6,7 +6,7 @@ tags: ['Azure DevOps', 'AI']
 draft: false
 layout: PostLayout
 summary: >
-  Stop wrestling with the clunky Azure DevOps query UI. Discover how a free marketplace extension combined with a simple AI prompt can help you find work items in seconds, not minutes.
+  Stop wrestling with the clunky Azure DevOps query UI. Discover how a free marketplace extension combined with a simple AI prompt can help you find work items in seconds. AI Prompt Template included!
 ---
 
 
@@ -76,9 +76,21 @@ Once installed, you'll see a new "WIQL Playground" option under the *Boards* men
 
 Next, I opened my AI assistant and gave it a clear, simple prompt. You don't need to be overly technical.
 
-Here’s the prompt I used:
+Here's the prompt I used:
 
-> *Act as an expert in Azure DevOps. Write a WIQL query to find all work items of type 'Process' that are not under the 'DEV' Area Path. The query should only return results that have a child work item of type 'Feature' where the feature's title contains either 'Data Migration' or 'Integration'.*
+```
+You are an expert in Azure DevOps Work Item Query Language (WIQL). Convert the following natural language request into a valid WIQL query.
+
+Requirements:
+- Use correct WIQL syntax.
+- Include SELECT, FROM, WHERE, and ORDER BY clauses as needed.
+- Ensure field names use the proper Azure DevOps schema (e.g., [System.WorkItemType], [System.Title], [System.AreaPath]).
+- If hierarchy or link conditions are mentioned (e.g., parent/child relationships), use the appropriate WIQL constructs like links queries.
+- Do not include any explanation—only return the WIQL query.
+
+Natural language request:
+I want to find work items of type "Process", that are not under the area path "DEV", but that have as a children work item type = Feature with a title either "Data Migration" or "Integration"
+```
 
 Within seconds, the AI provided the WIQL code.
 
