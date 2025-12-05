@@ -1,10 +1,9 @@
 ---
 title: "A Practical D365 Implementation Methodology: The Process-First Approach"
 date: "2025-12-04"
-tags: ['BusinessProcesses']
 draft: false
 layout: PostLayout
-postseries: "Business Process Management for D365"
+postseries: "BPM for D365"
 postseries_sequence: 4
 summary: >
   Standard implementation methodologies often fail to connect with business reality. Discover a hybrid, process-based approach that uses a process 'storyline' to drive prioritization and ensure your Dynamics 365 project delivers real value.
@@ -28,12 +27,23 @@ Now, to be clear: this isn't a concept you'll find in the academic literature or
 This storyline isn't just a gimmick. It immediately establishes our process prioritization. This narrative *is* Priority 1. These are the interconnected processes that represent the lifeblood of the company. They must be our primary focus, and we need to knock them out early in the project.
 
 Other critical, but less dependent, process areas like record to report (which is mostly a finance function) or Case to Resolution (for customer service) become Priority 2. They are essential, but they can often be developed in parallel by separate teams without blocking the core storyline. This is a simple but powerful way to structure a D365 FO implementation.
-
+<ImageWithLightBox
+  src="/static/images/blogs/from-chaos-to-clarity-a-practical-guide-to-bpmn-2-0-for-your-dynamics-365-project/sample-process-catalog.png"
+  alt="Sample Process Catalog for a D365 Finance & Operations with D365 Sales"
+  caption="Sample Process Catalog for a D365 Finance & Operations with D365 Sales"
+/>
 ### Second: Plan and Prioritize at the Program Level
 
 Once we have our process catalog structured around this core story, we can translate it into a high-level plan. For this, DevOps for ERP is a fantastic tool. In Azure DevOps, I create a dedicated area for high-level project management.
 
 Here, we can set the big priorities for each Level 1 process category (like procure to pay or order to cash). This gives the project clear direction. But within those high-level priorities, we empower the individual teams. This blend of high-level structure and team-level flexibility is the heart of an agile ERP implementation.
+
+Other critical, but less dependent, process areas like record to report (which is mostly a finance function) or Case to Resolution (for customer service) become Priority 2. They are essential, but they can often be developed in parallel by separate teams without blocking the core storyline. This is a simple but powerful way to structure a D365 FO implementation.
+<ImageWithLightBox
+  src="/static/images/blogs/a-practical-d365-implementation-methodology-the-process-first-approach/program-level-prioritization.png"
+  alt="Program Level Business Process prioritization in Azure DevOps"
+  caption="Program Level Business Process prioritization in Azure DevOps"
+/>
 
 ### Third: A Practical, Process-Driven Workflow
 
