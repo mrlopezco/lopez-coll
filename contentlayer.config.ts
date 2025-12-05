@@ -68,15 +68,27 @@ const computedFields: ComputedFields = {
 function createTagCount(allBlogs) {
   const tagCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
-    if (file.tags && (!isProduction || file.draft !== true)) {
-      file.tags.forEach((tag) => {
-        const formattedTag = slug(tag)
-        if (formattedTag in tagCount) {
-          tagCount[formattedTag] += 1
+    if (!isProduction || file.draft !== true) {
+      // Count regular tags
+      if (file.tags) {
+        file.tags.forEach((tag) => {
+          const formattedTag = slug(tag)
+          if (formattedTag in tagCount) {
+            tagCount[formattedTag] += 1
+          } else {
+            tagCount[formattedTag] = 1
+          }
+        })
+      }
+      // Count series as tags
+      if (file.postseries) {
+        const formattedSeries = slug(file.postseries)
+        if (formattedSeries in tagCount) {
+          tagCount[formattedSeries] += 1
         } else {
-          tagCount[formattedTag] = 1
+          tagCount[formattedSeries] = 1
         }
-      })
+      }
     }
   })
   writeFileSync('./app/tag-data.json', JSON.stringify(tagCount))
@@ -120,6 +132,8 @@ export const Blog = defineDocumentType(() => ({
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
     attachments: { type: 'list', of: Attachment, default: [] },
+    postseries: { type: 'string' },
+    postseries_sequence: { type: 'number' },
   },
   computedFields: {
     ...computedFields,

@@ -10,6 +10,7 @@ import Link from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import Tag from '@/components/Tag'
+import SeriesTag from '@/components/SeriesTag'
 import { genPageMetadata } from 'app/seo'
 import DownloadCVButton from '@/components/DownloadCVButton'
 // import SummaryCards from '@/components/homepage/SummaryCards'
@@ -49,7 +50,7 @@ export default async function Page() {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags } = post
+            const { slug, date, title, summary, tags, postseries } = post
             return (
               <li key={slug} className="py-6">
                 <article>
@@ -72,6 +73,7 @@ export default async function Page() {
                             </Link>
                           </p>
                           <div className="flex flex-wrap">
+                            <SeriesTag seriesName={postseries} />
                             {tags.map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}

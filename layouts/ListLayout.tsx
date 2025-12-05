@@ -7,6 +7,7 @@ import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
+import SeriesTag from '@/components/SeriesTag'
 import siteMetadata from '@/data/siteMetadata'
 
 interface PaginationProps {
@@ -116,7 +117,7 @@ export default function ListLayout({
         <ul>
           {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((post) => {
-            const { path, date, title, summary, tags } = post
+            const { path, date, title, summary, tags, postseries } = post
             return (
               <li key={path} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
@@ -134,6 +135,7 @@ export default function ListLayout({
                         </Link>
                       </h3>
                       <div className="flex flex-wrap">
+                        <SeriesTag seriesName={postseries} />
                         {tags?.map((tag) => (
                           <Tag key={tag} text={tag} />
                         ))}

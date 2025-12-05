@@ -1,17 +1,20 @@
 import { ReactNode } from 'react'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog, Authors } from 'contentlayer/generated'
+import { allBlogs } from 'contentlayer/generated'
 import Comments from '@/components/Comments'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import Image from '@/components/Image'
 import Tag from '@/components/Tag'
+import SeriesTag from '@/components/SeriesTag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import BlogMeta from '@/components/blog/BlogMeta'
 import TOCInline from 'pliny/ui/TOCInline'
 import CustomNewsletterForm from '@/components/CustomNewsLetterform'
+import PostSeriesNav from '@/components/blog/PostSeriesNav'
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
@@ -32,8 +35,20 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, summary, tags, readingTime, toc, attachments } =
-    content
+  const {
+    filePath,
+    path,
+    slug,
+    date,
+    title,
+    summary,
+    tags,
+    readingTime,
+    toc,
+    attachments,
+    postseries,
+    postseries_sequence,
+  } = content
   const basePath = path.split('/')[0]
 
   return (
@@ -107,15 +122,22 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             </div>
             <footer>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
-                {tags && (
+                {(postseries || tags) && (
                   <div className="py-2 xl:py-8">
                     <div className="flex flex-wrap">
-                      {tags.map((tag) => (
+                      <SeriesTag seriesName={postseries} />
+                      {tags?.map((tag) => (
                         <Tag key={tag} text={tag} />
                       ))}
                     </div>
                   </div>
                 )}
+                <PostSeriesNav
+                  seriesName={postseries}
+                  currentSequence={postseries_sequence}
+                  currentSlug={slug}
+                  allPosts={allBlogs}
+                />
                 {attachments && attachments.length > 0 && (
                   <div className=" ">
                     <p className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
