@@ -117,7 +117,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   {children}
                 </main>
               </SearchProvider>
-              <Footer />
+              <Suspense fallback={null}>
+                <Footer />
+              </Suspense>
             </SectionContainer>
           </PHProvider>
         </ThemeProviders>
