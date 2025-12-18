@@ -5,10 +5,10 @@
   "scripts": {
     "start": "next dev",
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
-    "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
+    "lint": "eslint --fix pages app components lib layouts scripts",
     "prepare": "husky"
   },
   "dependencies": {

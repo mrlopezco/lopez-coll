@@ -86,13 +86,16 @@ module.exports = () => {
         },
       ]
     },
-    turbopack: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
+    // SVG handling: @svgr/webpack is webpack-specific and doesn't work with Turbopack
+    // Empty turbopack config to allow webpack config for SVG support
+    // Use --webpack flag for builds that need SVG-as-React-component functionality
+    turbopack: {},
+    webpack: (config) => {
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      })
+      return config
     },
     env: {
       BASE_URL: process.env.SITE_URL,
