@@ -1,13 +1,14 @@
 ---
-title: "A Practical D365 Implementation Methodology: The Process-First Approach"
-date: "2025-12-04"
+title: 'A Practical D365 Implementation Methodology: The Process-First Approach'
+date: '2025-12-04'
 draft: false
 layout: PostLayout
-postseries: "BPM for D365"
+postseries: 'BPM for D365'
 postseries_sequence: 4
 summary: >
   Standard implementation methodologies often fail to connect with business reality. Discover a hybrid, process-based approach that uses a process 'storyline' to drive prioritization and ensure your Dynamics 365 project delivers real value.
 ---
+
 ## Tying It All Together: A Process-Based Implementation Methodology
 
 Alright, let's bring this home. In this series, we've covered some critical ground. In [The Most Overlooked Secret to a Successful ERP Implementation: Business Process Management](/blog/the-most-overlooked-secret-to-a-successful-erp-implementation-business-process-management), we agreed that processes, not just requirements, are the key to success. In [From Chaos to Clarity: A Practical Guide to BPMN 2.0 for Your Dynamics 365 Project](/blog/from-chaos-to-clarity-a-practical-guide-to-bpmn-2-0-for-your-dynamics-365-project), we learned the practical basics of BPMN 2.0. And in [Your Process Maps Will Die After Go-Live, Unless You Do This](/blog/your-process-maps-will-die-after-go-live-unless-you-do-this), we discussed how to build a sustainable culture of process ownership so our hard work doesn't gather dust after go-live.
@@ -22,11 +23,12 @@ Before we can prioritize, we need a map. We start by designing the process catal
 
 Now, to be clear: this isn't a concept you'll find in the academic literature or standard frameworks. It's something I've developed over years of implementation work. Think of it as a layer above the traditional Level 1 process categories—a simple story that describes the absolute core value stream of the business. For a typical distribution or manufacturing company, the story might look like this:
 
-*We want to sell a new product. First, we must identify the market need and plan for it (Forecast to Plan). Then, we design or select the product (Select to Sunset). We buy the materials to make it (Procure to Pay), receive them into our warehouse (Receive to Stock), and then sell and ship the final product to our customer (Order to Cash). If something goes wrong, we need to handle returns (Stock to Return).*
+_We want to sell a new product. First, we must identify the market need and plan for it (Forecast to Plan). Then, we design or select the product (Select to Sunset). We buy the materials to make it (Procure to Pay), receive them into our warehouse (Receive to Stock), and then sell and ship the final product to our customer (Order to Cash). If something goes wrong, we need to handle returns (Stock to Return)._
 
-This storyline isn't just a gimmick. It immediately establishes our process prioritization. This narrative *is* Priority 1. These are the interconnected processes that represent the lifeblood of the company. They must be our primary focus, and we need to knock them out early in the project.
+This storyline isn't just a gimmick. It immediately establishes our process prioritization. This narrative _is_ Priority 1. These are the interconnected processes that represent the lifeblood of the company. They must be our primary focus, and we need to knock them out early in the project.
 
 Other critical, but less dependent, process areas like record to report (which is mostly a finance function) or Case to Resolution (for customer service) become Priority 2. They are essential, but they can often be developed in parallel by separate teams without blocking the core storyline. This is a simple but powerful way to structure a D365 FO implementation.
+
 <ImageWithLightBox
   src="/static/images/blogs/from-chaos-to-clarity-a-practical-guide-to-bpmn-2-0-for-your-dynamics-365-project/sample-process-catalog.png"
   alt="Sample Process Catalog for a D365 Finance & Operations with D365 Sales"
@@ -39,6 +41,7 @@ Once we have our process catalog structured around this core story, we can trans
 Here, we can set the big priorities for each Level 1 process category (like procure to pay or order to cash). This gives the project clear direction. But within those high-level priorities, we empower the individual teams. This blend of high-level structure and team-level flexibility is the heart of an agile ERP implementation.
 
 Other critical, but less dependent, process areas like record to report (which is mostly a finance function) or Case to Resolution (for customer service) become Priority 2. They are essential, but they can often be developed in parallel by separate teams without blocking the core storyline. This is a simple but powerful way to structure a D365 FO implementation.
+
 <ImageWithLightBox
   src="/static/images/blogs/a-practical-d365-implementation-methodology-the-process-first-approach/program-level-prioritization.png"
   alt="Program Level Business Process prioritization in Azure DevOps"
@@ -49,7 +52,7 @@ Other critical, but less dependent, process areas like record to report (which i
 
 With our priorities set, we begin the implementation sprints. This is where our D365 implementation methodology really comes to life, connecting every activity back to a process.
 
-1.  **Understand the Current State:** Let's be realistic—most projects don't have the budget for a massive 'as-is' analysis project. But the consultant leading a process workshop *must* understand the current state, its pain points, and its hidden complexities.
+1.  **Understand the Current State:** Let's be realistic—most projects don't have the budget for a massive 'as-is' analysis project. But the consultant leading a process workshop _must_ understand the current state, its pain points, and its hidden complexities.
 
 2.  **Propose the Future State:** The consultant then creates a high-level solution proposal for the process in Dynamics 365 Finance and Operations. If it's a standard process with a clear fit, great. If there are gaps requiring development, data migration, or complex integrations, the solution architecture team is pulled in immediately.
 
@@ -57,9 +60,8 @@ With our priorities set, we begin the implementation sprints. This is where our 
 
 4.  **Implement and Demo:** This is the standard configuration, development, and testing loop. As the consultant builds the solution, they are also creating the 'to-be' future state process diagram.
 
-5.  **Test Against the Process:** When it's time for client testing (UAT), they aren't just testing a list of features. They are testing the *process*. They verify that the end-to-end flow works as designed. This is also where they must test all the critical process variants—for example, does the item creation process work correctly for raw materials, finished goods, and service items?
+5.  **Test Against the Process:** When it's time for client testing (UAT), they aren't just testing a list of features. They are testing the _process_. They verify that the end-to-end flow works as designed. This is also where they must test all the critical process variants—for example, does the item creation process work correctly for raw materials, finished goods, and service items?
 
 6.  **Empower Through Documentation:** Finally, I strongly advocate that the client's team is responsible for creating the detailed, step-by-step user documentation. The implementation team provides the demos and the 'to-be' process maps. By writing the guides themselves, the client's team deeply learns the new system and takes true ownership of the process.
 
 This ERP implementation approach isn't revolutionary, but it is disciplined. By making the business process the backbone of your project, you ensure that every decision, every line of code, and every test case is directly contributing to the real goal: making the business run better.
-

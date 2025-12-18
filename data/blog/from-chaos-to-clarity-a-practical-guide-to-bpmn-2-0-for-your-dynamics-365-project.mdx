@@ -1,30 +1,31 @@
 ---
-title: "From Chaos to Clarity: A Practical Guide to BPMN 2.0 for Your Dynamics 365 Project"
-date: "2025-12-02"
+title: 'From Chaos to Clarity: A Practical Guide to BPMN 2.0 for Your Dynamics 365 Project'
+date: '2025-12-02'
 draft: false
 layout: PostLayout
-postseries: "BPM for D365"
+postseries: 'BPM for D365'
 postseries_sequence: 2
 summary: >
   Don't just draw boxes and arrows. Learn the practical fundamentals of BPMN 2.0 for ERP projects and how to structure your process hierarchy to avoid the single most common modeling mistake.
 ---
+
 ## From Lines and Boxes to Business Value: A Practical BPMN 2.0 Guide
 
-In [The Most Overlooked Secret to a Successful ERP Implementation: Business Process Management](/blog/the-most-overlooked-secret-to-a-successful-erp-implementation-business-process-management), we established a critical truth: a successful software implementation isn't built on a mountain of requirements. It's built on a clear, shared understanding of the business process. We agreed to stop focusing on disconnected features and start mapping the *how*—the actual flow of work.
+In [The Most Overlooked Secret to a Successful ERP Implementation: Business Process Management](/blog/the-most-overlooked-secret-to-a-successful-erp-implementation-business-process-management), we established a critical truth: a successful software implementation isn't built on a mountain of requirements. It's built on a clear, shared understanding of the business process. We agreed to stop focusing on disconnected features and start mapping the _how_—the actual flow of work.
 
 That's great in theory. But what does it actually look like?
 
-Welcome to Part 2 of our series. Today, we get practical. We're moving from the *why* to the *how*. I'm going to show you how to structure your processes and introduce you to your new best friend for any ERP project: Business Process Model and Notation, or BPMN 2.0. Don't worry, this isn't an academic lecture. This is a field guide for project teams.
+Welcome to Part 2 of our series. Today, we get practical. We're moving from the _why_ to the _how_. I'm going to show you how to structure your processes and introduce you to your new best friend for any ERP project: Business Process Model and Notation, or BPMN 2.0. Don't worry, this isn't an academic lecture. This is a field guide for project teams.
 
 ### Your Project Needs Its Own Process Catalog
 
 Before we dive into the details of process modeling, we need to address a critical early-stage decision that sets the foundation for your entire project: creating your project-specific process catalog.
 
-In the previous post, I mentioned that the Microsoft Business Process Catalog is a powerful reference tool, but it's ultimately just a library—a comprehensive collection of possible processes that spans every industry and every scenario. What it isn't is a blueprint for *your* specific implementation.
+In the previous post, I mentioned that the Microsoft Business Process Catalog is a powerful reference tool, but it's ultimately just a library—a comprehensive collection of possible processes that spans every industry and every scenario. What it isn't is a blueprint for _your_ specific implementation.
 
 This is where the solution architect or lead architect earns their keep in the early phases of the project. During the blueprint phase, one of the most important deliverables is a tailored process catalog that's laser-focused on your project scope and aligned with your implementation goals.
 
-Think of it this way: the Microsoft catalog has hundreds of processes. Your company probably only cares about 20-30 of them, and even those will need to be tweaked to reflect how *you* actually do business. The job of the lead architect is to curate, adapt, and structure a process catalog that becomes the single source of truth for what's in scope and how the work will flow.
+Think of it this way: the Microsoft catalog has hundreds of processes. Your company probably only cares about 20-30 of them, and even those will need to be tweaked to reflect how _you_ actually do business. The job of the lead architect is to curate, adapt, and structure a process catalog that becomes the single source of truth for what's in scope and how the work will flow.
 
 #### Level Zero: The Process Storyline
 
@@ -32,21 +33,22 @@ Before you even start drawing detailed BPMN diagrams, you need to define what I 
 
 Level Zero captures the major end-to-end processes (Level 1) that define your business and the scope of your implementation. It's the executive summary of your process world. For example:
 
-*   **Procure to Pay**: From identifying a need to buy something, all the way through to paying the vendor.
-*   **Order to Cash**: From receiving a customer order to collecting payment.
-*   **Hire to Retire**: From recruiting a new employee to their eventual departure.
-*   **Record to Report**: From capturing financial transactions to producing accurate financial statements.
+- **Procure to Pay**: From identifying a need to buy something, all the way through to paying the vendor.
+- **Order to Cash**: From receiving a customer order to collecting payment.
+- **Hire to Retire**: From recruiting a new employee to their eventual departure.
+- **Record to Report**: From capturing financial transactions to producing accurate financial statements.
 
 Your Level Zero is typically 5-10 major storylines, each representing a critical value stream in the business. These aren't processes you model in detail yet; they're the organizing themes that frame everything else.
 
 This process storyline serves multiple purposes:
+
 1.  It aligns stakeholders on the big-picture scope.
 2.  It provides the framework for decomposing work into process groups and individual processes.
 3.  It becomes a navigation tool for your entire process library—anyone can look at Level Zero and immediately understand what's covered.
 
 The key mistake teams make is jumping straight into detailed process mapping without defining this storyline first. Without Level Zero, you end up with a chaotic pile of diagrams that have no clear relationship to each other. With Level Zero, you have a logical structure that guides your entire modeling effort.
 
-Once your tailored process catalog and Level Zero storyline are defined and approved, *then* you're ready to build out the hierarchy and start drawing the actual process flows.
+Once your tailored process catalog and Level Zero storyline are defined and approved, _then_ you're ready to build out the hierarchy and start drawing the actual process flows.
 
 A practical example on how this process catalog looks like, can be found in the last post of this series!
 
@@ -62,15 +64,15 @@ Before we draw a single box or arrow, we need to understand how all the processe
 
 Think of it like a set of Russian nesting dolls. For our purposes, we work with five distinct process levels:
 
-*   **Level 1: End to End Processes.** This is the 10,000-foot view. It represents the major end-to-end value streams in the business, like "Procure to Pay" or "Order to Cash." Your entire process catalog might only have 5-10 of these. They show the big picture.
-*   **Level 2: Process Groups.** This is where we break down the end-to-end processes into logical stages. For example, "Procure to Pay" might break down into "Vendor Management," "Purchase Requisition," and "Invoice Processing."
-*   **Level 3: The Actual Process.** This is the main event. This is the BPMN diagram that shows the step-by-step flow of a specific business process, like "Approve a New Vendor." This is where we will spend most of our modeling time.
-*   **Level 4: Subprocesses.** These are modeled *within* your Level 3 diagram as collapsed subprocesses. They represent a logical grouping of steps that can be expanded if needed, but they're not separate diagrams. Think of it as a way to keep your main process clean while still capturing additional detail.
-*   **Level 5: Work Instructions.** This is *not* part of our business process modeling. These are the detailed, click-by-click guides on how to perform a single step in Dynamics 365. We'll discuss why these don't belong in your process diagrams in a moment.
+- **Level 1: End to End Processes.** This is the 10,000-foot view. It represents the major end-to-end value streams in the business, like "Procure to Pay" or "Order to Cash." Your entire process catalog might only have 5-10 of these. They show the big picture.
+- **Level 2: Process Groups.** This is where we break down the end-to-end processes into logical stages. For example, "Procure to Pay" might break down into "Vendor Management," "Purchase Requisition," and "Invoice Processing."
+- **Level 3: The Actual Process.** This is the main event. This is the BPMN diagram that shows the step-by-step flow of a specific business process, like "Approve a New Vendor." This is where we will spend most of our modeling time.
+- **Level 4: Subprocesses.** These are modeled _within_ your Level 3 diagram as collapsed subprocesses. They represent a logical grouping of steps that can be expanded if needed, but they're not separate diagrams. Think of it as a way to keep your main process clean while still capturing additional detail.
+- **Level 5: Work Instructions.** This is _not_ part of our business process modeling. These are the detailed, click-by-click guides on how to perform a single step in Dynamics 365. We'll discuss why these don't belong in your process diagrams in a moment.
 
 In [Your Process Maps Will Die After Go-Live, Unless You Do This](/blog/your-process-maps-will-die-after-go-live-unless-you-do-this), we'll talk about ownership and how to govern this hierarchy, but for now, just get comfortable with this five-level structure.
 
-###  A Quick BPMN 2.0 Tutorial
+### A Quick BPMN 2.0 Tutorial
 
 There are many ways to draw a process, but the industry standard is BPMN 2.0. It provides a common language that everyone from a business stakeholder to a developer can understand.
 
@@ -83,11 +85,12 @@ Every good process diagram tells a simple story. It has a beginning, a middle, a
 1.  **Start and End Events:** Every process must have a clear start (a thin-lined circle) and at least one end (a thick-lined circle). A process can't just stop in the middle of nowhere.
 2.  **Tasks:** A task (a rounded rectangle) is a unit of work performed by a person or a system. Keep the description simple: Verb + Noun (e.g., "Create Purchase Order").
 3.  **Gateways:** A gateway (a diamond) is a decision point. It asks a question that directs the flow. The key is to keep the question simple and closed (e.g., "Invoice > $10k?"). The paths leading out of the gateway are the answers ("Yes" / "No").
-4.  **Swimlane Diagrams:** This is crucial. A process map is organized into lanes. Each lane represents a *human role or department* (e.g., "Accounts Payable Clerk," "Warehouse Manager"). **Do not make the lanes technical applications.** A diagram showing how systems interact is an integration diagram, not a business process diagram.
+4.  **Swimlane Diagrams:** This is crucial. A process map is organized into lanes. Each lane represents a _human role or department_ (e.g., "Accounts Payable Clerk," "Warehouse Manager"). **Do not make the lanes technical applications.** A diagram showing how systems interact is an integration diagram, not a business process diagram.
 
 Simplicity wins. If your diagram looks like a bowl of spaghetti, you've done it wrong. The goal is clarity, not complexity.
 
 If you want to learn more on how to diagram with BPMN, I can only recommend [Camundas cheat sheet.](https://camunda.com/bpmn/reference/)
+
 <ImageWithLightBox
   src="/static/images/blogs/from-chaos-to-clarity-a-practical-guide-to-bpmn-2-0-for-your-dynamics-365-project/sample-camunda-process.png"
   alt="Sample Process from the Camunda Cheat Sheet"
@@ -100,27 +103,27 @@ I've reviewed hundreds of process diagrams, and the most common of all BPMN comm
 
 Let's use an example. Imagine a Level 3 process called "Create New Product." The diagram might have a few steps:
 
-*   Marketing submits new product request.
-*   Engineering reviews and enriches data.
-*   Finance adds costing information.
-*   Product is approved.
-*   Product is created in Dynamics 365.
+- Marketing submits new product request.
+- Engineering reviews and enriches data.
+- Finance adds costing information.
+- Product is approved.
+- Product is created in Dynamics 365.
 
 This is the correct level. But I often see people explode that last step, "Product is created in Dynamics 365," into twenty more boxes on the same diagram:
 
-*   Navigate to Product Information Management.
-*   Click "New."
-*   Enter Product Number.
-*   Select Item Model Group.
-*   Set Storage Dimension Group...
+- Navigate to Product Information Management.
+- Click "New."
+- Enter Product Number.
+- Select Item Model Group.
+- Set Storage Dimension Group...
 
 This is wrong. These are Level 5 work instructions—the click-by-click steps that belong in a separate user guide. Putting them in your Level 3 process diagram creates noise, makes it terrifying for business users to look at, and becomes a nightmare to update every time a minor screen change happens in the software.
 
-If "Product is created in Dynamics 365" has significant complexity, you might model it as a Level 4 subprocess *within* your Level 3 diagram—shown as a single collapsed box with a plus symbol—but you still wouldn't show every field and click.
+If "Product is created in Dynamics 365" has significant complexity, you might model it as a Level 4 subprocess _within_ your Level 3 diagram—shown as a single collapsed box with a plus symbol—but you still wouldn't show every field and click.
 
 #### How to Find the Right Level of Detail
 
-A task in your Level 3 process diagram should represent a logical unit of work performed by one role, typically in one sitting, that results in a clear business outcome. If you are describing *where to click*, you've crossed from Level 3 into Level 5 territory, and that's too deep. 
+A task in your Level 3 process diagram should represent a logical unit of work performed by one role, typically in one sitting, that results in a clear business outcome. If you are describing _where to click_, you've crossed from Level 3 into Level 5 territory, and that's too deep.
 
 Use Level 4 subprocesses when you need to group related steps for clarity, but keep them collapsed in your main view. The detailed "how to click" belongs in Level 5 work instructions—separate documents that your training team will love you for keeping separate.
 
@@ -131,6 +134,7 @@ Okay, let's talk about process documentation tools. Listen, I've tried dozens of
 For very simple organizations with low complexity—maybe a finance-only implementation—an online tool like Lucidchart or Miro can work just fine. But please, don't use Visio. You know why. It's clunky, version control is a mess, and it doesn't create a real model.
 
 For everything else, from mid-size to large enterprise ERP projects, I have found one tool that hits the sweet spot of usability, features, and price: [Gluu](https://gluu.biz/). (Full disclosure: I'm not affiliated with Gluu—just a satisfied user.) Is it perfect? No. It can be a bit clumsy with complex integration scenarios. But for core business process management, creating a connected process hierarchy, and assigning roles and responsibilities, it's a fantastic and affordable tool that business users can actually learn to use.
+
 <ImageWithLightBox
   src="/static/images/blogs/from-chaos-to-clarity-a-practical-guide-to-bpmn-2-0-for-your-dynamics-365-project/gluu-biz-processes.png"
   alt="Dashboard of the tool Gluu.biz"
@@ -142,4 +146,3 @@ For everything else, from mid-size to large enterprise ERP projects, I have foun
 You now have the building blocks. You understand how to structure your work with a process hierarchy and how to model a clear, effective process using the basics of BPMN 2.0. Most importantly, you know the most common trap—going into too much detail—and how to avoid it.
 
 In [Your Process Maps Will Die After Go-Live, Unless You Do This](/blog/your-process-maps-will-die-after-go-live-unless-you-do-this), we'll address another critical question: Who owns these processes, and how do we keep them alive and relevant long after the project go-live?
-
