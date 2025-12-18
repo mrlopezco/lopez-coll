@@ -16,27 +16,8 @@ const compat = new FlatCompat({
     allConfig: js.configs.all
 });
 
-export default defineConfig([{
-    languageOptions: {
-        parser: tsParser,
-
-        globals: {
-            ...globals.browser,
-            ...globals.amd,
-            ...globals.node,
-        },
-
-        parserOptions: {
-            project: true,
-            tsconfigRootDir: __dirname,
-        },
-    },
-
-    plugins: {
-        "@typescript-eslint": typescriptEslint,
-    },
-
-    extends: compat.extends(
+export default defineConfig([
+    ...compat.extends(
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
@@ -45,22 +26,43 @@ export default defineConfig([{
         "next",
         "next/core-web-vitals",
     ),
+    {
+        languageOptions: {
+            parser: tsParser,
 
-    rules: {
-        "prettier/prettier": "error",
-        "react/react-in-jsx-scope": "off",
+            globals: {
+                ...globals.browser,
+                ...globals.amd,
+                ...globals.node,
+            },
 
-        "jsx-a11y/anchor-is-valid": ["error", {
-            components: ["Link"],
-            specialLink: ["hrefLeft", "hrefRight"],
-            aspects: ["invalidHref", "preferButton"],
-        }],
+            parserOptions: {
+                project: true,
+                tsconfigRootDir: __dirname,
+            },
+        },
 
-        "react/prop-types": 0,
-        "@typescript-eslint/no-unused-vars": 0,
-        "react/no-unescaped-entities": 0,
-        "@typescript-eslint/explicit-module-boundary-types": "off",
-        "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/ban-ts-comment": "off",
+        plugins: {
+            "@typescript-eslint": typescriptEslint,
+        },
+
+        rules: {
+            "prettier/prettier": "error",
+            "react/react-in-jsx-scope": "off",
+
+            "jsx-a11y/anchor-is-valid": ["error", {
+                components: ["Link"],
+                specialLink: ["hrefLeft", "hrefRight"],
+                aspects: ["invalidHref", "preferButton"],
+            }],
+
+            "react/prop-types": 0,
+            "@typescript-eslint/no-unused-vars": 0,
+            "react/no-unescaped-entities": 0,
+            "@typescript-eslint/explicit-module-boundary-types": "off",
+            "@typescript-eslint/no-var-requires": "off",
+            "@typescript-eslint/ban-ts-comment": "off",
+        },
     },
-}, globalIgnores(["**/node_modules", "**/.eslintrc.js", ".next", "out", "build", "dist"])]);
+    globalIgnores(["**/node_modules", "**/.eslintrc.js", ".next", "out", "build", "dist"]),
+]);
