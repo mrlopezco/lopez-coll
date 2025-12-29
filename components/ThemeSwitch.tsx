@@ -41,9 +41,16 @@ const ThemeSwitch = () => {
   useEffect(() => setMounted(true), [])
 
   const handleClick = () => {
-    const newTheme = theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark'
+    const currentTheme = theme === 'dark' || resolvedTheme === 'dark' ? 'dark' : 'light'
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
     setTheme(newTheme)
-    posthog.capture('theme_toggled', { theme: newTheme })
+    // Use the tracking utility for consistency
+    if (posthog) {
+      posthog.capture('theme_toggled', {
+        theme: newTheme,
+        previous_theme: currentTheme,
+      })
+    }
   }
 
   return (

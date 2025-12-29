@@ -6,11 +6,11 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is www.googletagmanager.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is www.googletagmanager.com *.posthog.com;
   style-src 'self' 'unsafe-inline';
   img-src * blob: data: https://www.google-analytics.com;
   media-src *.s3.amazonaws.com;
-  connect-src * https://www.google-analytics.com;
+  connect-src * https://www.google-analytics.com *.posthog.com https://app.posthog.com;
   font-src 'self';
   frame-src giscus.app
 `
@@ -103,6 +103,11 @@ module.exports = () => {
       NEXT_PUBLIC_GISCUS_REPOSITORY_ID: process.env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID,
       NEXT_PUBLIC_GISCUS_CATEGORY: process.env.NEXT_PUBLIC_GISCUS_CATEGORY,
       NEXT_PUBLIC_GISCUS_CATEGORY_ID: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID,
+      NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
+      NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+      NEXT_PUBLIC_POSTHOG_FORCE_ENABLE: process.env.NEXT_PUBLIC_POSTHOG_FORCE_ENABLE,
+      NEXT_PUBLIC_POSTHOG_REVERSE_PROXY: process.env.NEXT_PUBLIC_POSTHOG_REVERSE_PROXY,
+      NEXT_PUBLIC_POSTHOG_DISABLE_SESSION_RECORDING: process.env.NEXT_PUBLIC_POSTHOG_DISABLE_SESSION_RECORDING,
     },
   })
 }

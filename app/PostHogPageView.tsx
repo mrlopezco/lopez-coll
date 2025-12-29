@@ -3,6 +3,7 @@
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import { usePostHog } from 'posthog-js/react'
+import { safeCapture } from '@/lib/posthog'
 
 export default function PostHogPageView(): null {
   const pathname = usePathname()
@@ -10,13 +11,20 @@ export default function PostHogPageView(): null {
   const posthog = usePostHog()
 
   useEffect(() => {
-    // Track pageviews
+    // Track pageviews with enhanced metadata
     if (pathname && posthog) {
       let url = window.origin + pathname
       if (searchParams.toString()) {
         url = url + `?${searchParams.toString()}`
       }
-      posthog.capture('$pageview', { $current_url: url })
+
+      // Enhanced pageview tracking with additional metadata
+      safeCapture(posthog, '$pageview', {
+        $current_url: url,
+        pathname,
+        search_params: searchParams.toString() || undefined,
+        timestamp: new Date().toISOString(),
+      })
     }
   }, [pathname, searchParams, posthog])
 
