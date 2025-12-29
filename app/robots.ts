@@ -1,9 +1,15 @@
+'use cache'
+
 import { MetadataRoute } from 'next'
 import siteMetadata from '@/data/siteMetadata'
+import { cacheLife } from 'next/cache'
 
-export const dynamic = 'force-static'
+// MIGRATED: Removed export const dynamic = 'force-static' (incompatible with Cache Components)
+// Using "use cache" with long-term caching for robots.txt (never changes)
+// Strategy: cacheLife('max') - Cache indefinitely since robots.txt is static
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  cacheLife('max')
   return {
     rules: {
       userAgent: '*',

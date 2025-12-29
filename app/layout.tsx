@@ -72,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang={siteMetadata.language}
       className={`${outfit.variable} scroll-smooth`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <link
@@ -117,7 +118,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   {children}
                 </main>
               </SearchProvider>
-              <Footer />
+              <Suspense fallback={null}>
+                <Footer />
+              </Suspense>
             </SectionContainer>
           </PHProvider>
         </ThemeProviders>

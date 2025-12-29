@@ -1,6 +1,6 @@
 ---
-title: "A Faster Way to Query Work Items in Azure DevOps (That I Wish I Knew Sooner)"
-date: "2025-11-16"
+title: 'A Faster Way to Query Work Items in Azure DevOps (That I Wish I Knew Sooner)'
+date: '2025-11-16'
 lastmod: '2025-11-16'
 tags: ['Azure DevOps', 'AI']
 draft: false
@@ -9,14 +9,14 @@ summary: >
   Stop wrestling with the clunky Azure DevOps query UI. Discover how a free marketplace extension combined with a simple AI prompt can help you find work items in seconds. AI Prompt Template included!
 ---
 
-
 We’ve all been there. You're deep inside Azure DevOps, trying to hunt down a specific set of user stories or bugs. You open the query editor. You start clicking dropdowns, adding clauses, remembering field names. And oh, don't forget to set the Query type to "Tree of work items", oh and at the bottom set the Type of Tree to "Parent/Child".
 
-Every single time. It’s frustrating. Especially when the request is complex. 
+Every single time. It’s frustrating. Especially when the request is complex.
 
 You know the data is in there, but getting it out feels like a chore. For years, I just accepted this as part of the process.
 
 Then, I stumbled upon a method that is so much faster, it almost feels like cheating. It combines a free marketplace extension with the power of AI, and it completely changes how I find work items.
+
 <ImageWithLightBox
   src="/static/images/blogs/a-faster-way-to-query-work-items-in-azure-devops-that-i-wish-i-knew-sooner/WIQLDevops01.png"
   alt="The WIQL Playground"
@@ -29,9 +29,9 @@ The default query editor in Azure DevOps is powerful, but it’s not always fast
 
 But what about something more complex?
 
-*   "Find all Features that *don't* belong to a specific team..."
-*   "...and have a child Task with 'API' in the title..."
-*   "...that was completed in the last sprint."
+- "Find all Features that _don't_ belong to a specific team..."
+- "...and have a child Task with 'API' in the title..."
+- "...that was completed in the last sprint."
 
 Building that in the UI involves a lot of clicking, grouping clauses, and trial and error. It pulls you out of your flow and wastes valuable time.
 
@@ -43,7 +43,7 @@ WIQL stands for Work Item Query Language. Think of it as a simplified version of
 
 Now, it has some limitations. You can't do complex `JOIN` operations like in SQL, and some field operators are restricted. For instance, the `CONTAINS` operator works for text fields but not for something like an Area Path.
 
-But for 95% of my needs, it's more than enough. The ability to write a query textually is just *faster* than clicking through menus.
+But for 95% of my needs, it's more than enough. The ability to write a query textually is just _faster_ than clicking through menus.
 
 ## The Real Secret: Adding AI to the Mix
 
@@ -59,7 +59,7 @@ Let's walk through a scenario I faced recently. A project manager needed a very 
 
 ### The Scenario
 
-The request was to **find all work items of type 'Process' that are *not* under the 'DEV' Area Path, but have a child 'Feature' with either 'Data Migration' or 'Integration' in the title.**
+The request was to **find all work items of type 'Process' that are _not_ under the 'DEV' Area Path, but have a child 'Feature' with either 'Data Migration' or 'Integration' in the title.**
 
 Building this with the standard tree query UI would have been painful. But with this new method, it was incredibly simple.
 
@@ -70,7 +70,7 @@ First things first, you need the extension. If you're an admin for your Azure De
 1.  Go to the [WIQL Playground page](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.wiql-editor) in the Visual Studio Marketplace.
 2.  Click "Get it free" and follow the installation prompts.
 
-Once installed, you'll see a new "WIQL Playground" option under the *Boards* menu.
+Once installed, you'll see a new "WIQL Playground" option under the _Boards_ menu.
 
 ### Step 2: Craft Your Natural Language Prompt
 
@@ -117,8 +117,9 @@ Now for the final step.
 You'll see a preliminary list of results. But here's the best part: look for the **"Open in Queries"** button.
 
 When you click this, it takes the WIQL code and converts it into a standard query in the regular editor. This is fantastic for two reasons:
-*   You see the results in the clean, familiar Azure DevOps format.
-*   You can see exactly how the query was built in the UI, helping you learn how to construct complex queries for the future.
+
+- You see the results in the clean, familiar Azure DevOps format.
+- You can see exactly how the query was built in the UI, helping you learn how to construct complex queries for the future.
 
 <ImageWithLightBox
   src="/static/images/blogs/a-faster-way-to-query-work-items-in-azure-devops-that-i-wish-i-knew-sooner/WIQLDevops03.png"
@@ -130,4 +131,4 @@ When you click this, it takes the WIQL code and converts it into a standard quer
 
 This simple workflow has saved me a ton of time. When I need to find work items, I no longer dread opening the query editor. I just state what I need in plain English, paste the code, and get my results.
 
-It allows you to focus on the *intent* of your search, not the mechanics of the tool. You can answer complex questions and pull specific data sets in a fraction of the time. If you spend any significant amount of time in Azure DevOps, this is a technique you should try today.
+It allows you to focus on the _intent_ of your search, not the mechanics of the tool. You can answer complex questions and pull specific data sets in a fraction of the time. If you spend any significant amount of time in Azure DevOps, this is a technique you should try today.

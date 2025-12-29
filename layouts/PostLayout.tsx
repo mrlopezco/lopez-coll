@@ -15,6 +15,7 @@ import BlogMeta from '@/components/blog/BlogMeta'
 import TOCInline from 'pliny/ui/TOCInline'
 import CustomNewsletterForm from '@/components/CustomNewsLetterform'
 import PostSeriesNav from '@/components/blog/PostSeriesNav'
+import LinkedInFollowModal from '@/components/LinkedInFollowModal'
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
@@ -54,6 +55,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
   return (
     <SectionContainer>
       <ScrollTopAndComment />
+      <LinkedInFollowModal authorDetails={authorDetails} />
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">

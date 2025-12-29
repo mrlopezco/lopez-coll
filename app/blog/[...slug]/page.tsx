@@ -12,6 +12,7 @@ import PostBanner from '@/layouts/PostBanner'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
+import { connection } from 'next/server'
 
 const defaultLayout = 'PostLayout'
 const layouts = {
@@ -23,6 +24,8 @@ const layouts = {
 export async function generateMetadata(props: {
   params: Promise<{ slug: string[] }>
 }): Promise<Metadata | undefined> {
+  // Access connection to make component aware of request context (required for new Date() with Cache Components)
+  await connection()
   const params = await props.params
   const slug = decodeURI(params.slug.join('/'))
   const post = allBlogs.find((p) => p.slug === slug)

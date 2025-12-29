@@ -66,10 +66,8 @@ module.exports = () => {
     output,
     basePath,
     reactStrictMode: true,
+    cacheComponents: true,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-    eslint: {
-      dirs: ['app', 'components', 'layouts', 'scripts'],
-    },
     images: {
       remotePatterns: [
         {
@@ -88,12 +86,15 @@ module.exports = () => {
         },
       ]
     },
-    webpack: (config, options) => {
+    // SVG handling: @svgr/webpack is webpack-specific and doesn't work with Turbopack
+    // Empty turbopack config to allow webpack config for SVG support
+    // Use --webpack flag for builds that need SVG-as-React-component functionality
+    turbopack: {},
+    webpack: (config) => {
       config.module.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
       })
-
       return config
     },
     env: {
