@@ -1,5 +1,9 @@
+'use client'
+
 import clsx from 'clsx'
 import Twemoji from '@/components/Twemoji'
+import { usePostHog } from 'posthog-js/react'
+import { trackCVDownloaded, getCurrentPagePath } from '@/lib/posthog'
 
 interface DownloadCVButtonProps {
   href: string
@@ -7,6 +11,15 @@ interface DownloadCVButtonProps {
 }
 
 const DownloadCVButton: React.FC<DownloadCVButtonProps> = ({ href, text }) => {
+  const posthog = usePostHog()
+
+  const handleClick = () => {
+    trackCVDownloaded(posthog, {
+      source_page: getCurrentPagePath(),
+      timestamp: new Date().toISOString(),
+    })
+  }
+
   return (
     <a
       className={clsx([
@@ -22,6 +35,7 @@ const DownloadCVButton: React.FC<DownloadCVButtonProps> = ({ href, text }) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
     >
       <span>{text}</span>
       <Twemoji emoji="page-facing-up" />

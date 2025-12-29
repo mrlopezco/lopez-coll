@@ -1,5 +1,13 @@
 'use client'
 import { useRef, useState, FormEvent } from 'react'
+import { usePostHog } from 'posthog-js/react'
+import {
+  trackNewsletterSubscribed,
+  trackNewsletterSubscriptionFailed,
+  safeIdentify,
+  hashEmail,
+  getCurrentPagePath,
+} from '@/lib/posthog'
 
 interface NewsletterFormProps {
   title?: string
@@ -14,12 +22,16 @@ const CustomNewsletterForm: React.FC<NewsletterFormProps> = ({
   const [error, setError] = useState(false)
   const [message, setMessage] = useState('')
   const [subscribed, setSubscribed] = useState(false)
+  const posthog = usePostHog()
 
   const subscribe = async (e: FormEvent) => {
     e.preventDefault()
+    const email = inputEl.current?.value || ''
+    const source = getCurrentPagePath()
+
     const res = await fetch(apiUrl, {
       body: JSON.stringify({
-        email: inputEl.current?.value,
+        email,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -30,6 +42,11 @@ const CustomNewsletterForm: React.FC<NewsletterFormProps> = ({
     if (result.error) {
       setError(true)
       setMessage('Your e-mail address is invalid or you are already subscribed!')
+      // Track failed subscription
+      trackNewsletterSubscriptionFailed(posthog, {
+        error: result.error || 'Unknown error',
+        source,
+      })
       return
     }
     if (inputEl.current) {
@@ -37,6 +54,25 @@ const CustomNewsletterForm: React.FC<NewsletterFormProps> = ({
     }
     setError(false)
     setSubscribed(true)
+
+    // Track successful subscription
+    const emailHash = hashEmail(email)
+    trackNewsletterSubscribed(posthog, {
+      email_hash: emailHash,
+      source,
+      timestamp: new Date().toISOString(),
+    })
+
+    // Identify user with PostHog
+    safeIdentify(posthog, emailHash, {
+      email_hash: emailHash,
+      subscribed_at: new Date().toISOString(),
+    })
+
+    // Store email hash in localStorage for internal user filtering
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('user_email', email)
+    }
   }
 
   return (

@@ -13,6 +13,8 @@ import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 import { connection } from 'next/server'
+import { BlogPostTracker } from '@/components/BlogPostTracker'
+import { ScrollDepthTrackerWrapper } from '@/components/ScrollDepthTrackerWrapper'
 
 const defaultLayout = 'PostLayout'
 const layouts = {
@@ -113,6 +115,15 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {/* PostHog tracking components */}
+      <BlogPostTracker
+        postSlug={mainContent.slug}
+        postTitle={mainContent.title}
+        postTags={mainContent.tags}
+        readingTime={mainContent.readingTime?.minutes}
+        postDate={mainContent.date}
+      />
+      <ScrollDepthTrackerWrapper postSlug={mainContent.slug} />
       <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
       </Layout>

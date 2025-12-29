@@ -16,6 +16,7 @@ import TOCInline from 'pliny/ui/TOCInline'
 import CustomNewsletterForm from '@/components/CustomNewsLetterform'
 import PostSeriesNav from '@/components/blog/PostSeriesNav'
 import LinkedInFollowModal from '@/components/LinkedInFollowModal'
+import { BlogNavigationLink } from '@/components/BlogNavigationLink'
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
@@ -169,12 +170,15 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           Previous Article
                         </p>
                         <div>
-                          <Link
+                          <BlogNavigationLink
                             href={`/${prev.path}`}
+                            direction="prev"
+                            fromSlug={slug}
+                            toSlug={prev.path}
                             className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
                           >
                             {prev.title}
-                          </Link>
+                          </BlogNavigationLink>
                         </div>
                       </div>
                     )}
@@ -184,12 +188,15 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           Next Article
                         </p>
                         <div>
-                          <Link
+                          <BlogNavigationLink
                             href={`/${next.path}`}
+                            direction="next"
+                            fromSlug={slug}
+                            toSlug={next.path}
                             className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
                           >
                             {next.title}
-                          </Link>
+                          </BlogNavigationLink>
                         </div>
                       </div>
                     )}
