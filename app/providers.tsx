@@ -21,11 +21,21 @@ export function PHProvider({ children }: { children: React.ReactNode }) {
     // Check for required environment variables
     const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY
     const posthogHost = process.env.NEXT_PUBLIC_POSTHOG_HOST
+    const shouldLog = process.env.NEXT_PUBLIC_POSTHOG_FORCE_ENABLE === 'true'
 
     if (!posthogKey || !posthogHost) {
-      console.error(
+      const errorMsg =
         '[PostHog] Environment variables are missing. Required: NEXT_PUBLIC_POSTHOG_KEY, NEXT_PUBLIC_POSTHOG_HOST'
-      )
+      if (shouldLog) {
+        console.error(errorMsg, {
+          hasKey: !!posthogKey,
+          hasHost: !!posthogHost,
+          keyLength: posthogKey?.length || 0,
+          hostValue: posthogHost || 'undefined',
+        })
+      } else {
+        console.error(errorMsg)
+      }
       return
     }
 
@@ -64,7 +74,7 @@ export function PHProvider({ children }: { children: React.ReactNode }) {
         },
         // Disable features that might not be needed
         disable_session_recording:
-          process.env.NEXT_PUBLIC_POSTHog_DISABLE_SESSION_RECORDING === 'true',
+          process.env.NEXT_PUBLIC_POSTHOG_DISABLE_SESSION_RECORDING === 'true',
         // Capture performance metrics
         capture_performance: true,
         // Opt out of PostHog's automatic feature flags
