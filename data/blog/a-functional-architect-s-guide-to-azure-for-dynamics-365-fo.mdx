@@ -1,0 +1,95 @@
+---
+title: "Azure Fundamentals for Functional Architects: Understanding Dynamics 365 F&O Integrations"
+date: "2026-01-02"
+lastmod: "2026-01-02"
+tags: ['Azure']
+draft: false
+layout: PostLayout
+summary: >
+  Stop seeing Azure as an optional extra for your Dynamics 365 F&O projects. These fundamentals break down essential Azure patterns for integrations and data migrations, giving functional architects the knowledge they need to communicate effectively with technical teams and design more robust solutions. Two practical scenarios demonstrate how to apply these patterns: a modern payment integration and a professionalized data migration pipeline.
+---
+<TOCInline toc={props.toc} exclude="Table of content" collapse={true} asDisclosure toHeading={3} />
+As a functional architect for Dynamics 365 F&O, I spend a lot of time designing solutions. We map processes, define entities, and figure out how data should flow. But there's a gray area where the functional design ends and the technical one begins. In those conversations, Azure tools are often discussed and as a functional, we tend to disconenect. Am I right?
+
+Too many people see Azure as a purely technical concern. Something the Technical Architect with developers handle. But I've learned that the most successful projects happen when functional experts understand the basic building blocks of Azure.
+
+Why? Because Azure isn't just an add-on; it's the backbone that makes modern, scalable solutions possible. This isn't a deep dive for developers. These fundamentals are for the functional architects, the project managers, and the business analysts. It's what you need to know to have the right conversations with technical teams and help design better, more resilient systems.
+
+## The Azure Toolbox: Four Key Areas
+
+Think of Azure as a giant toolbox for your Dynamics 365 F&O projects. You don't need to know how to use every tool, but you should know what the most important ones do.
+
+### Events vs. Messages: Understanding the Difference
+
+One of the most important distinctions in Azure integration is between events and messages. Both move information, but they serve fundamentally different purposes.
+
+Events are lightweight notifications that something happened. Azure Event Grid [5] delivers these notifications with at-least-once delivery guarantees, automatic retries, and dead-lettering support. This means if your subscriber is temporarily offline, Event Grid will retry delivery. However, because events can be delivered multiple times, your event handlers should be designed to be idempotent—able to handle the same event multiple times without causing duplicate side effects. This makes Event Grid perfect for scenarios where you need to react quickly to something, but missing a notification isn't catastrophic—like triggering a process when a new file appears in storage.
+
+Messages are business transactions that must be processed reliably. Azure Service Bus [2] stores messages durably, guarantees they'll be delivered in order, automatically retries failed processing, and maintains a dead-letter queue for anything that can't be processed. This makes Service Bus essential for critical business operations where every transaction matters—like processing payments or order updates.
+
+The practical difference: Use Event Grid when you need a fast trigger for non-critical workflows. Use Service Bus when you're handling business transactions that cannot be lost, must be processed in order, and need retry logic [1]. For F&O implementations you will hear Service Bus more often than Event Grid.
+
+### Processing Data: The Brains of the Operation
+
+When a message or event arrives, something has to *do* something with it. That's where processing or compute comes in. The choice is usually between low-code orchestration (Logic Apps) and code-first compute (Azure Functions) [3].
+
+Azure Logic Apps is your low-code workflow tool with a visual designer and hundreds of connectors, perfect for orchestrating the steps of a business process. Azure Functions is code-first compute—you write actual code for custom transformations, complex calculations, or cryptographic signing. They often work together beautifully.
+
+In the payment integration scenario I will explain further below, a Logic App can orchestrate the whole flow, while calling a Function handles a specific task.
+
+Integrations from/to F&O tend to be on the complex side, and developers prefer to be 100% in control of the code. Therefore, Azure Functions are preferred to handle the entire integration scenario.
+Simpler scenarios can be managed with Logic Apps though. Querying for example exchange rates from a provider.
+
+### Storage: A Place for Your Data to Live
+
+Data needs somewhere to live in Azure. The most common storage services you'll encounter in F&O integrations are Azure Blob Storage and Azure Data Lake Storage Gen2 (ADLS Gen2).
+
+Azure Blob Storage is your general-purpose file storage. It's where you'll store data packages, import files, export files, and any other documents your integration needs. When a file is created or modified in Blob Storage, Azure Event Grid can automatically notify other services [5], eliminating the need for constant polling.
+
+Azure Data Lake Storage Gen2 builds on Blob Storage but adds features optimized for big data and analytics workloads. It supports hierarchical namespaces and is designed for scenarios where you're processing large volumes of data, performing transformations, or building data pipelines.
+
+The choice between them often comes down to scale and use case: Blob Storage for straightforward file storage and retrieval, Data Lake Storage for complex data processing and analytics scenarios.
+
+## Scenario 1: A Modern, Event-Driven Integration
+
+Let's make this real. Imagine we need to integrate Dynamics 365 F&O with a third-party payment provider. The modern approach avoids a brittle point-to-point connection and uses Azure as the middleware.
+
+The flow is clean and decoupled: a F&O business event [1] fires when a payment journal is posted. Instead of calling the provider directly, F&O publishes the event to an Azure Service Bus topic [7], which durably stores and routes the message. An Azure Logic App or Function subscribes to this topic and does the processing. It might enrich the small event payload by calling back to F&O via OData, stage the data, and then call the payment provider's API.
+
+For the write-back, the choice is clear: use OData for small, synchronous updates (like an authorization code). Use the Data Management Framework (DMF) Package REST API for reliable, asynchronous bulk updates [8]. This Azure integration pattern is reusable, scalable, and keeps F&O cleanly separated from its downstream systems [2].
+
+<ImageWithLightBox
+  src="/static/images/blogs/a-functional-architect-s-guide-to-azure-for-dynamics-365-fo/Payment-Integration-Flow.png"
+  alt="Payment Integration within the Azure Platform"
+  caption="Payment Integration within the Azure Platform"
+/>
+
+
+## Scenario 2: Professionalizing Data Migration
+
+Anyone who has worked on a big ERP implementation knows the pain of data migration. It's often a chaotic mess of Excel files, manual clean-up, and countless failed import attempts. We can professionalize it with a repeatable, automated medallion pipeline on Azure [4].
+
+The process starts by landing raw source system files in their original format into a 'Bronze' ADLS Gen2 container. A Blob Storage event [5] triggers an Azure Databricks or Synapse Spark job to cleanse and standardize the data into 'Silver' Delta Lake tables. A final transformation produces entity-aligned 'Gold' tables, ready for import.
+
+From there, the load is automated: another blob event can trigger a Logic App to construct a data package from the Gold data and call the DMF Package REST API to execute the import into F&O [8]. This takes upfront effort but pays dividends in quality and speed across multiple test cycles.
+
+**Modernization Note:** The legacy "Export to Data Lake" feature has been deprecated [9]. New implementations should use Synapse Link for Dataverse, which now supports F&O tables and entities. It writes data directly into Parquet/Delta format, aligning perfectly with modern analytics, Microsoft Fabric, and the medallion architecture described here [10].
+
+<ImageWithLightBox
+  src="/static/images/blogs/a-functional-architect-s-guide-to-azure-for-dynamics-365-fo/Data-Migration-Flow.png"
+  alt="Data Migration Flow within the Azure Platform"
+  caption="Data Migration Flow within the Azure Platform"
+/>
+
+## References
+
+1. [Business events in finance and operations overview](https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/business-events/home-page) - Microsoft Learn
+2. [Compare Azure messaging services](https://learn.microsoft.com/en-us/azure/service-bus-messaging/compare-messaging-services) - Microsoft Learn
+3. [Choose the right integration and automation services in Azure](https://learn.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs) - Microsoft Learn
+4. [What is the medallion lakehouse architecture?](https://learn.microsoft.com/en-us/azure/databricks/lakehouse/medallion) - Azure Databricks
+5. [Reacting to Blob storage events](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-overview) - Azure Storage
+6. [Use Key Vault references for App Service and Azure Functions](https://learn.microsoft.com/en-us/azure/app-service/app-service-key-vault-references) - Microsoft Learn
+7. [Send business events to an Azure Service Bus endpoint](https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/business-events/how-to/how-to-servicebus) - Microsoft Learn
+8. [Data management package REST API](https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/data-management-api) - Microsoft Learn
+9. [Deprecation of Export to Azure Data Lake](https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/finance-data-azure-data-lake) - Microsoft Learn
+10. [Choose finance and operations data in Azure Synapse Link for Dataverse](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/azure-synapse-link-select-fno-data) - Microsoft Learn
