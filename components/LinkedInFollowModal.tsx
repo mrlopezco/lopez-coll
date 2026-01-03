@@ -25,8 +25,8 @@ export default function LinkedInFollowModal({
   const tickingRef = useRef(false)
   const scrollHandlerRef = useRef<(() => void) | null>(null)
 
-  // Get the first author with LinkedIn (usually there's only one)
-  const author = authorDetails.find((a) => a.linkedin) || authorDetails[0]
+  // Get the first author with LinkedIn follow URL (usually there's only one)
+  const author = authorDetails.find((a) => a.linkedinfollow) || authorDetails[0]
 
   useEffect(() => {
     setMounted(true)
@@ -97,8 +97,13 @@ export default function LinkedInFollowModal({
     setShowModal(false)
   }
 
-  // Don't render if not mounted, not on blog article, or no LinkedIn URL
-  if (!mounted || !pathname.startsWith('/blog/') || pathname === '/blog' || !author?.linkedin) {
+  // Don't render if not mounted, not on blog article, or no LinkedIn follow URL
+  if (
+    !mounted ||
+    !pathname.startsWith('/blog/') ||
+    pathname === '/blog' ||
+    !author?.linkedinfollow
+  ) {
     return null
   }
 
@@ -174,7 +179,7 @@ export default function LinkedInFollowModal({
                 </p>
 
                 <Link
-                  href={author.linkedin}
+                  href={author.linkedinfollow}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 text-white transition-all duration-300 hover:bg-primary-600 dark:bg-primary-500 dark:hover:bg-primary-600"
