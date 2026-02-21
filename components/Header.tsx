@@ -15,7 +15,11 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 import SectionContainer from './SectionContainer' // Import the SectionContainer
-import { trackHeaderScrollBehavior, trackNavigationClicked, getCurrentPagePath } from '@/lib/posthog'
+import {
+  trackHeaderScrollBehavior,
+  trackNavigationClicked,
+  getCurrentPagePath,
+} from '@/lib/posthog'
 
 const Header = () => {
   const pathname = usePathname()
@@ -87,13 +91,21 @@ const Header = () => {
                   if (typeof LogoSvg === 'function') {
                     // @svgr/webpack converted it to a component
                     return <LogoSvg />
-                  } else if (LogoSvg && typeof LogoSvg === 'object' && 'default' in LogoSvg && typeof LogoSvg.default === 'function') {
+                  } else if (
+                    LogoSvg &&
+                    typeof LogoSvg === 'object' &&
+                    'default' in LogoSvg &&
+                    typeof LogoSvg.default === 'function'
+                  ) {
                     // Component wrapped in default export
                     const LogoComponent = LogoSvg.default
                     return <LogoComponent />
                   } else {
                     // Turbopack or other - use as image
-                    const logoSrc = typeof LogoSvg === 'string' ? LogoSvg : (LogoSvg as any)?.src || '/data/logo.svg'
+                    const logoSrc =
+                      typeof LogoSvg === 'string'
+                        ? LogoSvg
+                        : (LogoSvg as any)?.src || '/data/logo.svg'
                     return <img src={logoSrc} alt="Logo" className="h-8 w-8" />
                   }
                 })()}

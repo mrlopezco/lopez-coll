@@ -38,12 +38,12 @@ export function shouldEnablePostHog(): boolean {
   if (process.env.NEXT_PUBLIC_POSTHOG_FORCE_ENABLE === 'true') {
     return true
   }
-  
+
   // In development, check if explicitly enabled
   if (isDevelopment()) {
     return process.env.NEXT_PUBLIC_POSTHOG_ENABLED_IN_DEV === 'true'
   }
-  
+
   return true
 }
 
@@ -104,7 +104,7 @@ export function safeCapture(
 ): void {
   const shouldLog = shouldLogPostHogEvents()
   const isEnabled = shouldEnablePostHog()
-  
+
   if (!posthog || !isEnabled) {
     if (shouldLog || isDevelopment()) {
       console.log('[PostHog] Event not captured:', eventName, properties)
@@ -121,7 +121,7 @@ export function safeCapture(
 
   try {
     posthog.capture(eventName, properties)
-    
+
     // Log event to console when force enable is set (for testing/debugging)
     if (shouldLog) {
       console.log('[PostHog] Event captured:', {
@@ -145,7 +145,7 @@ export function safeIdentify(
 ): void {
   const shouldLog = shouldLogPostHogEvents()
   const isEnabled = shouldEnablePostHog()
-  
+
   if (!posthog || !isEnabled) {
     if (shouldLog || isDevelopment()) {
       console.log('[PostHog] Identify not called:', distinctId, properties)
@@ -162,7 +162,7 @@ export function safeIdentify(
 
   try {
     posthog.identify(distinctId, properties)
-    
+
     // Log identify call to console when force enable is set (for testing/debugging)
     if (shouldLog) {
       console.log('[PostHog] User identified:', {
@@ -312,4 +312,3 @@ export function trackThemeToggled(
 ): void {
   safeCapture(posthog, 'theme_toggled', event)
 }
-
