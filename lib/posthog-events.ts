@@ -78,4 +78,3 @@ export interface ThemeToggledEvent {
   theme: 'light' | 'dark'
   previous_theme: 'light' | 'dark'
 }
-

@@ -81,15 +81,11 @@ async function handleRequest(
     })
   } catch (error) {
     console.error('[PostHog Proxy] Error:', error)
-    return new NextResponse(
-      JSON.stringify({ error: 'Proxy request failed' }),
-      {
-        status: 500,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
+    return new NextResponse(JSON.stringify({ error: 'Proxy request failed' }), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
   }
 }
-

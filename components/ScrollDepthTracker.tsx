@@ -57,4 +57,3 @@ export function ScrollDepthTracker({ postSlug }: ScrollDepthTrackerProps) {
 
   return null
 }
-

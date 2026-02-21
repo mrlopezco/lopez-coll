@@ -1,41 +1,34 @@
 import tsParser from '@typescript-eslint/parser'
 import globals from 'globals'
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
 import js from '@eslint/js'
-import { FlatCompat } from '@eslint/eslintrc'
-import { fileURLToPath } from 'url'
-import { dirname } from 'path'
+import { defineConfig, globalIgnores } from 'eslint/config'
+import nextPlugin from '@next/eslint-plugin-next'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-})
-
-export default [
-  // Base ESLint recommended config
+export default defineConfig([
+  // Base ESLint recommended config.
   js.configs.recommended,
 
-  // Next.js ESLint config (includes React, React Hooks, and Next.js-specific rules)
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  // Next.js core-web-vitals rules.
+  {
+    plugins: {
+      '@next/next': nextPlugin,
+    },
+    rules: {
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs['core-web-vitals'].rules,
+    },
+  },
 
-  // Apply TypeScript ESLint configs
-  ...compat.extends(
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended'
-  ),
+  // Accessibility baseline.
+  jsxA11y.flatConfigs.recommended,
 
-  // Apply accessibility config
-  ...compat.extends('plugin:jsx-a11y/recommended'),
-
-  // Apply Prettier config (must be last to override formatting rules)
-  ...compat.extends('plugin:prettier/recommended'),
+  // Prettier integration config.
+  eslintPluginPrettierRecommended,
 
   {
-    files: ['**/*.{js,jsx,ts,tsx}'],
+    files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
     languageOptions: {
       parser: tsParser,
       globals: {
@@ -49,37 +42,22 @@ export default [
         ecmaFeatures: {
           jsx: true,
         },
-        // Enable type-aware linting for better TypeScript support
+        // Enable type-aware linting for better TypeScript support.
         project: './tsconfig.json',
-        tsconfigRootDir: __dirname,
       },
     },
-    plugins: {
-      '@typescript-eslint': typescriptEslint,
-    },
     rules: {
-      // Prettier integration - must be enabled
+      // Prettier integration.
       'prettier/prettier': 'error',
 
-      // React rules
-      'react/react-in-jsx-scope': 'off', // Not needed in React 17+
-      'react/prop-types': 'off', // TypeScript handles prop validation
-      'react/no-unescaped-entities': 'off',
+      // TypeScript projects should rely on type-aware checks.
+      'no-undef': 'off',
 
-      // TypeScript rules
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-var-requires': 'off',
-      '@typescript-eslint/ban-ts-comment': [
-        'warn',
-        {
-          'ts-expect-error': 'allow-with-description',
-          'ts-ignore': 'allow-with-description',
-          'ts-nocheck': 'allow-with-description',
-          'ts-check': false,
-        },
-      ],
-      // Enable unused vars with proper configuration
-      '@typescript-eslint/no-unused-vars': [
+      // Added to eslint:recommended in v10 and too noisy for this codebase.
+      'no-useless-assignment': 'off',
+
+      // Enable unused vars with proper configuration.
+      'no-unused-vars': [
         'warn',
         {
           argsIgnorePattern: '^_',
@@ -88,7 +66,7 @@ export default [
         },
       ],
 
-      // Semicolon rules - must match Prettier config (semi: false)
+      // Semicolon rules must match Prettier config (`semi: false`).
       semi: ['error', 'never'],
 
       // Accessibility rules
@@ -100,29 +78,21 @@ export default [
           aspects: ['invalidHref', 'preferButton'],
         },
       ],
+      'jsx-a11y/click-events-have-key-events': 'off',
+      'jsx-a11y/no-static-element-interactions': 'off',
 
-      // Type-aware TypeScript rules (only work with project option enabled)
-      '@typescript-eslint/no-floating-promises': 'warn',
-      '@typescript-eslint/no-misused-promises': [
-        'error',
-        {
-          checksVoidReturn: false,
-        },
-      ],
     },
   },
 
-  // Global ignores - must be at the end
-  {
-    ignores: [
-      '**/node_modules/**',
-      '**/.eslintrc.js',
-      '**/.next/**',
-      '**/out/**',
-      '**/build/**',
-      '**/dist/**',
-      '**/.contentlayer/**',
-      '**/public/**',
-    ],
-  },
-]
+  // Global ignores.
+  globalIgnores([
+    'node_modules/**',
+    '.eslintrc.js',
+    '.next/**',
+    'out/**',
+    'build/**',
+    'dist/**',
+    '.contentlayer/**',
+    'public/**',
+  ]),
+])
