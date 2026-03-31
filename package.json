@@ -3,12 +3,12 @@
   "version": "2.2.0",
   "private": true,
   "scripts": {
-    "start": "next dev",
-    "dev": "next dev",
-    "build": "next build --webpack",
-    "serve": "next start",
-    "analyze": "cross-env ANALYZE=true next build",
-    "lint": "eslint --fix app components lib layouts scripts --no-error-on-unmatched-pattern",
+    "start": "node ./scripts/enforce-yarn.cjs && node .next/standalone/server.js",
+    "dev": "node ./scripts/enforce-yarn.cjs && next dev",
+    "build": "node ./scripts/enforce-yarn.cjs && next build --webpack",
+    "serve": "node ./scripts/enforce-yarn.cjs && next start",
+    "analyze": "node ./scripts/enforce-yarn.cjs && cross-env ANALYZE=true next build",
+    "lint": "node ./scripts/enforce-yarn.cjs && eslint --fix app components lib layouts scripts --no-error-on-unmatched-pattern",
     "prepare": "husky"
   },
   "dependencies": {
