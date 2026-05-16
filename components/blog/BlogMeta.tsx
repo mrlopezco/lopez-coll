@@ -1,5 +1,5 @@
 import readingTime from 'reading-time'
-import { formatDate } from 'pliny/utils/formatDate'
+import { formatDate } from 'pliny/utils/formatDate.js'
 
 import { Twemoji } from '../Twemoji'
 // import ViewCounter from './ViewCounter'

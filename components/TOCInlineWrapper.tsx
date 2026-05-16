@@ -1,5 +1,5 @@
-import TOCInline from 'pliny/ui/TOCInline'
-import { TOCInlineProps } from 'pliny/ui/TOCInline'
+import TOCInline from 'pliny/ui/TOCInline.js'
+import type { TOCInlineProps } from 'pliny/ui/TOCInline.js'
 
 interface TOCInlineWrapperProps extends TOCInlineProps {
   summaryClassName?: string

@@ -1,7 +1,7 @@
 'use client'
 
-import { AlgoliaButton } from 'pliny/search/AlgoliaButton'
-import { KBarButton } from 'pliny/search/KBarButton'
+import { AlgoliaButton } from 'pliny/search/AlgoliaButton.js'
+import { KBarButton } from 'pliny/search/KBarButton.js'
 import { usePostHog } from 'posthog-js/react'
 import siteMetadata from '@/data/siteMetadata'
 import { trackSearchOpened, getCurrentPagePath } from '@/lib/posthog'
