@@ -5,7 +5,7 @@ import { Fragment, useState, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import Image from '@/components/Image'
 import Link from '@/components/Link'
-import type { CoreContent } from 'pliny/utils/contentlayer'
+import type { CoreContent } from 'pliny/utils/contentlayer.js'
 import type { Authors } from 'contentlayer/generated'
 
 interface LinkedInFollowModalProps {

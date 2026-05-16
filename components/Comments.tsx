@@ -1,6 +1,6 @@
 'use client'
 
-import { Comments as CommentsComponent } from 'pliny/comments'
+import { Comments as CommentsComponent } from 'pliny/comments/index.js'
 import siteMetadata from '@/data/siteMetadata'
 
 export default function Comments({ slug }: { slug: string }) {
