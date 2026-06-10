@@ -120,13 +120,13 @@ function TimelineItem({
         <summary className="relative px-10 marker:content-none">
           <div className="flex flex-col">
             <div className="flex flex-col sm:flex-row sm:justify-between">
-              <div className="line-clamp-1 text-xs tabular-nums text-gray-500 dark:text-gray-400">
+              <div className="line-clamp-1 text-xs text-gray-500 tabular-nums dark:text-gray-400">
                 <span>{start}</span> – <span>{end}</span>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row sm:justify-between">
-              <p className="text-md my-0 font-semibold text-gray-900 dark:text-white">{org}</p>
-              <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 sm:text-sm">
+              <p className="text-md my-0 font-semibold text-gray-900 dark:text-white">{title}</p>
+              <div className="flex items-center gap-2 text-xs text-gray-500 sm:text-sm dark:text-gray-400">
                 <Twemoji emoji={`${country.toLowerCase()}-flag`} />
                 <span>{workplace}</span>
               </div>
@@ -134,7 +134,7 @@ function TimelineItem({
 
             <div className="flex flex-wrap items-center gap-1 pt-1 text-sm text-gray-700 dark:text-gray-200">
               {/* <Twemoji emoji={icon} className="!-mt-1" /> */}
-              <span>{title}</span>
+              <span>{org}</span>
             </div>
           </div>
         </summary>

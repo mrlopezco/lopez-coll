@@ -28,7 +28,7 @@ const DownloadCVButton: React.FC<DownloadCVButtonProps> = ({ href, text }) => {
         'text-white hover:text-white dark:text-white dark:hover:text-white',
         'focus:shadow-outline-blue focus:outline-none',
         'transition-colors duration-150',
-        'text-sm font-medium leading-5',
+        'text-sm leading-5 font-medium',
         'inline rounded-lg px-4 py-2 shadow',
         'inline-flex items-center gap-1 no-underline',
       ])}

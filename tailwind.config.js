@@ -1,8 +1,7 @@
-// @ts-check
-const { fontFamily } = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
-/** @type {import("tailwindcss/types").Config } */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './node_modules/pliny/**/*.js',
@@ -12,7 +11,6 @@ module.exports = {
     './layouts/**/*.{js,ts,tsx}',
     './data/**/*.mdx',
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       lineHeight: {
@@ -22,7 +20,7 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        sans: ['var(--font-space-grotesk)', ...defaultTheme.fontFamily.sans],
       },
       boxShadow: {
         nextjs: '0 8px 20px rgb(0,0,0,0.12)',

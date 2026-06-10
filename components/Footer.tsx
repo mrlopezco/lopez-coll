@@ -7,7 +7,7 @@ import SocialIcon from '@/components/social-icons'
 export default function Footer() {
   return (
     <footer>
-      <div className="mb-8 mt-16 flex flex-col items-center md:flex-row md:justify-between">
+      <div className="mt-16 mb-8 flex flex-col items-center md:flex-row md:justify-between">
         <div className="mb-3 flex space-x-2">
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} />
           <SocialIcon kind="xing" href={siteMetadata.xing} />

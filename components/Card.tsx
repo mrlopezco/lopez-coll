@@ -8,21 +8,39 @@ const Card = ({ title, description, tags, imgSrc, href, flags, role }) => (
     <div
       className={`${
         imgSrc && 'h-full'
-      } overflow-hidden rounded-md shadow-nextjs dark:shadow-nextjs-dark`}
+      } shadow-nextjs dark:shadow-nextjs-dark overflow-hidden rounded-md`}
     >
       <div className="relative h-48 w-full">
         {imgSrc &&
           (href ? (
-            <Link href={href} aria-label={`Link to ${title}`}>
-              <Image alt={title} src={imgSrc} className="object-cover" fill quality={100} />
+            <Link
+              href={href}
+              className="relative block size-full"
+              aria-label={`Link to ${title}`}
+            >
+              <Image
+                alt={title}
+                src={imgSrc}
+                className="object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 544px"
+                quality={100}
+              />
             </Link>
           ) : (
-            <Image alt={title} src={imgSrc} className="object-cover" fill quality={100} />
+            <Image
+              alt={title}
+              src={imgSrc}
+              className="object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 544px"
+              quality={100}
+            />
           ))}
       </div>
       <div className="p-6">
         <div className="mb-4 space-y-2">
-          <h3 className="mb-4 text-xl font-bold leading-8 tracking-tight">
+          <h3 className="mb-4 text-xl leading-8 font-bold tracking-tight">
             {href ? (
               <Link href={href} aria-label={`Link to ${title}`}>
                 {title}
@@ -54,11 +72,11 @@ const Card = ({ title, description, tags, imgSrc, href, flags, role }) => (
         {href && (
           <Link
             href={href}
-            className="group relative inline-block text-primary-500 dark:text-primary-500"
+            className="group text-primary-500 dark:text-primary-500 relative inline-block"
             aria-label={`Link to ${title}`}
           >
             Visit website &rarr;
-            <span className="block h-0.5 max-w-0 bg-primary-500 transition-all duration-500 group-hover:max-w-full dark:bg-primary-500"></span>
+            <span className="bg-primary-500 dark:bg-primary-500 block h-0.5 max-w-0 transition-all duration-500 group-hover:max-w-full"></span>
           </Link>
         )}
       </div>

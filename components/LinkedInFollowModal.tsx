@@ -137,7 +137,7 @@ export default function LinkedInFollowModal({
             <Dialog.Panel className="relative w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-gray-950">
               {/* Close button */}
               <button
-                className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
                 onClick={handleDismiss}
                 aria-label="Close modal"
               >
@@ -182,7 +182,7 @@ export default function LinkedInFollowModal({
                   href={author.linkedinfollow}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-primary-500 px-6 py-3 text-white transition-all duration-300 hover:bg-primary-600 dark:bg-primary-500 dark:hover:bg-primary-600"
+                  className="bg-primary-500 hover:bg-primary-600 dark:bg-primary-500 dark:hover:bg-primary-600 inline-flex items-center justify-center rounded-full px-6 py-3 text-white transition-all duration-300"
                 >
                   <svg
                     className="mr-2 h-5 w-5"
