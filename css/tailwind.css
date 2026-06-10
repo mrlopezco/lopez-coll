@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../tailwind.config.js';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source '../app/**/*.{js,ts,jsx,tsx}';
+@source '../components/**/*.{js,ts,jsx,tsx}';
+@source '../layouts/**/*.{js,ts,jsx,tsx}';
+@source '../pages/**/*.{js,ts,jsx,tsx}';
+@source '../data/**/*.mdx';
+@source '../node_modules/pliny/**/*.js';
 
 * {
   @apply scroll-mt-20;

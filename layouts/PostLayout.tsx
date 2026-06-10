@@ -71,11 +71,11 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </dl>
             </div>
           </header>
-          <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
-            <dl className="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
+          <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0 dark:divide-gray-700">
+            <dl className="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
               <dt className="sr-only">Authors</dt>
               <dd>
-                <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
+                <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-y-8 xl:space-x-0">
                   {authorDetails.map((author) => (
                     <li className="flex items-center space-x-2" key={author.name}>
                       {author.avatar && (
@@ -87,7 +87,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           className="h-10 w-10 rounded-full"
                         />
                       )}
-                      <dl className="whitespace-nowrap text-sm font-medium leading-5">
+                      <dl className="text-sm leading-5 font-medium whitespace-nowrap">
                         <dt className="sr-only">Name</dt>
                         <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
                         <dt className="sr-only">LinkedIn</dt>
@@ -95,7 +95,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           {author.linkedin && (
                             <Link
                               href={author.linkedin}
-                              className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500"
+                              className="text-primary-500 hover:text-primary-600 dark:text-primary-500 transition-all duration-300"
                             >
                               Linkedin
                             </Link>
@@ -107,16 +107,16 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 </ul>
               </dd>
             </dl>
-            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
-              <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
+            <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
+              <div className="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
+              <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
                 <p>
                   We would love to hear your thoughts and opinions in the comment section below!
                 </p>
               </div>
               {siteMetadata.comments && (
                 <div
-                  className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
+                  className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
                   id="comment"
                 >
                   <Comments slug={slug} />
@@ -124,7 +124,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               )}
             </div>
             <footer>
-              <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
+              <div className="divide-gray-200 text-sm leading-5 font-medium xl:col-start-1 xl:row-start-2 dark:divide-gray-700">
                 {(postseries || tags) && (
                   <div className="py-2 xl:py-8">
                     <div className="flex flex-wrap">
@@ -143,7 +143,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 />
                 {attachments && attachments.length > 0 && (
                   <div className=" ">
-                    <p className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    <p className="my-3 text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                       Attachments
                     </p>
                     <ul>
@@ -153,7 +153,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                             href={attachment.src}
                             target="_blank"
                             download
-                            className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
+                            className="text-primary-500 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700 transition-all duration-300"
                           >
                             {attachment.name}
                           </Link>
@@ -166,7 +166,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                     {prev && prev.path && (
                       <div>
-                        <p className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        <p className="my-3 text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                           Previous Article
                         </p>
                         <div>
@@ -175,7 +175,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                             direction="prev"
                             fromSlug={slug}
                             toSlug={prev.path}
-                            className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
+                            className="text-primary-500 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700 transition-all duration-300"
                           >
                             {prev.title}
                           </BlogNavigationLink>
@@ -184,7 +184,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     )}
                     {next && next.path && (
                       <div>
-                        <p className="my-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                        <p className="my-3 text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                           Next Article
                         </p>
                         <div>
@@ -193,7 +193,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                             direction="next"
                             fromSlug={slug}
                             toSlug={next.path}
-                            className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
+                            className="text-primary-500 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700 transition-all duration-300"
                           >
                             {next.title}
                           </BlogNavigationLink>
@@ -205,7 +205,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </div>
               <div className="block md:sticky md:top-24 xl:space-y-8">
                 <div className="hidden md:block">
-                  <p className="my-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  <p className="my-3 text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
                     Overview
                   </p>
                   <TOCInline
@@ -216,7 +216,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   />
                 </div>
                 <div>
-                  <p className="my-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  <p className="my-3 text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
                     Sign up to our newsletter
                   </p>
                   <div className="w-full">

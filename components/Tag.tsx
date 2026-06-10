@@ -35,7 +35,7 @@ const Tag = ({ text, variant = 'default' }: Props) => {
           </svg>
           <div className={`-ml-px h-full flex-grow rounded-md rounded-l-none ${colors.bg}`}></div>
         </div>
-        <span className="relative px-2 font-semibold uppercase text-white">
+        <span className="relative px-2 font-semibold text-white uppercase">
           <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
           {text.split(' ').join('-')}
           <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>

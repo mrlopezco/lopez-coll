@@ -23,7 +23,7 @@ export default function AuthorLayout({ content }: Props) {
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
+        <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:space-y-0 xl:gap-x-8">
           <div className="flex flex-col items-center space-x-2 pt-8 xl:sticky xl:top-24">
             {avatar && (
               <Image
@@ -34,7 +34,7 @@ export default function AuthorLayout({ content }: Props) {
                 className="h-48 w-48 rounded-full"
               />
             )}
-            <h2 className="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">{name}</h2>
+            <h2 className="pt-4 pb-2 text-2xl leading-8 font-bold tracking-tight">{name}</h2>
             <div className="text-gray-500 dark:text-gray-400">{occupation}</div>
             {company && <div className="text-gray-500 dark:text-gray-400">{company}</div>}
             <div className="flex items-center space-x-3 pt-6 text-2xl">
@@ -43,7 +43,7 @@ export default function AuthorLayout({ content }: Props) {
               <SocialIcon kind="mail" href={`mailto:${email}`} />
             </div>
           </div>
-          <div className="prose max-w-none pb-8 pt-8 text-lg dark:prose-invert xl:col-span-2">
+          <div className="prose dark:prose-invert max-w-none pt-8 pb-8 text-lg xl:col-span-2">
             <div>
               <h3 className="mt-0">
                 Hi there <Twemoji emoji="waving hand" />
@@ -69,40 +69,41 @@ export default function AuthorLayout({ content }: Props) {
                     of cloud-based solutions was really exciting.
                   </p>
                   <p>
-                    I'm also passionate about technology outside of my job. I started a company
-                    called Grow Brand, which published articles about indoor plant equipment. This
-                    project sparked my interest in web development, and I began learning basic
-                    coding in JavaScript, C++, and Python.
-                  </p>
-                  <p>
-                    Another project I'm proud of is{' '}
-                    <a
-                      href="https://plaza-365.com"
-                      className="text-primary-600 hover:text-primary-500 dark:text-primary-500 hover:dark:text-primary-400"
-                      target="_blank"
-                    >
-                      Plaza 365,
-                    </a>{' '}
-                    a platform that gathers and showcases great content from Microsoft Dynamics
-                    experts. This was a dream project for me, and I'm very proud of its success.
-                  </p>
-                  <p>
                     As I gained more experience, I moved up to a senior finance consultant role in
-                    Germany, leading projects across Europe and beyond. This experience helped me
-                    move to Canada with Hitachi Solutions, where I took on new challenges as a
+                    Germany, leading projects across Europe and beyond. That path eventually brought
+                    me to Canada with Hitachi Solutions, where I took on new challenges as a
                     solution architect.
                   </p>
                   <p>
-                    In Canada, I've been leading smaller projects and expanding my skills. Now, I
-                    work with not only Microsoft Dynamics ERP but also customer service and field
-                    service solutions. My interest in technology goes beyond Microsoft products, and
-                    I enjoy helping clients build their technology stacks and improve their business
+                    In Canada, I've been leading projects and expanding my skills. Today I work with
+                    not only Microsoft Dynamics ERP but also customer service and field service
+                    solutions. My interest in technology goes beyond Microsoft products, and I enjoy
+                    helping clients build their technology stacks and improve their business
                     processes.
                   </p>
                   <p>
-                    I'm passionate about my work and love leading projects, focusing on teamwork and
-                    effective methods to ensure success. It's been an exciting journey, and I'm
-                    happy to help clients achieve their goals with technology.
+                    After settling in Canada, I also poured energy into side projects outside my day
+                    job. I started Grow Brand, which published articles about indoor plant
+                    equipment. That work sparked my interest in web development, and I began
+                    learning to code in JavaScript, C++, and Python.
+                  </p>
+                  <p>
+                    Two passion projects I'm especially proud of from that period are Plaza 365, a
+                    platform that gathered and showcased great content from Microsoft Dynamics
+                    experts, and BiziApps, which tracks job opportunities in the Microsoft Business
+                    Applications space. Both are retired now, but the experience I gained from them
+                    is still very valuable and applicable to my current role.
+                  </p>
+                  <p>
+                    Lately I'm very focused on AI for customers, implementing Microsoft Copilot
+                    Studio and Azure AI Foundry solutions, and using AI to optimize business
+                    processes. That includes hands-on work with custom MCP servers and RAG-based
+                    memory so agents and copilots stay grounded in the right context.
+                  </p>
+                  <p>
+                    I also love strengthening our consulting practice: methodology, delivery, and
+                    how we run engagements internally. Bringing AI into those practices is something
+                    I care about a lot.
                   </p>
                 </div>
                 {!isExpanded && (
@@ -110,7 +111,7 @@ export default function AuthorLayout({ content }: Props) {
                 )}
               </div>
               <button
-                className="mt-4 flex w-full items-center justify-center text-primary-500 hover:text-primary-700 focus:outline-none"
+                className="text-primary-500 hover:text-primary-700 mt-4 flex w-full items-center justify-center focus:outline-none"
                 onClick={toggleExpand}
               >
                 {isExpanded ? 'Show Less' : 'Read More'}
@@ -122,7 +123,7 @@ export default function AuthorLayout({ content }: Props) {
               </button>
             </div>
             <div>
-              <div className="mb-[1em] mt-[2em] flex items-center justify-between [&>h2]:my-0">
+              <div className="mt-[2em] mb-[1em] flex items-center justify-between [&>h2]:my-0">
                 <h2>My career</h2>
                 <DownloadCVButton href="/static/CV-Ignacio-LopezColl.pdf" text="Download CV" />
               </div>

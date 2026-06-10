@@ -27,7 +27,7 @@ const PostSeriesNav = ({
 
   return (
     <div className="py-2 xl:py-8">
-      <h3 className="mb-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+      <h3 className="mb-3 text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
         In this post series <br /> <br />
         <span className="underline underline-offset-2">{seriesName}</span>
       </h3>
@@ -48,7 +48,7 @@ const PostSeriesNav = ({
               ) : (
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="text-sm text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
+                  className="text-primary-500 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700 text-sm transition-all duration-300"
                 >
                   {post.title}
                 </Link>

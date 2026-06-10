@@ -82,7 +82,7 @@ const CustomNewsletterForm: React.FC<NewsletterFormProps> = ({
           <input
             type="email"
             name="EMAIL"
-            className="subscribe-email dark:border-b-white-300 w-full border-b-2 border-b-gray-300 py-2 text-lg text-xs text-gray-900 focus:border-transparent focus:outline-none focus:ring-0 dark:bg-dark dark:text-white"
+            className="subscribe-email dark:border-b-white-300 dark:bg-dark w-full border-b-2 border-b-gray-300 py-2 text-lg text-xs text-gray-900 focus:border-transparent focus:ring-0 focus:outline-none dark:text-white"
             id="mce_email_2227"
             placeholder={subscribed ? "You're subscribed! 🎉" : 'Enter your email'}
             ref={inputEl}
@@ -90,7 +90,7 @@ const CustomNewsletterForm: React.FC<NewsletterFormProps> = ({
             disabled={subscribed}
             style={{ borderTop: '0px', borderLeft: '0px', borderRight: '0px' }}
           />
-          <span className="block h-0.5 max-w-0 bg-primary-500 transition-all duration-500 group-focus-within:max-w-full dark:bg-primary-500"></span>
+          <span className="bg-primary-500 dark:bg-primary-500 block h-0.5 max-w-0 transition-all duration-500 group-focus-within:max-w-full"></span>
           <label htmlFor="mce_email_2227" className="sr-only" data-content="Enter your email">
             Enter your email
           </label>
@@ -98,7 +98,7 @@ const CustomNewsletterForm: React.FC<NewsletterFormProps> = ({
 
         <button
           type="submit"
-          className="mailchimp-subscribe btn primary w-1/3 rounded-full bg-gray-200 p-2 text-gray-900 transition-all duration-300 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600"
+          className="mailchimp-subscribe btn primary hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 w-1/3 rounded-full bg-gray-200 p-2 text-gray-900 transition-all duration-300"
           disabled={subscribed}
         >
           Subscribe

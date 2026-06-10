@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-      <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-dark dark:text-white">
+      <body className="dark:bg-dark bg-white pl-[calc(100vw-100%)] text-black antialiased dark:text-white">
         <ThemeProviders>
           <PHProvider>
             <Suspense fallback={null}>
@@ -113,7 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SectionContainer className="flex min-h-dvh flex-col">
               <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
                 <Header />
-                <main className="mb-auto mt-20 flex-grow pt-5 selection:bg-primary-700 dark:selection:bg-white/30">
+                <main className="selection:bg-primary-700 mt-20 mb-auto flex-grow pt-5 dark:selection:bg-white/30">
                   {children}
                 </main>
               </SearchProvider>

@@ -3,7 +3,7 @@ import Twemoji from '../Twemoji'
 
 const ShortDescription = () => {
   return (
-    <h2 className="mb-6 mt-4">
+    <h2 className="mt-4 mb-6">
       <p>
         Not only do I love working with applications, but I also thrive in managing teams, ensuring
         projects are completed on time and within budget. My international experience spans
@@ -18,7 +18,7 @@ const ShortDescription = () => {
         In my spare time, I love to create projects that help others. Such as{' '}
         <a
           href="https://biziapps.org"
-          className="text-primary-500 transition-all duration-300 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700"
+          className="text-primary-500 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-700 transition-all duration-300"
           target="_blank"
         >
           BiziApps
