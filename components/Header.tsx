@@ -129,10 +129,10 @@ const Header = () => {
                     key={link.title}
                     href={link.href}
                     className={clsx(
-                      'mx-1 rounded px-2 py-1 font-medium text-gray-900 dark:text-gray-100 sm:px-3 sm:py-2',
+                      'mx-1 rounded px-2 py-1 font-medium text-gray-900 sm:px-3 sm:py-2 dark:text-gray-100',
                       pathname.startsWith(link.href)
-                        ? 'bg-primary-700 transition duration-200 dark:bg-primary-500'
-                        : 'transition duration-200 hover:bg-primary-700 dark:hover:bg-primary-500'
+                        ? 'bg-primary-700 dark:bg-primary-500 transition duration-200'
+                        : 'hover:bg-primary-700 dark:hover:bg-primary-500 transition duration-200'
                     )}
                     onClick={() => {
                       trackNavigationClicked(posthog, {

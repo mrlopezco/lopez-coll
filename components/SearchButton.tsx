@@ -26,7 +26,7 @@ const SearchButton = () => {
       <div onClick={handleClick}>
         <SearchButtonWrapper
           aria-label="Search"
-          className="ml-1 mr-1 h-8 w-8 rounded p-1 hover:bg-primary-500 dark:hover:bg-primary-500 sm:ml-4"
+          className="hover:bg-primary-500 dark:hover:bg-primary-500 mr-1 ml-1 h-8 w-8 rounded p-1 sm:ml-4"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ const SearchButton = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="h-6 w-6 text-gray-900 group-hover:text-primary-700 dark:text-gray-100 dark:group-hover:text-primary-500"
+            className="group-hover:text-primary-700 dark:group-hover:text-primary-500 h-6 w-6 text-gray-900 dark:text-gray-100"
           >
             <path
               strokeLinecap="round"

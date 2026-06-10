@@ -47,7 +47,7 @@ export default function PostSimple({ content, next, prev, children }: LayoutProp
                 >
                   &larr; Back to the blog
                 </Link>
-                <div className="text-sm font-medium leading-5 text-gray-500 dark:text-gray-400">
+                <div className="text-sm leading-5 font-medium text-gray-500 dark:text-gray-400">
                   <TOCInline
                     toc={toc}
                     asDisclosure={false}
@@ -57,11 +57,11 @@ export default function PostSimple({ content, next, prev, children }: LayoutProp
                 </div>
               </div>
             </aside>
-            <div className="col-span-1 divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3">
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
+            <div className="col-span-1 divide-y divide-gray-200 xl:col-span-3 dark:divide-gray-700">
+              <div className="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
               {siteMetadata.comments && (
                 <div
-                  className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
+                  className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
                   id="comment"
                 >
                   <Comments slug={slug} />

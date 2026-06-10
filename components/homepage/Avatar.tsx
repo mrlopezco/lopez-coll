@@ -60,7 +60,14 @@ const Avatar = () => {
         style={style}
         className="overflow-hidden rounded-md transition-all duration-200 ease-out sm:size-[350px] md:size-[430px]"
       >
-        <Image src={'/static/images/avatar.jpg'} alt="avatar" width={430} height={350} />
+        <Image
+          src="/static/images/avatar.jpg"
+          alt="avatar"
+          width={430}
+          height={350}
+          priority
+          className="h-auto w-full object-cover"
+        />
       </div>
     </div>
   )

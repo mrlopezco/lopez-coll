@@ -1,7 +1,18 @@
 'use client'
 
-import { Linkedin, Mail } from 'lucide-react'
-import { Github, Facebook, Youtube, Twitter, X, Mastodon, Threads, Instagram, Xing } from './icons'
+import {
+  Github,
+  Facebook,
+  Youtube,
+  Twitter,
+  X,
+  Mastodon,
+  Threads,
+  Instagram,
+  Xing,
+  Linkedin,
+  Mail,
+} from './icons'
 import { usePostHog } from 'posthog-js/react'
 import { trackSocialLinkClicked, getCurrentPagePath } from '@/lib/posthog'
 
@@ -54,7 +65,7 @@ const SocialIcon = ({ kind, href, size = 6 }: SocialIconProps) => {
     >
       <span className="sr-only">{kind}</span>
       <SocialSvg
-        className={`text-gray-600 transition duration-200 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-500 h-${size} w-${size}`}
+        className={`hover:text-primary-500 dark:hover:text-primary-500 text-gray-600 transition duration-200 dark:text-gray-200 h-${size} w-${size}`}
         strokeWidth={1}
       />
     </a>
