@@ -1,7 +1,7 @@
 // app/layout.tsx
 
-import 'css/tailwind.css'
-import 'css/twemoji.css'
+import '@/css/tailwind.css'
+import '@/css/twemoji.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 

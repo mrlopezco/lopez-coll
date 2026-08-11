@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import Twemoji from '../Twemoji'
 // import Image from '../Image'
-// import { Minus, Plus } from 'lucide-react'
 // import Link from 'next/link'
 
 const EXPERIENCES = [

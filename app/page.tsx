@@ -11,7 +11,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate.js'
 import Tag from '@/components/Tag'
 import SeriesTag from '@/components/SeriesTag'
-import { genPageMetadata } from 'app/seo'
+import { genPageMetadata } from '@/app/seo'
 import DownloadCVButton from '@/components/DownloadCVButton'
 // import SummaryCards from '@/components/homepage/SummaryCards'
 
