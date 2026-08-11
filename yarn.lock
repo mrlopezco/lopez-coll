@@ -4338,23 +4338,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.5.4":
-  version: 10.5.4
-  resolution: "autoprefixer@npm:10.5.4"
-  dependencies:
-    browserslist: ^4.28.6
-    caniuse-lite: ^1.0.30001806
-    fraction.js: ^5.3.4
-    picocolors: ^1.1.1
-    postcss-value-parser: ^4.2.0
-  peerDependencies:
-    postcss: ^8.1.0
-  bin:
-    autoprefixer: bin/autoprefixer
-  checksum: 9ae33b73e378937d499dab5e25985d3d99b5a0d89d2ebc490e00b0b3c7ffd85a8899f93b1660414d7c6d039aaa46999d3a380c78e0333037f910c3bfa42817cd
-  languageName: node
-  linkType: hard
-
 "available-typed-arrays@npm:^1.0.7":
   version: 1.0.7
   resolution: "available-typed-arrays@npm:1.0.7"
@@ -4439,15 +4422,6 @@ __metadata:
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: 669632eb3745404c2f822a18fc3a0122d2f9a7a13f7fb8b5823ee19d1d2ff9ee5b52c53367176ea4ad093c332fd5ab4bd0ebae5a8e27917a4105a4cfc86b1005
-  languageName: node
-  linkType: hard
-
-"baseline-browser-mapping@npm:^2.11.12":
-  version: 2.11.13
-  resolution: "baseline-browser-mapping@npm:2.11.13"
-  bin:
-    baseline-browser-mapping: dist/cli.cjs
-  checksum: 564e2501cc37a760902e9155e1e570b83bfce98701fd869391625a7c8c45bfbdbaa3019e95e2c21a98e01c07a50b6af64daa351bdc41963482e81cdd51298ca6
   languageName: node
   linkType: hard
 
@@ -4570,21 +4544,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.28.6":
-  version: 4.28.8
-  resolution: "browserslist@npm:4.28.8"
-  dependencies:
-    baseline-browser-mapping: ^2.11.12
-    caniuse-lite: ^1.0.30001809
-    electron-to-chromium: ^1.5.402
-    node-releases: ^2.0.53
-    update-browserslist-db: ^1.3.0
-  bin:
-    browserslist: cli.js
-  checksum: cf6e9dd104a26ba88c2a56d319f7f659c4ee1384960f601331cfb75bb05826033245587026a25903d4745cbaac251203dcfc6e3a869e60f359686138bd551554
-  languageName: node
-  linkType: hard
-
 "buffer-from@npm:^1.0.0":
   version: 1.1.2
   resolution: "buffer-from@npm:1.1.2"
@@ -4681,13 +4640,6 @@ __metadata:
   version: 1.0.30001759
   resolution: "caniuse-lite@npm:1.0.30001759"
   checksum: db200cf52ab976df18aaf75415e4c407a989bd538ac195f8ddd0993f0e158cfe0d048c26c0161b0409ed754745ea82830abbcbecace4afef9f1ecc9a4c0a0a50
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001806, caniuse-lite@npm:^1.0.30001809":
-  version: 1.0.30001809
-  resolution: "caniuse-lite@npm:1.0.30001809"
-  checksum: 848f2e481da9e7da0327e351bfcfdcf610058c756ceb9daa0f0a12090f84dd31962da33e62a2d8bc3774eb2ca255bdca1026431c3f47333af62f5d4e3bc71056
   languageName: node
   linkType: hard
 
@@ -5307,13 +5259,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^17.4.2":
-  version: 17.4.2
-  resolution: "dotenv@npm:17.4.2"
-  checksum: 217bf2c4696ca40acc13ad063341e9c77cedfdd75e56e4919f4cf2c6333e4f7b38a4b4067e49d006125502a61060cbe85c7eecb0644e4d99ff014693eb7e62c4
-  languageName: node
-  linkType: hard
-
 "dotenv@npm:^8.2.0":
   version: 8.6.0
   resolution: "dotenv@npm:8.6.0"
@@ -5343,13 +5288,6 @@ __metadata:
   version: 1.5.266
   resolution: "electron-to-chromium@npm:1.5.266"
   checksum: 80c83e7a39402f610f645b7f4cf8800faeb648ca340b43b44baa7ee19b5877c054f4474af3c21b56e45d94ac96ce298ba7ef75f7966bf05f998397c95c435bd1
-  languageName: node
-  linkType: hard
-
-"electron-to-chromium@npm:^1.5.402":
-  version: 1.5.404
-  resolution: "electron-to-chromium@npm:1.5.404"
-  checksum: 08f1473d8cbe3b94a11e71bb464b8736d06e31c914c0ff25b7068d3d4c1648dfa0df58a9bccb8bd5aa35871b032fc7db6ddd62a7eb046b323e7fe57575c57406
   languageName: node
   linkType: hard
 
@@ -6232,13 +6170,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fraction.js@npm:^5.3.4":
-  version: 5.3.4
-  resolution: "fraction.js@npm:5.3.4"
-  checksum: 6ac88ecfdb5fabe3566ae30f79828d448288efbb852cd43ad83afc961fb6923e1d77bc65fbcba8ccda10894114edd419581a050c73d61e368fdd4c3ff416a65a
-  languageName: node
-  linkType: hard
-
 "fs-minipass@npm:^3.0.0":
   version: 3.0.3
   resolution: "fs-minipass@npm:3.0.3"
@@ -6979,12 +6910,10 @@ __metadata:
     "@types/react": ^19.2.18
     "@types/react-dom": ^19.2.4
     "@typescript-eslint/parser": ^8.67.0
-    autoprefixer: ^10.5.4
     body-scroll-lock: ^4.0.0-beta.0
     clsx: ^2.1.1
     contentlayer2: 0.5.8
     cross-env: ^10.1.0
-    dotenv: ^17.4.2
     esbuild: 0.28.2
     eslint: ^10.8.1
     eslint-config-prettier: ^10.1.8
@@ -6992,13 +6921,10 @@ __metadata:
     eslint-plugin-prettier: ^5.5.6
     github-slugger: ^2.0.0
     globals: ^17.9.0
-    gray-matter: ^4.0.3
     hast-util-from-html-isomorphic: ^2.0.0
     husky: ^9.1.7
-    image-size: 2.0.2
     lint-staged: ^17.3.0
     lodash: ^4.18.1
-    lucide-react: ^1.31.0
     next: ^16.3.0
     next-contentlayer2: 0.5.8
     next-themes: ^0.4.6
@@ -7016,7 +6942,6 @@ __metadata:
     rehype-preset-minify: 7.0.1
     rehype-prism-plus: ^2.0.2
     rehype-slug: ^6.0.0
-    remark: ^15.0.1
     remark-gfm: ^4.0.1
     remark-github-blockquote-alert: ^2.1.0
     remark-math: ^6.0.0
@@ -7024,7 +6949,6 @@ __metadata:
     tailwindcss: ^4.3.3
     typed.js: ^3.0.0
     typescript: ^6.0.3
-    unist-util-visit: ^5.1.0
     yet-another-react-lightbox: ^3.32.2
   languageName: unknown
   linkType: soft
@@ -7033,15 +6957,6 @@ __metadata:
   version: 5.3.2
   resolution: "ignore@npm:5.3.2"
   checksum: 2acfd32a573260ea522ea0bfeff880af426d68f6831f973129e2ba7363f422923cf53aab62f8369cbf4667c7b25b6f8a3761b34ecdb284ea18e87a5262a865be
-  languageName: node
-  linkType: hard
-
-"image-size@npm:2.0.2":
-  version: 2.0.2
-  resolution: "image-size@npm:2.0.2"
-  bin:
-    image-size: bin/image-size.js
-  checksum: 33c3fafdd8af6bb2727bca51c4bae6e6dac16e9715337a6685a1af29fcbf7a2f9ec75eeaaa61e82d20f74d6f1fa748110936e32b1dbea4521217133eb159a29d
   languageName: node
   linkType: hard
 
@@ -7893,15 +7808,6 @@ __metadata:
   dependencies:
     yallist: ^3.0.2
   checksum: c154ae1cbb0c2206d1501a0e94df349653c92c8cbb25236d7e85190bcaf4567a03ac6eb43166fabfa36fd35623694da7233e88d9601fbf411a9a481d85dbd2cb
-  languageName: node
-  linkType: hard
-
-"lucide-react@npm:^1.31.0":
-  version: 1.31.0
-  resolution: "lucide-react@npm:1.31.0"
-  peerDependencies:
-    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 42632e854a9be2ed6cd7ce6167725c8293c7c613ffb9e547ec5ead03ae723c400c660c5cbd9b4597592f1aa84aee6c010de8c2fa677674365b389b92a631a7a7
   languageName: node
   linkType: hard
 
@@ -9129,13 +9035,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-releases@npm:^2.0.53":
-  version: 2.0.53
-  resolution: "node-releases@npm:2.0.53"
-  checksum: 39e306de65dbc2b95bf18b11786844bb47e2c4e73dfd6cfb679c6b427acb0f360c862680e9437325ab0866b7dd357188c65f12205a73433f2dc783cea13bb985
-  languageName: node
-  linkType: hard
-
 "noms@npm:0.0.0":
   version: 0.0.0
   resolution: "noms@npm:0.0.0"
@@ -9483,13 +9382,6 @@ __metadata:
     cssesc: ^3.0.0
     util-deprecate: ^1.0.2
   checksum: 46afaa60e3d1998bd7adf6caa374baf857cc58d3ff944e29459c9a9e4680a7fe41597bd5b755fc81d7c388357e9bf67c0251d047c640a09f148e13606b8a8608
-  languageName: node
-  linkType: hard
-
-"postcss-value-parser@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "postcss-value-parser@npm:4.2.0"
-  checksum: 819ffab0c9d51cf0acbabf8996dffbfafbafa57afc0e4c98db88b67f2094cb44488758f06e5da95d7036f19556a4a732525e84289a425f4f6fd8e412a9d7442f
   languageName: node
   linkType: hard
 
@@ -10450,7 +10342,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark@npm:^15.0.0, remark@npm:^15.0.1":
+"remark@npm:^15.0.0":
   version: 15.0.1
   resolution: "remark@npm:15.0.1"
   dependencies:
@@ -11627,20 +11519,6 @@ __metadata:
   bin:
     update-browserslist-db: cli.js
   checksum: 1b3b916c932d95a7a92c5a801b9e1d7c64722265cbae4675a808f7695fc6ada11d51ce674b4140ee8e323216124ffae9b05935fe82678698188a809dcf44c708
-  languageName: node
-  linkType: hard
-
-"update-browserslist-db@npm:^1.3.0":
-  version: 1.3.1
-  resolution: "update-browserslist-db@npm:1.3.1"
-  dependencies:
-    escalade: ^3.2.0
-    picocolors: ^1.1.1
-  peerDependencies:
-    browserslist: ">= 4.21.0"
-  bin:
-    update-browserslist-db: cli.js
-  checksum: 24fc1471ada17371fe5ad89dd59b0c4546a4ff74a979b6168e1cd3fe38333a65ca23ae3cea0d268ad08f8ffdd8c16ccd1b365147ad24ff19a14eda735445fda4
   languageName: node
   linkType: hard
 

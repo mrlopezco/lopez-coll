@@ -13,11 +13,7 @@ const Card = ({ title, description, tags, imgSrc, href, flags, role }) => (
       <div className="relative h-48 w-full">
         {imgSrc &&
           (href ? (
-            <Link
-              href={href}
-              className="relative block size-full"
-              aria-label={`Link to ${title}`}
-            >
+            <Link href={href} className="relative block size-full" aria-label={`Link to ${title}`}>
               <Image
                 alt={title}
                 src={imgSrc}

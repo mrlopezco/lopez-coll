@@ -19,22 +19,24 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
     "paths": {
       "@/components/*": [
-        "components/*"
+        "./components/*"
       ],
       "@/data/*": [
-        "data/*"
+        "./data/*"
       ],
       "@/layouts/*": [
-        "layouts/*"
+        "./layouts/*"
       ],
       "@/css/*": [
-        "css/*"
+        "./css/*"
       ],
       "@/lib/*": [
-        "lib/*"
+        "./lib/*"
+      ],
+      "@/app/*": [
+        "./app/*"
       ],
       "contentlayer/generated": [
         "./.contentlayer/generated"
